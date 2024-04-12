@@ -119,7 +119,7 @@ print("Python" > "R")
 ## ArcGIS
 
 ```{r}
-knitr::include_graphics("Figs/Interpolation-IDW-ArcGIS-Pro.jpg")
+#knitr::include_graphics("Figs/Interpolation-IDW-ArcGIS-Pro.jpg")
 
 ```
 
@@ -186,5 +186,29 @@ knitr::include_graphics("Figs/rank.png")
 
 ### Let's Take a Break!{style="text-align: center;"}
 
+
+## Interactive show and do with Python
+
+What we will cover:
+
+* Variables
+* Loops and basic conditionals
+* Functions
+* Geopandas
+
+
+
+## How will we cover it?
+
+* Jupyter lab / Notebook
+* <p><b><span style="color:blue;">Google Colab</span></b></p>
+    - "Another" Free service provided by Google
+    - Live code, text and graphics in one place
+    - Compatible with multiple languages
+    - Can build your own specialist 'environments'
+
+![](Figs/colab.png){.absolute top=100 right=150 width="200" height="200"}
+
+## Basic Programming Concepts
 
 
