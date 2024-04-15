@@ -119,7 +119,7 @@ print("Python" > "R")
 ## ArcGIS
 
 ```{r}
-#knitr::include_graphics("Figs/Interpolation-IDW-ArcGIS-Pro.jpg")
+knitr::include_graphics("Figs/Interpolation-IDW-ArcGIS-Pro.jpg")
 
 ```
 
@@ -176,16 +176,6 @@ knitr::include_graphics("Figs/rank.png")
 * Geographic Information Systems (GIS) software such as QGIS or ArcGIS now include a Python interpreter built in to the software
 * Can customise solutions for your specific data analysis needs
     
-    
-
-## 
-&nbsp;  
-&nbsp;  
-&nbsp;  
-&nbsp;  
-
-### Let's Take a Break!{style="text-align: center;"}
-
 
 ## Interactive show and do with Python
 
@@ -209,6 +199,396 @@ What we will cover:
 
 ![](Figs/colab.png){.absolute top=100 right=150 width="200" height="200"}
 
-## Basic Programming Concepts
+
+
+## 
+&nbsp;  
+
+### Let's Take a Break!{style="text-align: center;"}
+
+&nbsp;  
+&nbsp;  
+<center>https://colab.research.google.com </center>
+
+
+
+## Basic Programming Concepts 
+We will cover:
+
+* Simple Python maths
+* Functions
+* `for` loops
+* Conditional Statements
+* Import files
+
+
+
+## Simple Python maths
+
+::: {style="font-size: 250%;"}
+
+```python 
+
+1 + 1
+
+5 * 7
+
+2**3
+```
+:::
+
+---
+
+### Simple Python maths - answers
+
+::: {style="font-size: 250%;"}
+
+```{python}
+#| echo: true
+
+1 + 1
+
+5 * 7
+
+2**3
+```
+
+:::
+
+---
+
+## Function
+
+::: {style="font-size: 150%;"}
+
+```python
+sin(3)
+sqrt(4)
+```
+
+&nbsp;  
+&nbsp; 
+
+Did you get the result you expected?
+
+:::
+
+---
+
+### Function - Errors
+
+```
+sin(3)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-1-acdde95a6016> in <cell line: 1>()
+----> 1 sin(3)
+NameError: name 'sin' is not defined
+```
+
+
+```
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-2-317e033d29d5> in <cell line: 1>()
+----> 1 sqrt(4)
+
+NameError: name 'sqrt' is not defined
+```
+
+&nbsp; 
+Python can’t calculate square roots or do basic trigonometry? Of course it can, but we need one more step.
+
+
+---
+
+### Function - Solution
+
+
+```{python}
+#| echo: true
+import math
+
+math.sin(3)
+math.sqrt(4)
+```
+
+Well done! You have just managed to use a `math` library too!
+
+---
+
+### Combining Functions
+
+Functions can also be combined. 
+The `print()` function returns values within the parentheses as text on the screen. 
+Let’s print the value of the square root of four.
+
+```python
+print(math.sqrt(4))
+```
+
+&nbsp;
+
+```python
+print("The square root of 4 is", math.sqrt(4))
+```
+
+
+
+## Variables
+A <span style="color:blue;">**variable**</span> can be used to store values calculated in expressions and used for other calculations
+
+
+```{python}
+#| echo: true
+
+temp_celsius = 10.0
+
+print(temp_celsius)
+```
+
+---
+
+### Data types
+* A <span style="color:blue;">*data type*</span> determines the characteristics of data in a programme
+* Basic data types in Python.
+
+| Data type name | Data type            | Example |
+|----------------|----------------------|---------|
+| `int`            | Whole integer values | 4       |
+| `float`          | Decimal values       | 3.1415  |
+| `str`            | Character strings    | 'Freezing'   |
+| `bool`           | True/false values    | True    |
+
+---
+
+### Data types
+
+```{python}
+#| echo: true
+
+weatherForecast = "Freezing"
+type(weatherForecast)
+
+```
+
+
+
+## Lists and indices
+### Lists
+Let’s first create a list of selected station_name values and print it to the screen.
+
+```{python}
+#| echo: true
+
+station_names = [
+    "Britomart",
+    "Ōrākei",
+    "Meadowbank",
+    "Purewa",
+    "Glen Innes",
+    "Tamaki",
+    "Panmure",
+    "Sylvia Park"
+]
+
+station_names
+```
+
+```{python}
+#| echo: true
+type(station_names)
+```
+
+---
+
+### Index values
+To access an individual value in the list we need to use an **index** value.
+
+```{python}
+#| echo: true
+
+station_names[1]
+```
+
+Python returns 'Ōrākei' instead of 'Britomart'. Can anybody guess why?
+
+---
+
+### Index values
+
+```{python}
+#| echo: true
+station_names[-1]
+station_names[-8]
+```
+
+---
+
+### Modifying list values
+
+```{python}
+#| echo: true
+station_names[-1] = 'Shopping Mall'
+station_names
+
+station_names.reverse()
+station_names
+```
+
+
+
+
+## Introducing the `for` loop
+* Loops allow parts of code to be repeated some number of times
+* Iterates over all of the items in a Python list and performing a calculation on each item.
+
+
+
+<div id="contentframe" style="position:absolute; top: 400px; left: 0px;">
+<iframe src="https://giphy.com/embed/ifMxbaTDxAi3kUraHa" width="300" height="230" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+ </div>
+
+<div id="contentframe" style="position:absolute; top: 450px; left: 320px;">
+vs
+</div>
+
+<div id="contentframe" style="position:absolute; top: 400px; left: 400px;">
+<iframe src="https://giphy.com/embed/ZB1snEzf9Njveo73w2" width="300" height="230" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+</div>
+
+
+---
+
+### Hand-picked works: When we do loops manually
+<span style="color:red;">Bad example</span>
+
+```{python}
+#| echo: true
+
+station_names = [
+    "Britomart",
+    "Ōrākei",
+    "Meadowbank",
+    "Purewa",
+    "Glen Innes",
+    "Tamaki",
+    "Panmure",
+    "Sylvia Park"
+]
+
+```
+
+
+```{python}
+#| echo: true
+station_names[0]
+
+station_names[1]
+```
+
+
+---
+
+### for loop: an example
+
+
+```{python}
+#| echo: true
+
+for name in station_names:
+    print(name)
+```
+
+---
+
+### Different example
+
+```python
+european_cities = ["Amsterdam", "Brussels", "London", "Rome"]
+
+for city in european_cities:
+    print(city)
+```
+
+---
+
+### for loop: concept
+
+```python
+for variable in collection:
+        do things with variable
+```
+Let’s break down the code above to see some essential aspect of for loops:
+
+* The `variable` can be any name you like.
+* The statement of the `for` loop must end with a :
+* The code that should be executed as part of the loop must be indented beneath the `for` loop statement. The typical indentation is 4 spaces.
+* There is no additional special word needed to end the loop, you simply change the indentation back to normal.
+
+In summary, `for` loops are useful to repeat some part of the code a finite number of times.
+
+---
+
+### Your daily for loop
+
+```python
+for day in my_life:
+    wake_up()
+    take_shower()
+    eat_breakfast()
+    brush_teeth()
+    ride_beam()
+    come_to_lecture()
+    ...
+```
+
+![](Figs/iteration.jpeg){.absolute top=150 right=-90 width=70%}
+
+---
+
+### Examples using `range`
+
+```{python}
+#| echo: true
+
+for value in range(5):
+    print(value)
+```
+
+---
+
+### Examples using two lists
+
+```{python}
+#| echo: true
+
+cities = ["Helsinki", "Stockholm", "Oslo", "Reykjavik", "Copenhagen"]
+
+countries = ["Finland", "Sweden", "Norway", "Iceland", "Denmark"]
+```
+
+
+```python
+for i in range(len(cities)):
+    print(cities[i], "is the capital of", countries[i])
+```
+
+---
+
+### Examples using two lists - Answers
+
+```{python}
+#| echo: true
+
+for i in range(len(cities)):
+    print(cities[i], "is the capital of", countries[i])
+```
+
+
+## Conditional statements
+We will learn how to make choices in our code using conditional statements (`if`, `elif`, `else`) and Boolean values (`True`, `False`).
+
+
 
 
