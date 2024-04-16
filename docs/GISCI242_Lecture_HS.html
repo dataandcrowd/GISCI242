@@ -8,7 +8,7 @@
 <link href="GISCI242_Lecture_HS_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="GISCI242_Lecture_HS_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="GISCI242_Lecture_HS_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content="Hyesop Shin">
   <meta name="dcterms.date" content="2024-04-22">
@@ -32,7 +32,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -97,6 +97,7 @@
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="GISCI242_Lecture_HS_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="logo.css">
   <link href="GISCI242_Lecture_HS_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="GISCI242_Lecture_HS_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="GISCI242_Lecture_HS_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -222,7 +223,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -414,180 +416,56 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 </div>
 
   <p class="date">April 22, 2024</p>
-</section><section id="TOC">
-<nav role="doc-toc"> 
-<h2 id="toc-title">Table of contents</h2>
-<ul>
-<li><a href="#/what-will-we-cover" id="/toc-what-will-we-cover">What will we cover?</a></li>
-<li><a href="#/what-is-a-computer" id="/toc-what-is-a-computer">What is a computer?</a></li>
-<li><a href="#/what-are-computers-good-at" id="/toc-what-are-computers-good-at">What are computers <span style="color:blue;">good</span> at?</a></li>
-<li><a href="#/what-are-computers-bad-at" id="/toc-what-are-computers-bad-at">What are computers <span style="color:#A23F29;">bad</span> at?</a></li>
-<li><a href="#/we-need-to-be-less-poetic" id="/toc-we-need-to-be-less-poetic">We need to be less poetic</a>
-<ul>
-<li><a href="#/we-need-to-be-less-poetic" id="/toc-and-become-more-simplistic">and become more simplistic</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/logic-gates" id="/toc-logic-gates">Logic gates</a></li>
-</ul></li>
-<li><a href="#/why-coding-is-important-in-modern-gis" id="/toc-why-coding-is-important-in-modern-gis">Why coding is important in modern GIS?</a></li>
-<li><a href="#/why-python" id="/toc-why-python">Why Python?</a>
-<ul>
-<li><a href="#/why-python" id="/toc-python-is-widely-used">Python is widely used</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/python-is-open" id="/toc-python-is-open">Python is open</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/python-is-approachable" id="/toc-python-is-approachable">Python is approachable</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/python-is-connected" id="/toc-python-is-connected">Python is connected</a></li>
-</ul></li>
-<li><a href="#/interactive-show-and-do-with-python" id="/toc-interactive-show-and-do-with-python">Interactive show and do with Python</a></li>
-<li><a href="#/how-will-we-cover-it" id="/toc-how-will-we-cover-it">How will we cover it?</a></li>
-<li><a href="#/section" id="/toc-section"></a>
-<ul>
-<li><a href="#/section" id="/toc-lets-take-a-break">Let’s Take a Break!</a></li>
-</ul></li>
-<li><a href="#/basic-programming-concepts" id="/toc-basic-programming-concepts">Basic Programming Concepts</a></li>
-<li><a href="#/simple-python-maths" id="/toc-simple-python-maths">Simple Python maths</a></li>
-<li>
-<ul>
-<li><a href="#/simple-python-maths---answers" id="/toc-simple-python-maths---answers">Simple Python maths - answers</a></li>
-</ul></li>
-<li><a href="#/function" id="/toc-function">Function</a></li>
-<li>
-<ul>
-<li><a href="#/function---errors" id="/toc-function---errors">Function - Errors</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/function---solution" id="/toc-function---solution">Function - Solution</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/combining-functions" id="/toc-combining-functions">Combining Functions</a></li>
-</ul></li>
-<li><a href="#/variables" id="/toc-variables">Variables</a></li>
-<li>
-<ul>
-<li><a href="#/data-types" id="/toc-data-types">Data types</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/data-types-1" id="/toc-data-types-1">Data types</a></li>
-</ul></li>
-<li><a href="#/lists-and-indices" id="/toc-lists-and-indices">Lists and indices</a>
-<ul>
-<li><a href="#/lists-and-indices" id="/toc-lists">Lists</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/index-values" id="/toc-index-values">Index values</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/index-values-1" id="/toc-index-values-1">Index values</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/modifying-list-values" id="/toc-modifying-list-values">Modifying list values</a></li>
-</ul></li>
-<li><a href="#/introducing-the-for-loop" id="/toc-introducing-the-for-loop">Introducing the <code>for</code> loop</a></li>
-<li>
-<ul>
-<li><a href="#/hand-picked-works-when-we-do-loops-manually" id="/toc-hand-picked-works-when-we-do-loops-manually">Hand-picked works: When we do loops manually</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/for-loop-an-example" id="/toc-for-loop-an-example">for loop: an example</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/different-example" id="/toc-different-example">Different example</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/for-loop-concept" id="/toc-for-loop-concept">for loop: concept</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/your-daily-for-loop" id="/toc-your-daily-for-loop">Your daily for loop</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/examples-using-range" id="/toc-examples-using-range">Examples using <code>range</code></a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/examples-using-two-lists" id="/toc-examples-using-two-lists">Examples using two lists</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/examples-using-two-lists---answers" id="/toc-examples-using-two-lists---answers">Examples using two lists - Answers</a></li>
-</ul></li>
-<li><a href="#/conditional-statements" id="/toc-conditional-statements">Conditional statements</a></li>
-<li>
-<ul>
-<li><a href="#/if-else-example-1" id="/toc-if-else-example-1">if else Example 1</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/if-else-example-2" id="/toc-if-else-example-2">if else Example 2</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/if-statement-without-else" id="/toc-if-statement-without-else"><code>if</code> statement without <code>else</code></a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/conditional-operator" id="/toc-conditional-operator">Conditional operator</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/comparison-operators" id="/toc-comparison-operators">Comparison operators</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/boolean-values" id="/toc-boolean-values">Boolean values</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/if-elif-and-else" id="/toc-if-elif-and-else">if, elif and else</a></li>
-</ul></li>
-<li><a href="#/combinations" id="/toc-combinations">Combinations</a>
-<ul>
-<li><a href="#/combinations" id="/toc-combining-conditions">Combining conditions</a></li>
-</ul></li>
-<li>
-<ul>
-<li><a href="#/combining-for-loops-and-conditional-statements" id="/toc-combining-for-loops-and-conditional-statements">Combining for-loops and conditional statements</a></li>
-</ul></li>
-</ul>
-</nav>
 </section>
 <section id="what-will-we-cover" class="slide level2">
 <h2>What will we cover?</h2>
 <ul>
+<li>Why programme in a GIS course?</li>
 <li>Programming Basics</li>
-<li>Why is coding useful in GIS?</li>
-<li>Interactive lecture
-<ul>
-<li>Variables</li>
-<li>Loops and conditions</li>
-<li>Functions</li>
-<li>Geopandas</li>
-</ul></li>
+<li>Interactive lecture</li>
 </ul>
+</section>
+<section id="why-do-we-learn-to-code" class="slide level2">
+<h2>Why do we learn to code?</h2>
+<ul>
+<li>We are not computer scientists (I am not at least)</li>
+<li>GISci and Geography disciplines are becoming increasingly quantitative</li>
+<li>Large datasets</li>
+<li>We want to do our job quickly and do less of the same work.</li>
+<li>Programming can also be fun</li>
+<li>Programming can help make us better scientists - <span style="color:blue;">Open Science</span></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="section"></h3>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">ArcGIS</a></li><li><a href="#tabset-1-2">Programming</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p><img data-src="Figs/Interpolation-IDW-ArcGIS-Pro.jpg" style="width:80.0%"></p>
+</div>
+<div id="tabset-1-2">
+<p>Example: <code>Python</code></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="Figs/iteration.png" style="width:200.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="what-is-a-computer" class="slide level2">
 <h2>What is a computer?</h2>
 
-<img data-src="Figs/computer-diagram.png" width="560" class="r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;1: A caption</p><ul>
+<img data-src="Figs/computer-diagram.png" width="560" class="r-stretch quarto-figure-center"><p class="caption">
+Figure&nbsp;1: A caption
+</p><ul>
 <li>Components:
 <ul>
 <li>Devices (Monitor/keyboard)</li>
@@ -616,59 +494,30 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <ul>
 <li>Abstract or poorly defined tasks</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">print</span>(<span class="st">"Python"</span> <span class="op">&gt;</span> <span class="st">"R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="bu">print</span>(<span class="st">"Python"</span> <span class="op">&gt;</span> <span class="st">"R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <ul>
 <li>Tasks requiring impossible computing power (intractable tasks)</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">## True Pi</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fl">3.14159265358979323846264338327</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> mpmath <span class="im">import</span> mp</span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="op">&gt;&gt;&gt;</span> mp.dps <span class="op">=</span> <span class="dv">20</span>    <span class="co"># set number of digits</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(mp.pi)</span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="fl">3.1415926535897932385</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co">## True Pi</span></span>
+<span id="cb2-2"><a href=""></a><span class="fl">3.14159265358979323846264338327</span></span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a></span>
+<span id="cb2-5"><a href=""></a><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> mpmath <span class="im">import</span> mp</span>
+<span id="cb2-6"><a href=""></a><span class="op">&gt;&gt;&gt;</span> mp.dps <span class="op">=</span> <span class="dv">20</span>    <span class="co"># set number of digits</span></span>
+<span id="cb2-7"><a href=""></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(mp.pi)</span>
+<span id="cb2-8"><a href=""></a><span class="fl">3.1415926535897932385</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="we-need-to-be-less-poetic" class="slide level2">
 <h2>We need to be less poetic</h2>
-<h3 id="and-become-more-simplistic">and become more simplistic</h3>
+<p>and become more direct to the point</p>
 <iframe src="https://giphy.com/embed/HKwXmH6TyFtFUaTSHn" width="800" height="600" frameborder="0" class="giphy-embed" allowfullscreen="">
 </iframe>
 <p>
 <a href="https://giphy.com/gifs/nbclawandorder-season-2-nbc-organized-crime-HKwXmH6TyFtFUaTSHn"></a>
 </p>
-</section>
-<section class="slide level2">
-
-<h3 id="logic-gates">Logic gates</h3>
-<ul>
-<li><code>IF</code>: IF THIS, THEN THAT</li>
-<li><code>AND</code>: IF THIS AND THAT TRUE</li>
-<li><code>OR</code>: IF THIS OR THIS TRUE</li>
-<li><code>NOT</code>: IF NOT ABOVE X</li>
-</ul>
-</section>
-<section id="why-coding-is-important-in-modern-gis" class="slide level2">
-<h2>Why coding is important in modern GIS?</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">ArcGIS</a></li><li><a href="#tabset-1-2">Programming</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<p><img data-src="Figs/Interpolation-IDW-ArcGIS-Pro.jpg" style="width:50.0%"></p>
-</div>
-<div id="tabset-1-2">
-<p>Example: <code>Python</code></p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="Figs/iteration.png" style="width:200.0%"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
 </section>
 <section id="why-python" class="slide level2">
 <h2>Why Python?</h2>
@@ -720,6 +569,11 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <li>Can customise solutions for your specific data analysis needs</li>
 </ul>
 </section>
+<section class="slide level2">
+
+<h3 id="the-war-of-coding">The War of Coding</h3>
+
+<img data-src="Figs/R_Python.jpeg" class="r-stretch"></section>
 <section id="interactive-show-and-do-with-python" class="slide level2">
 <h2>Interactive show and do with Python</h2>
 <p>What we will cover:</p>
@@ -746,13 +600,12 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 </ul>
 <p><img data-src="Figs/colab.png" class="absolute" style="top: 100px; right: 150px; width: 200px; height: 200px; "></p>
 </section>
-<section id="section" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 <p>&nbsp;</p>
-<h3 style="text-align: center;" id="lets-take-a-break">Let’s Take a Break!</h3>
-&nbsp;<br>
-&nbsp;<br>
-
+<h3 style="text-align: center;" id="lets-take-a-quality-break">Let’s Take a Quality Break!</h3>
+<p>&nbsp;</p>
+Make sure you are well set up with Google Colab using the URL below:
 <center>
 https://colab.research.google.com
 </center>
@@ -771,12 +624,12 @@ https://colab.research.google.com
 <section id="simple-python-maths" class="slide level2">
 <h2>Simple Python maths</h2>
 <div style="font-size: 250%;">
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="dv">5</span> <span class="op">*</span> <span class="dv">7</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="dv">2</span><span class="op">**</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a></span>
+<span id="cb3-2"><a href=""></a><span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb3-3"><a href=""></a></span>
+<span id="cb3-4"><a href=""></a><span class="dv">5</span> <span class="op">*</span> <span class="dv">7</span></span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a><span class="dv">2</span><span class="op">**</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2">
@@ -784,15 +637,15 @@ https://colab.research.google.com
 <h3 id="simple-python-maths---answers">Simple Python maths - answers</h3>
 <div style="font-size: 250%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="dv">5</span> <span class="op">*</span> <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="dv">5</span> <span class="op">*</span> <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>35</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="dv">2</span><span class="op">**</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="dv">2</span><span class="op">**</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>8</code></pre>
 </div>
@@ -802,8 +655,8 @@ https://colab.research.google.com
 <section id="function" class="slide level2">
 <h2>Function</h2>
 <div style="font-size: 150%;">
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>sin(<span class="dv">3</span>)</span>
-<span id="cb10-2"><a href="#cb10-2"></a>sqrt(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>sin(<span class="dv">3</span>)</span>
+<span id="cb10-2"><a href=""></a>sqrt(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>&nbsp;<br>
 &nbsp;</p>
 <p>Did you get the result you expected?</p>
@@ -830,13 +683,13 @@ NameError: name 'sqrt' is not defined</code></pre>
 
 <h3 id="function---solution">Function - Solution</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">import</span> math</span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a>math.sin(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="im">import</span> math</span>
+<span id="cb13-2"><a href=""></a></span>
+<span id="cb13-3"><a href=""></a>math.sin(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.1411200080598672</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>math.sqrt(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>math.sqrt(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2.0</code></pre>
 </div>
@@ -847,17 +700,17 @@ NameError: name 'sqrt' is not defined</code></pre>
 
 <h3 id="combining-functions">Combining Functions</h3>
 <p>Functions can also be combined. The <code>print()</code> function returns values within the parentheses as text on the screen. Let’s print the value of the square root of four.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="bu">print</span>(math.sqrt(<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="bu">print</span>(math.sqrt(<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>&nbsp;</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="bu">print</span>(<span class="st">"The square root of 4 is"</span>, math.sqrt(<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="bu">print</span>(<span class="st">"The square root of 4 is"</span>, math.sqrt(<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="variables" class="slide level2">
 <h2>Variables</h2>
 <p>A <span style="color:blue;"><strong>variable</strong></span> can be used to store values calculated in expressions and used for other calculations</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>temp_celsius <span class="op">=</span> <span class="fl">10.0</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="bu">print</span>(temp_celsius)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>temp_celsius <span class="op">=</span> <span class="fl">10.0</span></span>
+<span id="cb19-2"><a href=""></a></span>
+<span id="cb19-3"><a href=""></a><span class="bu">print</span>(temp_celsius)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>10.0</code></pre>
 </div>
@@ -906,8 +759,8 @@ NameError: name 'sqrt' is not defined</code></pre>
 
 <h3 id="data-types-1">Data types</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>weatherForecast <span class="op">=</span> <span class="st">"Freezing"</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="bu">type</span>(weatherForecast)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a>weatherForecast <span class="op">=</span> <span class="st">"Freezing"</span></span>
+<span id="cb21-2"><a href=""></a><span class="bu">type</span>(weatherForecast)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'str'&gt;</code></pre>
 </div>
@@ -918,24 +771,24 @@ NameError: name 'sqrt' is not defined</code></pre>
 <h3 id="lists">Lists</h3>
 <p>Let’s first create a list of selected station_name values and print it to the screen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>station_names <span class="op">=</span> [</span>
-<span id="cb23-2"><a href="#cb23-2"></a>    <span class="st">"Britomart"</span>,</span>
-<span id="cb23-3"><a href="#cb23-3"></a>    <span class="st">"Ōrākei"</span>,</span>
-<span id="cb23-4"><a href="#cb23-4"></a>    <span class="st">"Meadowbank"</span>,</span>
-<span id="cb23-5"><a href="#cb23-5"></a>    <span class="st">"Purewa"</span>,</span>
-<span id="cb23-6"><a href="#cb23-6"></a>    <span class="st">"Glen Innes"</span>,</span>
-<span id="cb23-7"><a href="#cb23-7"></a>    <span class="st">"Tamaki"</span>,</span>
-<span id="cb23-8"><a href="#cb23-8"></a>    <span class="st">"Panmure"</span>,</span>
-<span id="cb23-9"><a href="#cb23-9"></a>    <span class="st">"Sylvia Park"</span></span>
-<span id="cb23-10"><a href="#cb23-10"></a>]</span>
-<span id="cb23-11"><a href="#cb23-11"></a></span>
-<span id="cb23-12"><a href="#cb23-12"></a>station_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a>station_names <span class="op">=</span> [</span>
+<span id="cb23-2"><a href=""></a>    <span class="st">"Britomart"</span>,</span>
+<span id="cb23-3"><a href=""></a>    <span class="st">"Ōrākei"</span>,</span>
+<span id="cb23-4"><a href=""></a>    <span class="st">"Meadowbank"</span>,</span>
+<span id="cb23-5"><a href=""></a>    <span class="st">"Purewa"</span>,</span>
+<span id="cb23-6"><a href=""></a>    <span class="st">"Glen Innes"</span>,</span>
+<span id="cb23-7"><a href=""></a>    <span class="st">"Tamaki"</span>,</span>
+<span id="cb23-8"><a href=""></a>    <span class="st">"Panmure"</span>,</span>
+<span id="cb23-9"><a href=""></a>    <span class="st">"Sylvia Park"</span></span>
+<span id="cb23-10"><a href=""></a>]</span>
+<span id="cb23-11"><a href=""></a></span>
+<span id="cb23-12"><a href=""></a>station_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Britomart', 'Ōrākei', 'Meadowbank', 'Purewa', 'Glen Innes', 'Tamaki', 'Panmure', 'Sylvia Park']</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="bu">type</span>(station_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="bu">type</span>(station_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'list'&gt;</code></pre>
 </div>
@@ -946,7 +799,7 @@ NameError: name 'sqrt' is not defined</code></pre>
 <h3 id="index-values">Index values</h3>
 <p>To access an individual value in the list we need to use an <strong>index</strong> value.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>station_names[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a>station_names[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'Ōrākei'</code></pre>
 </div>
@@ -957,11 +810,11 @@ NameError: name 'sqrt' is not defined</code></pre>
 
 <h3 id="index-values-1">Index values</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>station_names[<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a>station_names[<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'Sylvia Park'</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>station_names[<span class="op">-</span><span class="dv">8</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a>station_names[<span class="op">-</span><span class="dv">8</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'Britomart'</code></pre>
 </div>
@@ -971,13 +824,13 @@ NameError: name 'sqrt' is not defined</code></pre>
 
 <h3 id="modifying-list-values">Modifying list values</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>station_names[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="st">'Shopping Mall'</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>station_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a>station_names[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="st">'Shopping Mall'</span></span>
+<span id="cb33-2"><a href=""></a>station_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Britomart', 'Ōrākei', 'Meadowbank', 'Purewa', 'Glen Innes', 'Tamaki', 'Panmure', 'Shopping Mall']</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>station_names.reverse()</span>
-<span id="cb35-2"><a href="#cb35-2"></a>station_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>station_names.reverse()</span>
+<span id="cb35-2"><a href=""></a>station_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Shopping Mall', 'Panmure', 'Tamaki', 'Glen Innes', 'Purewa', 'Meadowbank', 'Ōrākei', 'Britomart']</code></pre>
 </div>
@@ -1006,23 +859,23 @@ NameError: name 'sqrt' is not defined</code></pre>
 <h3 id="hand-picked-works-when-we-do-loops-manually">Hand-picked works: When we do loops manually</h3>
 <p><span style="color:red;">Bad example</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>station_names <span class="op">=</span> [</span>
-<span id="cb37-2"><a href="#cb37-2"></a>    <span class="st">"Britomart"</span>,</span>
-<span id="cb37-3"><a href="#cb37-3"></a>    <span class="st">"Ōrākei"</span>,</span>
-<span id="cb37-4"><a href="#cb37-4"></a>    <span class="st">"Meadowbank"</span>,</span>
-<span id="cb37-5"><a href="#cb37-5"></a>    <span class="st">"Purewa"</span>,</span>
-<span id="cb37-6"><a href="#cb37-6"></a>    <span class="st">"Glen Innes"</span>,</span>
-<span id="cb37-7"><a href="#cb37-7"></a>    <span class="st">"Tamaki"</span>,</span>
-<span id="cb37-8"><a href="#cb37-8"></a>    <span class="st">"Panmure"</span>,</span>
-<span id="cb37-9"><a href="#cb37-9"></a>    <span class="st">"Sylvia Park"</span></span>
-<span id="cb37-10"><a href="#cb37-10"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a>station_names <span class="op">=</span> [</span>
+<span id="cb37-2"><a href=""></a>    <span class="st">"Britomart"</span>,</span>
+<span id="cb37-3"><a href=""></a>    <span class="st">"Ōrākei"</span>,</span>
+<span id="cb37-4"><a href=""></a>    <span class="st">"Meadowbank"</span>,</span>
+<span id="cb37-5"><a href=""></a>    <span class="st">"Purewa"</span>,</span>
+<span id="cb37-6"><a href=""></a>    <span class="st">"Glen Innes"</span>,</span>
+<span id="cb37-7"><a href=""></a>    <span class="st">"Tamaki"</span>,</span>
+<span id="cb37-8"><a href=""></a>    <span class="st">"Panmure"</span>,</span>
+<span id="cb37-9"><a href=""></a>    <span class="st">"Sylvia Park"</span></span>
+<span id="cb37-10"><a href=""></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>station_names[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a>station_names[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'Britomart'</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>station_names[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a>station_names[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'Ōrākei'</code></pre>
 </div>
@@ -1032,8 +885,8 @@ NameError: name 'sqrt' is not defined</code></pre>
 
 <h3 id="for-loop-an-example">for loop: an example</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="cf">for</span> name <span class="kw">in</span> station_names:</span>
-<span id="cb42-2"><a href="#cb42-2"></a>    <span class="bu">print</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a><span class="cf">for</span> name <span class="kw">in</span> station_names:</span>
+<span id="cb42-2"><a href=""></a>    <span class="bu">print</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Britomart
 Ōrākei
@@ -1049,16 +902,16 @@ Sylvia Park</code></pre>
 <section class="slide level2">
 
 <h3 id="different-example">Different example</h3>
-<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>european_cities <span class="op">=</span> [<span class="st">"Amsterdam"</span>, <span class="st">"Brussels"</span>, <span class="st">"London"</span>, <span class="st">"Rome"</span>]</span>
-<span id="cb44-2"><a href="#cb44-2"></a></span>
-<span id="cb44-3"><a href="#cb44-3"></a><span class="cf">for</span> city <span class="kw">in</span> european_cities:</span>
-<span id="cb44-4"><a href="#cb44-4"></a>    <span class="bu">print</span>(city)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a>european_cities <span class="op">=</span> [<span class="st">"Amsterdam"</span>, <span class="st">"Brussels"</span>, <span class="st">"London"</span>, <span class="st">"Rome"</span>]</span>
+<span id="cb44-2"><a href=""></a></span>
+<span id="cb44-3"><a href=""></a><span class="cf">for</span> city <span class="kw">in</span> european_cities:</span>
+<span id="cb44-4"><a href=""></a>    <span class="bu">print</span>(city)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
 <h3 id="for-loop-concept">for loop: concept</h3>
-<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="cf">for</span> variable <span class="kw">in</span> collection:</span>
-<span id="cb45-2"><a href="#cb45-2"></a>        do things <span class="cf">with</span> variable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a><span class="cf">for</span> variable <span class="kw">in</span> collection:</span>
+<span id="cb45-2"><a href=""></a>        do things <span class="cf">with</span> variable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Let’s break down the code above to see some essential aspect of for loops:</p>
 <ul>
 <li>The <code>variable</code> can be any name you like.</li>
@@ -1071,22 +924,22 @@ Sylvia Park</code></pre>
 <section class="slide level2">
 
 <h3 id="your-daily-for-loop">Your daily for loop</h3>
-<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="cf">for</span> day <span class="kw">in</span> my_life:</span>
-<span id="cb46-2"><a href="#cb46-2"></a>    wake_up()</span>
-<span id="cb46-3"><a href="#cb46-3"></a>    take_shower()</span>
-<span id="cb46-4"><a href="#cb46-4"></a>    eat_breakfast()</span>
-<span id="cb46-5"><a href="#cb46-5"></a>    brush_teeth()</span>
-<span id="cb46-6"><a href="#cb46-6"></a>    ride_beam()</span>
-<span id="cb46-7"><a href="#cb46-7"></a>    come_to_lecture()</span>
-<span id="cb46-8"><a href="#cb46-8"></a>    ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href=""></a><span class="cf">for</span> day <span class="kw">in</span> my_life:</span>
+<span id="cb46-2"><a href=""></a>    wake_up()</span>
+<span id="cb46-3"><a href=""></a>    take_shower()</span>
+<span id="cb46-4"><a href=""></a>    eat_breakfast()</span>
+<span id="cb46-5"><a href=""></a>    brush_teeth()</span>
+<span id="cb46-6"><a href=""></a>    ride_beam()</span>
+<span id="cb46-7"><a href=""></a>    come_to_lecture()</span>
+<span id="cb46-8"><a href=""></a>    ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img data-src="Figs/iteration.jpeg" class="absolute" style="top: 150px; right: -90px; width: 70%; "></p>
 </section>
 <section class="slide level2">
 
 <h3 id="examples-using-range">Examples using <code>range</code></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="cf">for</span> value <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
-<span id="cb47-2"><a href="#cb47-2"></a>    <span class="bu">print</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a><span class="cf">for</span> value <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb47-2"><a href=""></a>    <span class="bu">print</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0
 1
@@ -1100,19 +953,19 @@ Sylvia Park</code></pre>
 
 <h3 id="examples-using-two-lists">Examples using two lists</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>cities <span class="op">=</span> [<span class="st">"Helsinki"</span>, <span class="st">"Stockholm"</span>, <span class="st">"Oslo"</span>, <span class="st">"Reykjavik"</span>, <span class="st">"Copenhagen"</span>]</span>
-<span id="cb49-2"><a href="#cb49-2"></a></span>
-<span id="cb49-3"><a href="#cb49-3"></a>countries <span class="op">=</span> [<span class="st">"Finland"</span>, <span class="st">"Sweden"</span>, <span class="st">"Norway"</span>, <span class="st">"Iceland"</span>, <span class="st">"Denmark"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a>cities <span class="op">=</span> [<span class="st">"Helsinki"</span>, <span class="st">"Stockholm"</span>, <span class="st">"Oslo"</span>, <span class="st">"Reykjavik"</span>, <span class="st">"Copenhagen"</span>]</span>
+<span id="cb49-2"><a href=""></a></span>
+<span id="cb49-3"><a href=""></a>countries <span class="op">=</span> [<span class="st">"Finland"</span>, <span class="st">"Sweden"</span>, <span class="st">"Norway"</span>, <span class="st">"Iceland"</span>, <span class="st">"Denmark"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(cities)):</span>
-<span id="cb50-2"><a href="#cb50-2"></a>    <span class="bu">print</span>(cities[i], <span class="st">"is the capital of"</span>, countries[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(cities)):</span>
+<span id="cb50-2"><a href=""></a>    <span class="bu">print</span>(cities[i], <span class="st">"is the capital of"</span>, countries[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
 <h3 id="examples-using-two-lists---answers">Examples using two lists - Answers</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(cities)):</span>
-<span id="cb51-2"><a href="#cb51-2"></a>    <span class="bu">print</span>(cities[i], <span class="st">"is the capital of"</span>, countries[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(cities)):</span>
+<span id="cb51-2"><a href=""></a>    <span class="bu">print</span>(cities[i], <span class="st">"is the capital of"</span>, countries[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Helsinki is the capital of Finland
 Stockholm is the capital of Sweden
@@ -1134,14 +987,14 @@ Copenhagen is the capital of Denmark</code></pre>
 
 <h3 id="if-else-example-1">if else Example 1</h3>
 <div style="font-size: 200%;">
-<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>temperature <span class="op">=</span> <span class="dv">17</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a></span>
-<span id="cb53-3"><a href="#cb53-3"></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
-<span id="cb53-4"><a href="#cb53-4"></a>    <span class="bu">print</span>(<span class="st">"it is hot!"</span>)</span>
-<span id="cb53-5"><a href="#cb53-5"></a><span class="cf">else</span>:</span>
-<span id="cb53-6"><a href="#cb53-6"></a>    <span class="bu">print</span>(<span class="st">"it is not hot!"</span>)</span>
-<span id="cb53-7"><a href="#cb53-7"></a>    </span>
-<span id="cb53-8"><a href="#cb53-8"></a><span class="bu">print</span>(temperature)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href=""></a>temperature <span class="op">=</span> <span class="dv">17</span></span>
+<span id="cb53-2"><a href=""></a></span>
+<span id="cb53-3"><a href=""></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
+<span id="cb53-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"it is hot!"</span>)</span>
+<span id="cb53-5"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb53-6"><a href=""></a>    <span class="bu">print</span>(<span class="st">"it is not hot!"</span>)</span>
+<span id="cb53-7"><a href=""></a>    </span>
+<span id="cb53-8"><a href=""></a><span class="bu">print</span>(temperature)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>it is not hot</code></pre>
 </div>
 </section>
@@ -1149,14 +1002,14 @@ Copenhagen is the capital of Denmark</code></pre>
 
 <h3 id="if-else-example-2">if else Example 2</h3>
 <div style="font-size: 200%;">
-<div class="sourceCode" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>temperature <span class="op">=</span> <span class="dv">30</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a></span>
-<span id="cb55-3"><a href="#cb55-3"></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
-<span id="cb55-4"><a href="#cb55-4"></a>    <span class="bu">print</span>(<span class="st">"it is hot!"</span>)</span>
-<span id="cb55-5"><a href="#cb55-5"></a><span class="cf">else</span>:</span>
-<span id="cb55-6"><a href="#cb55-6"></a>    <span class="bu">print</span>(<span class="st">"it is not hot!"</span>)</span>
-<span id="cb55-7"><a href="#cb55-7"></a>    </span>
-<span id="cb55-8"><a href="#cb55-8"></a><span class="bu">print</span>(temperature)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href=""></a>temperature <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb55-2"><a href=""></a></span>
+<span id="cb55-3"><a href=""></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
+<span id="cb55-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"it is hot!"</span>)</span>
+<span id="cb55-5"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb55-6"><a href=""></a>    <span class="bu">print</span>(<span class="st">"it is not hot!"</span>)</span>
+<span id="cb55-7"><a href=""></a>    </span>
+<span id="cb55-8"><a href=""></a><span class="bu">print</span>(temperature)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>it is hot</code></pre>
 </div>
 </section>
@@ -1168,22 +1021,22 @@ Copenhagen is the capital of Denmark</code></pre>
 <li>How about if without else?</li>
 </ul>
 <div style="font-size: 140%;">
-<div class="sourceCode" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>temperature <span class="op">=</span> <span class="dv">17</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a></span>
-<span id="cb57-3"><a href="#cb57-3"></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
-<span id="cb57-4"><a href="#cb57-4"></a>    <span class="bu">print</span>(temperature, <span class="st">"is greater than 25"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href=""></a>temperature <span class="op">=</span> <span class="dv">17</span></span>
+<span id="cb57-2"><a href=""></a></span>
+<span id="cb57-3"><a href=""></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
+<span id="cb57-4"><a href=""></a>    <span class="bu">print</span>(temperature, <span class="st">"is greater than 25"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2">
 
 <h3 id="conditional-operator">Conditional operator</h3>
 <div style="font-size: 140%;">
-<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>weather <span class="op">=</span> <span class="st">"rain"</span></span>
-<span id="cb58-2"><a href="#cb58-2"></a></span>
-<span id="cb58-3"><a href="#cb58-3"></a><span class="cf">if</span> weather <span class="op">==</span> <span class="st">"rain"</span>:</span>
-<span id="cb58-4"><a href="#cb58-4"></a>    <span class="bu">print</span>(<span class="st">"Wear a raincoat!"</span>)</span>
-<span id="cb58-5"><a href="#cb58-5"></a><span class="cf">else</span>:</span>
-<span id="cb58-6"><a href="#cb58-6"></a>    <span class="bu">print</span>(<span class="st">"No raincoat needed."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href=""></a>weather <span class="op">=</span> <span class="st">"rain"</span></span>
+<span id="cb58-2"><a href=""></a></span>
+<span id="cb58-3"><a href=""></a><span class="cf">if</span> weather <span class="op">==</span> <span class="st">"rain"</span>:</span>
+<span id="cb58-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Wear a raincoat!"</span>)</span>
+<span id="cb58-5"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb58-6"><a href=""></a>    <span class="bu">print</span>(<span class="st">"No raincoat needed."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>Wear a raincoat!</code></pre>
 </div>
 </section>
@@ -1233,7 +1086,7 @@ Copenhagen is the capital of Denmark</code></pre>
 <li>In Python, the words True and False are reserved for these Boolean values, and can’t be used for anything else.</li>
 </ul>
 <div style="font-size: 140%;">
-<div class="sourceCode" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>temperature <span class="op">&gt;</span> <span class="dv">25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href=""></a>temperature <span class="op">&gt;</span> <span class="dv">25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>False</code></pre>
 </div>
 </section>
@@ -1248,14 +1101,14 @@ Copenhagen is the capital of Denmark</code></pre>
 </ul>
 </div>
 <div style="font-size: 120%;">
-<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>temperature <span class="op">=</span> <span class="op">-</span><span class="dv">3</span></span>
-<span id="cb62-2"><a href="#cb62-2"></a></span>
-<span id="cb62-3"><a href="#cb62-3"></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb62-4"><a href="#cb62-4"></a>    <span class="bu">print</span>(temperature, <span class="st">"degrees celsius is above freezing"</span>)</span>
-<span id="cb62-5"><a href="#cb62-5"></a><span class="cf">elif</span> temperature <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb62-6"><a href="#cb62-6"></a>    <span class="bu">print</span>(temperature, <span class="st">"degrees celsius is at the freezing point"</span>)</span>
-<span id="cb62-7"><a href="#cb62-7"></a><span class="cf">else</span>:</span>
-<span id="cb62-8"><a href="#cb62-8"></a>    <span class="bu">print</span>(temperature, <span class="st">"degrees celsius is below freezing"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href=""></a>temperature <span class="op">=</span> <span class="op">-</span><span class="dv">3</span></span>
+<span id="cb62-2"><a href=""></a></span>
+<span id="cb62-3"><a href=""></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb62-4"><a href=""></a>    <span class="bu">print</span>(temperature, <span class="st">"degrees celsius is above freezing"</span>)</span>
+<span id="cb62-5"><a href=""></a><span class="cf">elif</span> temperature <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb62-6"><a href=""></a>    <span class="bu">print</span>(temperature, <span class="st">"degrees celsius is at the freezing point"</span>)</span>
+<span id="cb62-7"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb62-8"><a href=""></a>    <span class="bu">print</span>(temperature, <span class="st">"degrees celsius is below freezing"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>-3 degrees celsius is below freezing</code></pre>
 </div>
 </section>
@@ -1286,16 +1139,16 @@ Copenhagen is the capital of Denmark</code></pre>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>weather <span class="op">=</span> <span class="st">"rain"</span></span>
-<span id="cb64-2"><a href="#cb64-2"></a>wind_speed <span class="op">=</span> <span class="dv">14</span></span>
-<span id="cb64-3"><a href="#cb64-3"></a>comfort_limit <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb64-4"><a href="#cb64-4"></a></span>
-<span id="cb64-5"><a href="#cb64-5"></a><span class="co"># If it is windy or raining, print "stay at home",</span></span>
-<span id="cb64-6"><a href="#cb64-6"></a><span class="co"># otherwise (else) print "go out and enjoy the weather!"</span></span>
-<span id="cb64-7"><a href="#cb64-7"></a><span class="cf">if</span> (weather <span class="op">==</span> <span class="st">"rain"</span>) <span class="kw">or</span> (wind_speed <span class="op">&gt;=</span> comfort_limit):</span>
-<span id="cb64-8"><a href="#cb64-8"></a>    <span class="bu">print</span>(<span class="st">"Just stay at home"</span>)</span>
-<span id="cb64-9"><a href="#cb64-9"></a><span class="cf">else</span>:</span>
-<span id="cb64-10"><a href="#cb64-10"></a>    <span class="bu">print</span>(<span class="st">"Go out and enjoy the weather! :)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href=""></a>weather <span class="op">=</span> <span class="st">"rain"</span></span>
+<span id="cb64-2"><a href=""></a>wind_speed <span class="op">=</span> <span class="dv">14</span></span>
+<span id="cb64-3"><a href=""></a>comfort_limit <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb64-4"><a href=""></a></span>
+<span id="cb64-5"><a href=""></a><span class="co"># If it is windy or raining, print "stay at home",</span></span>
+<span id="cb64-6"><a href=""></a><span class="co"># otherwise (else) print "go out and enjoy the weather!"</span></span>
+<span id="cb64-7"><a href=""></a><span class="cf">if</span> (weather <span class="op">==</span> <span class="st">"rain"</span>) <span class="kw">or</span> (wind_speed <span class="op">&gt;=</span> comfort_limit):</span>
+<span id="cb64-8"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Just stay at home"</span>)</span>
+<span id="cb64-9"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb64-10"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Go out and enjoy the weather! :)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>Just stay at home</code></pre>
 </section>
 <section class="slide level2">
@@ -1305,21 +1158,51 @@ Copenhagen is the capital of Denmark</code></pre>
 <li>We can also combine for-loops and conditional statements.</li>
 <li>Let’s iterate over a list of temperatures, and check if the temperature is hot or not</li>
 </ul>
-<div class="sourceCode" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>temperatures <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">17</span>, <span class="dv">28</span>, <span class="dv">30</span>]</span>
-<span id="cb66-2"><a href="#cb66-2"></a></span>
-<span id="cb66-3"><a href="#cb66-3"></a><span class="co"># For each temperature, if the temperature is greater than 25, print "..is hot"</span></span>
-<span id="cb66-4"><a href="#cb66-4"></a><span class="cf">for</span> temperature <span class="kw">in</span> temperatures:</span>
-<span id="cb66-5"><a href="#cb66-5"></a>    <span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
-<span id="cb66-6"><a href="#cb66-6"></a>        <span class="bu">print</span>(temperature, <span class="st">"is hot"</span>)</span>
-<span id="cb66-7"><a href="#cb66-7"></a>    <span class="cf">else</span>:</span>
-<span id="cb66-8"><a href="#cb66-8"></a>        <span class="bu">print</span>(temperature, <span class="st">"is not hot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="dv">0</span> <span class="kw">is</span> <span class="kw">not</span> hot</span>
-<span id="cb67-2"><a href="#cb67-2"></a><span class="dv">12</span> <span class="kw">is</span> <span class="kw">not</span> hot</span>
-<span id="cb67-3"><a href="#cb67-3"></a><span class="dv">17</span> <span class="kw">is</span> <span class="kw">not</span> hot</span>
-<span id="cb67-4"><a href="#cb67-4"></a><span class="dv">28</span> <span class="kw">is</span> hot</span>
-<span id="cb67-5"><a href="#cb67-5"></a><span class="dv">30</span> <span class="kw">is</span> hot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href=""></a>temperatures <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">17</span>, <span class="dv">28</span>, <span class="dv">30</span>]</span>
+<span id="cb66-2"><a href=""></a></span>
+<span id="cb66-3"><a href=""></a><span class="co"># For each temperature, if the temperature is greater than 25, print "..is hot"</span></span>
+<span id="cb66-4"><a href=""></a><span class="cf">for</span> temperature <span class="kw">in</span> temperatures:</span>
+<span id="cb66-5"><a href=""></a>    <span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
+<span id="cb66-6"><a href=""></a>        <span class="bu">print</span>(temperature, <span class="st">"is hot"</span>)</span>
+<span id="cb66-7"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb66-8"><a href=""></a>        <span class="bu">print</span>(temperature, <span class="st">"is not hot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href=""></a><span class="dv">0</span> <span class="kw">is</span> <span class="kw">not</span> hot</span>
+<span id="cb67-2"><a href=""></a><span class="dv">12</span> <span class="kw">is</span> <span class="kw">not</span> hot</span>
+<span id="cb67-3"><a href=""></a><span class="dv">17</span> <span class="kw">is</span> <span class="kw">not</span> hot</span>
+<span id="cb67-4"><a href=""></a><span class="dv">28</span> <span class="kw">is</span> hot</span>
+<span id="cb67-5"><a href=""></a><span class="dv">30</span> <span class="kw">is</span> hot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="summary---what-have-we-learned" class="slide level2">
+<h2>Summary - What have we learned?</h2>
+<div>
+<ul>
+<li class="fragment">Programming is not too difficult than you think. They are easy to understand and share (and fun!)</li>
+<li class="fragment">Programmes keep a log of the changes you make to your programmes - open science</li>
+<li class="fragment">Python is one of the popular programming languages - we are going to nail this!</li>
+<li class="fragment">Basics of Python
+<ul>
+<li class="fragment">Basic programming</li>
+<li class="fragment">Fucntions</li>
+<li class="fragment">for loops</li>
+<li class="fragment">Conditional statements</li>
+<li class="fragment">Combos of the above</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="next-week" class="slide level2">
+<h2>Next week</h2>
+<ul>
+<li>Show ways to install Python offline</li>
+<li>How to import data</li>
+<li>How to clean and use data</li>
+<li>How to play with GIS data</li>
+</ul>
+<div class="quarto-auto-generated-content">
+<p><img src="Figs/uoa-logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -1348,7 +1231,6 @@ Copenhagen is the capital of Denmark</code></pre>
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1647,10 +1529,27 @@ Copenhagen is the capital of Denmark</code></pre>
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1660,8 +1559,17 @@ Copenhagen is the capital of Denmark</code></pre>
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1675,7 +1583,11 @@ Copenhagen is the capital of Denmark</code></pre>
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

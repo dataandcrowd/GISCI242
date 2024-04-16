@@ -3,8 +3,6 @@ title: "Gentle Introduction to Programming"
 subtitle: ": for GIS Dummies"
 date: 04/22/2024
 date-format: long
-toc: true
-toc-expand: 2
 author:
   - name: Hyesop Shin
     orcid: 0000-0003-2637-7933
@@ -14,7 +12,10 @@ author:
         address: 23 Symonds Street
         city: Auckland
         postal-code: 1010
-format: revealjs
+format: 
+  revealjs:
+      logo: Figs/uoa-logo.png
+      css: logo.css
 #format: html
 editor: source
 include-in-header:
@@ -28,13 +29,40 @@ include-in-header:
 
 ## What will we cover?
 
+* Why programme in a GIS course?
 * Programming Basics
-* Why is coding useful in GIS?
 * Interactive lecture
-  - Variables
-  - Loops and conditions
-  - Functions
-  - Geopandas
+
+## Why do we learn to code?
+
+* We are not computer scientists (I am not at least)
+* GISci and Geography disciplines are becoming increasingly quantitative
+* Large datasets
+* We want to do our job quickly and do less of the same work.
+* Programming can also be fun
+* Programming can help make us better scientists - <span style="color:blue;">Open Science</span>
+
+
+---
+
+###
+
+::: {.panel-tabset}
+
+## ArcGIS
+
+![](Figs/Interpolation-IDW-ArcGIS-Pro.jpg){width="80%"}
+
+## Programming
+
+Example: `Python`
+
+```{r}
+#| out.width="200%"
+knitr::include_graphics("Figs/iteration.png")
+```
+
+:::
 
 
 ## What is a computer?
@@ -58,7 +86,6 @@ knitr::include_graphics("Figs/computer-diagram.png")
 Given the definition above, it may be clear that computers are in some ways quite simple, and as a result there are certain tasks where computers excel. 
 
  
-
 Tasks computers are good at include:
 
 * well-defined tasks
@@ -97,39 +124,9 @@ print("Python" > "R")
 
 
 ## We need to be less poetic 
-### and become more simplistic
+and become more direct to the point
 
 <iframe src="https://giphy.com/embed/HKwXmH6TyFtFUaTSHn" width="800" height="600" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/nbclawandorder-season-2-nbc-organized-crime-HKwXmH6TyFtFUaTSHn"></a></p>
-
----
-
-### Logic gates
-
-- `IF`: IF THIS, THEN THAT
-- `AND`: IF THIS AND THAT TRUE
-- `OR`: IF THIS OR THIS TRUE
-- `NOT`: IF NOT ABOVE X
-
-
-
-## Why coding is important in modern GIS?
-
-::: {.panel-tabset}
-
-## ArcGIS
-
-![](Figs/Interpolation-IDW-ArcGIS-Pro.jpg){width="50%"}
-
-## Programming
-
-Example: `Python`
-
-```{r}
-#| out.width="200%"
-knitr::include_graphics("Figs/iteration.png")
-```
-
-:::
 
 
 
@@ -174,6 +171,14 @@ knitr::include_graphics("Figs/rank.png")
 * Can customise solutions for your specific data analysis needs
     
 
+---
+
+### The War of Coding
+
+![](Figs/R_Python.jpeg)
+
+
+
 ## Interactive show and do with Python
 
 What we will cover:
@@ -201,10 +206,11 @@ What we will cover:
 ## 
 &nbsp;  
 
-### Let's Take a Break!{style="text-align: center;"}
+### Let's Take a Quality Break!{style="text-align: center;"}
 
 &nbsp;  
-&nbsp;  
+
+Make sure you are well set up with Google Colab using the URL below:
 <center>https://colab.research.google.com </center>
 
 
@@ -787,4 +793,30 @@ for temperature in temperatures:
 28 is hot
 30 is hot
 ```
+
+
+## Summary - What have we learned?
+
+::: {.incremental}
+* Programming is not too difficult than you think. They are easy to understand and share (and fun!)
+* Programmes keep a log of the changes you make to your programmes - open science
+* Python is one of the popular programming languages - we are going to nail this!
+* Basics of Python
+   - Basic programming
+   - Fucntions
+   - for loops
+   - Conditional statements
+   - Combos of the above
+
+:::
+
+
+## Next week
+* Show ways to install Python offline
+* How to import data
+* How to clean and use data
+* How to play with GIS data
+
+
+
 
