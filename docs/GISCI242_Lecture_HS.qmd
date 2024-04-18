@@ -16,6 +16,8 @@ format:
   revealjs:
       logo: Figs/uoa-logo.png
       css: logo.css
+      slide-number: true
+      show-slide-number: print
 #format: html
 editor: source
 include-in-header:
@@ -62,25 +64,22 @@ Example: `Python`
 knitr::include_graphics("Figs/iteration.png")
 ```
 
+
+## 진짜예시 
+haha
+
 :::
 
 
 ## What is a computer?
 
 ```{r}
-#| label: fig-myFirstFigure
-#| fig-cap: A caption
-
 knitr::include_graphics("Figs/computer-diagram.png")
 ```
 
-* Components:
-    - Devices (Monitor/keyboard)
-    - Motherboard (connector)
-    - CPU
-    - RAM (temporary memory)
-    - Storage (hard disk)
+---
 
+![](Figs/python_process.jpg)
 
 ## What are computers <span style="color:blue;">good</span> at?
 Given the definition above, it may be clear that computers are in some ways quite simple, and as a result there are certain tasks where computers excel. 
@@ -131,7 +130,10 @@ and become more direct to the point
 
 
 ## Why Python?
-### Python is widely used
+
+---
+
+### 1. Python is widely used
 
 * Python being 1st in a row in programming ([TIOBE Rank](https://www.tiobe.com/tiobe-index/))
 
@@ -141,7 +143,7 @@ knitr::include_graphics("Figs/rank.png")
 
 ---
 
-### Python is open
+### 2. Python is open
 * Open as in
     - free of charge
     - as in access (download and run)
@@ -152,7 +154,7 @@ knitr::include_graphics("Figs/rank.png")
 
 ---
 
-### Python is approachable
+### 3. Python is approachable
 
 <iframe src="https://giphy.com/embed/NaboQwhxK3gMU" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/posts-karma-NaboQwhxK3gMU"></a></p>
 
@@ -165,7 +167,7 @@ knitr::include_graphics("Figs/rank.png")
 
 ---
 
-### Python is connected    
+### 4. Python is connected    
 
 * Geographic Information Systems (GIS) software such as QGIS or ArcGIS now include a Python interpreter built in to the software
 * Can customise solutions for your specific data analysis needs
@@ -177,6 +179,13 @@ knitr::include_graphics("Figs/rank.png")
 
 ![](Figs/R_Python.jpeg)
 
+::: {style="font-size: 70%;"}
+FYI: We have plenty of Geocomputation courses in postgraduate courses!
+<br>
+R & Python both have specialties.
+<br>
+I am an R enthusiast
+:::
 
 
 ## Interactive show and do with Python
@@ -260,7 +269,20 @@ We will cover:
 
 ---
 
-## Function
+### Strings
+
+::: {style="font-size: 150%;"}
+
+```python
+print("hello world") # print strings
+
+len("hello world") # to count text in Python Shell
+print(len("hello world")) # in Google Colab
+```
+
+:::
+
+## Maths with modules
 
 ::: {style="font-size: 150%;"}
 
@@ -278,7 +300,7 @@ Did you get the result you expected?
 
 ---
 
-### Function - Errors
+### Facing Errors can be daunting
 
 ```
 sin(3)
@@ -305,7 +327,7 @@ Python can’t calculate square roots or do basic trigonometry? Of course it can
 
 ---
 
-### Function - Solution
+### Solution
 
 
 ```{python}
@@ -316,7 +338,7 @@ math.sin(3)
 math.sqrt(4)
 ```
 
-Well done! You have just managed to use a `math` library too!
+Well done! You have just managed to use a `math` module too!
 
 ---
 
@@ -377,8 +399,39 @@ type(weatherForecast)
 
 
 
-## Lists and indices
+## Lists and Indices
+
+---
+
 ### Lists
+When we have more clothes/items we would like to align similar types of clothes into a drawer
+
+![](Figs/drawer.png){fig-align="center"}
+
+---
+
+### List Example 1
+
+::: {style="font-size: 150%;"}
+
+```python
+top = ["socks", "underwear", "handkerchief"]
+middle = ["T-shirts", "Pajamas", "Trousers", "Shorts"]
+bottom = [30, 73, 100, 62]
+
+print(top[0])
+print(min(bottom))
+```
+
+```
+socks
+```
+:::
+
+---
+
+### List Example 2
+
 Let’s first create a list of selected station_name values and print it to the screen.
 
 ```{python}
@@ -437,7 +490,32 @@ station_names
 
 station_names.reverse()
 station_names
+
+station_names.append("new station")
+print(station_names)
 ```
+
+---
+
+### Your Turn
+* Define `station_names` in your environment
+* Add Otahuhu, Middlemore, Papatoetoe, Puhinui, Manukau (you can Google "Auckland Eastern Line" and find the Wikipedia)
+* Assign that in your environment as `more_eastern`
+
+
+```python
+station_names = [
+    "Britomart",
+    "Ōrākei",
+    "Meadowbank",
+    "Purewa",
+    "Glen Innes",
+    "Tamaki",
+    "Panmure",
+    "Sylvia Park"
+]
+```
+
 
 
 
@@ -445,7 +523,6 @@ station_names
 ## Introducing the `for` loop
 * Loops allow parts of code to be repeated some number of times
 * Iterates over all of the items in a Python list and performing a calculation on each item.
-
 
 
 <div id="contentframe" style="position:absolute; top: 400px; left: 0px;">
