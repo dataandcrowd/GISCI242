@@ -1,28 +1,3 @@
-# Examples of Bad Coding
-print("Python" > "R")
-print("Python" < "R")
-
-import string
-print(string.ascii_lowercase)
-print(string.ascii_lowercase[0:3])
-
-# Simple Python Maths and Strings
-print(1 + 1)
-print("hello world")
-print(len("hello world"))
-
-# fun stuff
-a = 1
-b = 2
-print(a + b)
-
-# Facing Errors with maths
-#sin(3)
-
-import math
-math.sin(3)
-math.sqrt(4)
-
 # Lists
 top = ["socks", "underwear", "handkerchief"]
 middle = ["T-shirts", "Pajamas", "Trousers", "Shorts"]
@@ -52,5 +27,19 @@ print(station_names)
 station_names.append("new station")
 print(station_names)
 
+# Practical
+station_names = [
+    "Britomart",
+    "Ōrākei",
+    "Meadowbank",
+    "Purewa",
+    "Glen Innes",
+    "Tamaki",
+    "Panmure",
+    "Sylvia Park"
+]
 
+more_eastern = ["Otahuhu", "Middlemore", "Papatoetoe", "Puhinui", "Manukau"]
 
+station_names.extend(more_eastern)
+print(station_names)

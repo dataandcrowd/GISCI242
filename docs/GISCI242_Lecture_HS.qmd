@@ -497,30 +497,29 @@ print(station_names)
 
 ---
 
-### Your Turn
-* Define `station_names` in your environment
-* Add Otahuhu, Middlemore, Papatoetoe, Puhinui, Manukau (you can Google "Auckland Eastern Line" and find the Wikipedia)
-* Assign that in your environment as `more_eastern`
+### <span style="color:green;">Your Turn!</span>
+1. Define `station_names` in your environment
+2. Add **Otahuhu, Middlemore, Papatoetoe, Puhinui, Manukau** as a list (you can Google "Auckland Eastern Line" and find the Wikipedia)
+3. Assign that in your environment as `more_eastern`
+4. This time, try `extend` to combine the two lists
 
 
 ```python
-station_names = [
-    "Britomart",
-    "Ōrākei",
-    "Meadowbank",
-    "Purewa",
-    "Glen Innes",
-    "Tamaki",
-    "Panmure",
-    "Sylvia Park"
-]
+station_names = ["Britomart", "Ōrākei", "Meadowbank", "Purewa", 
+  "Glen Innes", "Tamaki", "Panmure", "Sylvia Park"]
 ```
 
+## Documentation
+* At this point, you might think, *Hang on, do I have to memorise everything?*
+* The answer is **NO**
+* If you are stuck, visit https://www.python.org/doc
+* Google your problem
+* ~~ChatGPT~~, ~~Gemini~~
 
 
 
 
-## Introducing the `for` loop
+## `for` loop
 * Loops allow parts of code to be repeated some number of times
 * Iterates over all of the items in a Python list and performing a calculation on each item.
 
@@ -563,32 +562,7 @@ station_names = [
 ```{python}
 #| echo: true
 station_names[0]
-
 station_names[1]
-```
-
-
----
-
-### for loop: an example
-
-
-```{python}
-#| echo: true
-
-for name in station_names:
-    print(name)
-```
-
----
-
-### Different example
-
-```python
-european_cities = ["Amsterdam", "Brussels", "London", "Rome"]
-
-for city in european_cities:
-    print(city)
 ```
 
 ---
@@ -627,6 +601,28 @@ for day in my_life:
 
 ---
 
+### for loop: an example
+
+```{python}
+#| echo: true
+
+for name in station_names:
+    print(name)
+```
+
+---
+
+### Different example
+
+```python
+european_cities = ["Amsterdam", "Brussels", "London", "Rome"]
+
+for city in european_cities:
+    print(city)
+```
+
+---
+
 ### Examples using `range`
 
 ```{python}
@@ -638,36 +634,63 @@ for value in range(5):
 
 ---
 
-### Examples using two lists
+### Examples using `range`
 
 ```{python}
 #| echo: true
 
-cities = ["Helsinki", "Stockholm", "Oslo", "Reykjavik", "Copenhagen"]
+group1 = [1, 3, 5]
+group2 = [0, 1, 2]
 
-countries = ["Finland", "Sweden", "Norway", "Iceland", "Denmark"]
+for i in range(2):
+    print(group1[i], group2[i])
 ```
 
+---
+
+### Your Turn!
+
+::: {style="font-size: 200%;"}
 
 ```python
-for i in range(len(cities)):
-    print(cities[i], "is the capital of", countries[i])
+cities = ["Helsinki", "Stockholm", "Oslo", "Reykjavik", "Copenhagen"]
+countries = ["Finland", "Sweden", "Norway", "Iceland", "Denmark"]
+
 ```
+:::
+
+* The indices of the cities and countries are in the same order
+* For example, Helsinki and Finland are in index 0
+* Create a `for` loop that describes something like *Helsinki is the capital of Finland*
+
 
 ---
 
 ### Examples using two lists - Answers
 
-```{python}
-#| echo: true
+```python
 
+for i in range(5):
+    print(cities[i], "is the capital of", countries[i])
+    
 for i in range(len(cities)):
     print(cities[i], "is the capital of", countries[i])
 ```
 
+&nbsp; 
+
+```
+Helsinki is the capital of Finland
+Stockholm is the capital of Sweden
+Oslo is the capital of Norway
+Reykjavik is the capital of Iceland
+Copenhagen is the capital of Denmark
+```
+
+
 
 ## Conditional statements
-* We will learn how to make choices in our code using conditional statements (`if`, `elif`, `else`) and Boolean values (`True`, `False`).
+* We will learn how to make choices in our code using conditional statements (`if`, `else`) and Boolean values (`True`, `False`).
 * Conditional statements can change the code behaviour based on certain conditions. 
 * The idea is simple: **IF** a condition is met, **THEN** a set of actions is performed.
 
@@ -787,6 +810,7 @@ False
 
 ---
 
+<!--
 ### if, elif and else
 
 ::: {style="font-size: 70%;"}
@@ -816,6 +840,7 @@ else:
 :::
 
 ---
+-->
 
 ## Combinations
 ### Combining conditions
@@ -889,11 +914,15 @@ for temperature in temperatures:
 
 
 ## Next week
-* Show ways to install Python offline
-* How to import data
+* How to import spreadsheet data
 * How to clean and use data
 * How to play with GIS data
 
 
+## Thanks! <br> Q & A{style="text-align: center;"}
 
+
+<div class="center-link" style="width:960px">
+  <iframe allow="fullscreen" frameBorder="0" height="480" src="https://giphy.com/embed/PwSkiR02N3960AC5c1/video" width="840"></iframe>
+</div>
 

@@ -791,10 +791,11 @@ NameError: name 'sqrt' is not defined</code></pre>
 <h3 id="list-example-1">List Example 1</h3>
 <div style="font-size: 150%;">
 <div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a>top <span class="op">=</span> [<span class="st">"socks"</span>, <span class="st">"underwear"</span>, <span class="st">"handkerchief"</span>]</span>
-<span id="cb24-2"><a href=""></a>middle <span class="op">=</span> [<span class="st">"T-shirts"</span>, <span class="st">"Pajamas"</span>]</span>
-<span id="cb24-3"><a href=""></a>bottom <span class="op">=</span> [<span class="st">"Trousers"</span>, <span class="st">"Shorts"</span>]</span>
+<span id="cb24-2"><a href=""></a>middle <span class="op">=</span> [<span class="st">"T-shirts"</span>, <span class="st">"Pajamas"</span>, <span class="st">"Trousers"</span>, <span class="st">"Shorts"</span>]</span>
+<span id="cb24-3"><a href=""></a>bottom <span class="op">=</span> [<span class="dv">30</span>, <span class="dv">73</span>, <span class="dv">100</span>, <span class="dv">62</span>]</span>
 <span id="cb24-4"><a href=""></a></span>
-<span id="cb24-5"><a href=""></a><span class="bu">print</span>(top[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-5"><a href=""></a><span class="bu">print</span>(top[<span class="dv">0</span>])</span>
+<span id="cb24-6"><a href=""></a><span class="bu">print</span>(<span class="bu">min</span>(bottom))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>socks</code></pre>
 </div>
 </section>
@@ -866,10 +867,37 @@ NameError: name 'sqrt' is not defined</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Shopping Mall', 'Panmure', 'Tamaki', 'Glen Innes', 'Purewa', 'Meadowbank', 'Ōrākei', 'Britomart']</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a>station_names.append(<span class="st">"new station"</span>)</span>
+<span id="cb40-2"><a href=""></a><span class="bu">print</span>(station_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['Shopping Mall', 'Panmure', 'Tamaki', 'Glen Innes', 'Purewa', 'Meadowbank', 'Ōrākei', 'Britomart', 'new station']</code></pre>
+</div>
 </div>
 </section>
-<section id="introducing-the-for-loop" class="slide level2">
-<h2>Introducing the <code>for</code> loop</h2>
+<section class="slide level2">
+
+<h3 id="your-turn"><span style="color:green;">Your Turn!</span></h3>
+<ol type="1">
+<li>Define <code>station_names</code> in your environment</li>
+<li>Add <strong>Otahuhu, Middlemore, Papatoetoe, Puhinui, Manukau</strong> as a list (you can Google “Auckland Eastern Line” and find the Wikipedia)</li>
+<li>Assign that in your environment as <code>more_eastern</code></li>
+<li>This time, try <code>extend</code> to combine the two lists</li>
+</ol>
+<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a>station_names <span class="op">=</span> [<span class="st">"Britomart"</span>, <span class="st">"Ōrākei"</span>, <span class="st">"Meadowbank"</span>, <span class="st">"Purewa"</span>, </span>
+<span id="cb42-2"><a href=""></a>  <span class="st">"Glen Innes"</span>, <span class="st">"Tamaki"</span>, <span class="st">"Panmure"</span>, <span class="st">"Sylvia Park"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="documentation" class="slide level2">
+<h2>Documentation</h2>
+<ul>
+<li>At this point, you might think, <em>Hang on, do I have to memorise everything?</em></li>
+<li>The answer is <strong>NO</strong></li>
+<li>If you are stuck, visit https://www.python.org/doc</li>
+<li>Google your problem</li>
+<li><del>ChatGPT</del>, <del>Gemini</del></li>
+</ul>
+</section>
+<section id="for-loop" class="slide level2">
+<h2><code>for</code> loop</h2>
 <ul>
 <li>Loops allow parts of code to be repeated some number of times</li>
 <li>Iterates over all of the items in a Python list and performing a calculation on each item.</li>
@@ -891,53 +919,27 @@ NameError: name 'sqrt' is not defined</code></pre>
 <h3 id="hand-picked-works-when-we-do-loops-manually">Hand-picked works: When we do loops manually</h3>
 <p><span style="color:red;">Bad example</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a>station_names <span class="op">=</span> [</span>
-<span id="cb40-2"><a href=""></a>    <span class="st">"Britomart"</span>,</span>
-<span id="cb40-3"><a href=""></a>    <span class="st">"Ōrākei"</span>,</span>
-<span id="cb40-4"><a href=""></a>    <span class="st">"Meadowbank"</span>,</span>
-<span id="cb40-5"><a href=""></a>    <span class="st">"Purewa"</span>,</span>
-<span id="cb40-6"><a href=""></a>    <span class="st">"Glen Innes"</span>,</span>
-<span id="cb40-7"><a href=""></a>    <span class="st">"Tamaki"</span>,</span>
-<span id="cb40-8"><a href=""></a>    <span class="st">"Panmure"</span>,</span>
-<span id="cb40-9"><a href=""></a>    <span class="st">"Sylvia Park"</span></span>
-<span id="cb40-10"><a href=""></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a>station_names <span class="op">=</span> [</span>
+<span id="cb43-2"><a href=""></a>    <span class="st">"Britomart"</span>,</span>
+<span id="cb43-3"><a href=""></a>    <span class="st">"Ōrākei"</span>,</span>
+<span id="cb43-4"><a href=""></a>    <span class="st">"Meadowbank"</span>,</span>
+<span id="cb43-5"><a href=""></a>    <span class="st">"Purewa"</span>,</span>
+<span id="cb43-6"><a href=""></a>    <span class="st">"Glen Innes"</span>,</span>
+<span id="cb43-7"><a href=""></a>    <span class="st">"Tamaki"</span>,</span>
+<span id="cb43-8"><a href=""></a>    <span class="st">"Panmure"</span>,</span>
+<span id="cb43-9"><a href=""></a>    <span class="st">"Sylvia Park"</span></span>
+<span id="cb43-10"><a href=""></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href=""></a>station_names[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a>station_names[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'Britomart'</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a>station_names[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href=""></a>station_names[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'Ōrākei'</code></pre>
 </div>
 </div>
-</section>
-<section class="slide level2">
-
-<h3 id="for-loop-an-example">for loop: an example</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a><span class="cf">for</span> name <span class="kw">in</span> station_names:</span>
-<span id="cb45-2"><a href=""></a>    <span class="bu">print</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Britomart
-Ōrākei
-Meadowbank
-Purewa
-Glen Innes
-Tamaki
-Panmure
-Sylvia Park</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="different-example">Different example</h3>
-<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a>european_cities <span class="op">=</span> [<span class="st">"Amsterdam"</span>, <span class="st">"Brussels"</span>, <span class="st">"London"</span>, <span class="st">"Rome"</span>]</span>
-<span id="cb47-2"><a href=""></a></span>
-<span id="cb47-3"><a href=""></a><span class="cf">for</span> city <span class="kw">in</span> european_cities:</span>
-<span id="cb47-4"><a href=""></a>    <span class="bu">print</span>(city)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
@@ -968,10 +970,36 @@ Sylvia Park</code></pre>
 </section>
 <section class="slide level2">
 
+<h3 id="for-loop-an-example">for loop: an example</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href=""></a><span class="cf">for</span> name <span class="kw">in</span> station_names:</span>
+<span id="cb50-2"><a href=""></a>    <span class="bu">print</span>(name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Britomart
+Ōrākei
+Meadowbank
+Purewa
+Glen Innes
+Tamaki
+Panmure
+Sylvia Park</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="different-example">Different example</h3>
+<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href=""></a>european_cities <span class="op">=</span> [<span class="st">"Amsterdam"</span>, <span class="st">"Brussels"</span>, <span class="st">"London"</span>, <span class="st">"Rome"</span>]</span>
+<span id="cb52-2"><a href=""></a></span>
+<span id="cb52-3"><a href=""></a><span class="cf">for</span> city <span class="kw">in</span> european_cities:</span>
+<span id="cb52-4"><a href=""></a>    <span class="bu">print</span>(city)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <h3 id="examples-using-range">Examples using <code>range</code></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href=""></a><span class="cf">for</span> value <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
-<span id="cb50-2"><a href=""></a>    <span class="bu">print</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href=""></a><span class="cf">for</span> value <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb53-2"><a href=""></a>    <span class="bu">print</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0
 1
@@ -983,34 +1011,52 @@ Sylvia Park</code></pre>
 </section>
 <section class="slide level2">
 
-<h3 id="examples-using-two-lists">Examples using two lists</h3>
+<h3 id="examples-using-range-1">Examples using <code>range</code></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href=""></a>cities <span class="op">=</span> [<span class="st">"Helsinki"</span>, <span class="st">"Stockholm"</span>, <span class="st">"Oslo"</span>, <span class="st">"Reykjavik"</span>, <span class="st">"Copenhagen"</span>]</span>
-<span id="cb52-2"><a href=""></a></span>
-<span id="cb52-3"><a href=""></a>countries <span class="op">=</span> [<span class="st">"Finland"</span>, <span class="st">"Sweden"</span>, <span class="st">"Norway"</span>, <span class="st">"Iceland"</span>, <span class="st">"Denmark"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href=""></a>group1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>]</span>
+<span id="cb55-2"><a href=""></a>group2 <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb55-3"><a href=""></a></span>
+<span id="cb55-4"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb55-5"><a href=""></a>    <span class="bu">print</span>(group1[i], group2[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1 0
+3 1</code></pre>
 </div>
-<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(cities)):</span>
-<span id="cb53-2"><a href=""></a>    <span class="bu">print</span>(cities[i], <span class="st">"is the capital of"</span>, countries[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="your-turn-1">Your Turn!</h3>
+<div style="font-size: 200%;">
+<div class="sourceCode" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href=""></a>cities <span class="op">=</span> [<span class="st">"Helsinki"</span>, <span class="st">"Stockholm"</span>, <span class="st">"Oslo"</span>, <span class="st">"Reykjavik"</span>, <span class="st">"Copenhagen"</span>]</span>
+<span id="cb57-2"><a href=""></a>countries <span class="op">=</span> [<span class="st">"Finland"</span>, <span class="st">"Sweden"</span>, <span class="st">"Norway"</span>, <span class="st">"Iceland"</span>, <span class="st">"Denmark"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The indices of the cities and countries are in the same order</li>
+<li>For example, Helsinki and Finland are in index 0</li>
+<li>Create a <code>for</code> loop that describes something like <em>Helsinki is the capital of Finland</em></li>
+</ul>
 </section>
 <section class="slide level2">
 
 <h3 id="examples-using-two-lists---answers">Examples using two lists - Answers</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(cities)):</span>
-<span id="cb54-2"><a href=""></a>    <span class="bu">print</span>(cities[i], <span class="st">"is the capital of"</span>, countries[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href=""></a></span>
+<span id="cb58-2"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb58-3"><a href=""></a>    <span class="bu">print</span>(cities[i], <span class="st">"is the capital of"</span>, countries[i])</span>
+<span id="cb58-4"><a href=""></a>    </span>
+<span id="cb58-5"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(cities)):</span>
+<span id="cb58-6"><a href=""></a>    <span class="bu">print</span>(cities[i], <span class="st">"is the capital of"</span>, countries[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>&nbsp;</p>
 <pre><code>Helsinki is the capital of Finland
 Stockholm is the capital of Sweden
 Oslo is the capital of Norway
 Reykjavik is the capital of Iceland
 Copenhagen is the capital of Denmark</code></pre>
-</div>
-</div>
 </section>
 <section id="conditional-statements" class="slide level2">
 <h2>Conditional statements</h2>
 <ul>
-<li>We will learn how to make choices in our code using conditional statements (<code>if</code>, <code>elif</code>, <code>else</code>) and Boolean values (<code>True</code>, <code>False</code>).</li>
+<li>We will learn how to make choices in our code using conditional statements (<code>if</code>, <code>else</code>) and Boolean values (<code>True</code>, <code>False</code>).</li>
 <li>Conditional statements can change the code behaviour based on certain conditions.</li>
 <li>The idea is simple: <strong>IF</strong> a condition is met, <strong>THEN</strong> a set of actions is performed.</li>
 </ul>
@@ -1019,14 +1065,14 @@ Copenhagen is the capital of Denmark</code></pre>
 
 <h3 id="if-else-example-1">if else Example 1</h3>
 <div style="font-size: 200%;">
-<div class="sourceCode" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href=""></a>temperature <span class="op">=</span> <span class="dv">17</span></span>
-<span id="cb56-2"><a href=""></a></span>
-<span id="cb56-3"><a href=""></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
-<span id="cb56-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"it is hot!"</span>)</span>
-<span id="cb56-5"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb56-6"><a href=""></a>    <span class="bu">print</span>(<span class="st">"it is not hot!"</span>)</span>
-<span id="cb56-7"><a href=""></a>    </span>
-<span id="cb56-8"><a href=""></a><span class="bu">print</span>(temperature)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href=""></a>temperature <span class="op">=</span> <span class="dv">17</span></span>
+<span id="cb60-2"><a href=""></a></span>
+<span id="cb60-3"><a href=""></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
+<span id="cb60-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"it is hot!"</span>)</span>
+<span id="cb60-5"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb60-6"><a href=""></a>    <span class="bu">print</span>(<span class="st">"it is not hot!"</span>)</span>
+<span id="cb60-7"><a href=""></a>    </span>
+<span id="cb60-8"><a href=""></a><span class="bu">print</span>(temperature)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>it is not hot</code></pre>
 </div>
 </section>
@@ -1034,14 +1080,14 @@ Copenhagen is the capital of Denmark</code></pre>
 
 <h3 id="if-else-example-2">if else Example 2</h3>
 <div style="font-size: 200%;">
-<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href=""></a>temperature <span class="op">=</span> <span class="dv">30</span></span>
-<span id="cb58-2"><a href=""></a></span>
-<span id="cb58-3"><a href=""></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
-<span id="cb58-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"it is hot!"</span>)</span>
-<span id="cb58-5"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb58-6"><a href=""></a>    <span class="bu">print</span>(<span class="st">"it is not hot!"</span>)</span>
-<span id="cb58-7"><a href=""></a>    </span>
-<span id="cb58-8"><a href=""></a><span class="bu">print</span>(temperature)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href=""></a>temperature <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb62-2"><a href=""></a></span>
+<span id="cb62-3"><a href=""></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
+<span id="cb62-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"it is hot!"</span>)</span>
+<span id="cb62-5"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb62-6"><a href=""></a>    <span class="bu">print</span>(<span class="st">"it is not hot!"</span>)</span>
+<span id="cb62-7"><a href=""></a>    </span>
+<span id="cb62-8"><a href=""></a><span class="bu">print</span>(temperature)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>it is hot</code></pre>
 </div>
 </section>
@@ -1053,22 +1099,22 @@ Copenhagen is the capital of Denmark</code></pre>
 <li>How about if without else?</li>
 </ul>
 <div style="font-size: 140%;">
-<div class="sourceCode" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href=""></a>temperature <span class="op">=</span> <span class="dv">17</span></span>
-<span id="cb60-2"><a href=""></a></span>
-<span id="cb60-3"><a href=""></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
-<span id="cb60-4"><a href=""></a>    <span class="bu">print</span>(temperature, <span class="st">"is greater than 25"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href=""></a>temperature <span class="op">=</span> <span class="dv">17</span></span>
+<span id="cb64-2"><a href=""></a></span>
+<span id="cb64-3"><a href=""></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
+<span id="cb64-4"><a href=""></a>    <span class="bu">print</span>(temperature, <span class="st">"is greater than 25"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2">
 
 <h3 id="conditional-operator">Conditional operator</h3>
 <div style="font-size: 140%;">
-<div class="sourceCode" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href=""></a>weather <span class="op">=</span> <span class="st">"rain"</span></span>
-<span id="cb61-2"><a href=""></a></span>
-<span id="cb61-3"><a href=""></a><span class="cf">if</span> weather <span class="op">==</span> <span class="st">"rain"</span>:</span>
-<span id="cb61-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Wear a raincoat!"</span>)</span>
-<span id="cb61-5"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb61-6"><a href=""></a>    <span class="bu">print</span>(<span class="st">"No raincoat needed."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href=""></a>weather <span class="op">=</span> <span class="st">"rain"</span></span>
+<span id="cb65-2"><a href=""></a></span>
+<span id="cb65-3"><a href=""></a><span class="cf">if</span> weather <span class="op">==</span> <span class="st">"rain"</span>:</span>
+<span id="cb65-4"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Wear a raincoat!"</span>)</span>
+<span id="cb65-5"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb65-6"><a href=""></a>    <span class="bu">print</span>(<span class="st">"No raincoat needed."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>Wear a raincoat!</code></pre>
 </div>
 </section>
@@ -1118,31 +1164,45 @@ Copenhagen is the capital of Denmark</code></pre>
 <li>In Python, the words True and False are reserved for these Boolean values, and can’t be used for anything else.</li>
 </ul>
 <div style="font-size: 140%;">
-<div class="sourceCode" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href=""></a>temperature <span class="op">&gt;</span> <span class="dv">25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href=""></a>temperature <span class="op">&gt;</span> <span class="dv">25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>False</code></pre>
 </div>
 </section>
 <section class="slide level2">
 
-<h3 id="if-elif-and-else">if, elif and else</h3>
-<div style="font-size: 70%;">
-<ul>
-<li>We can link several conditions together using the “else if” -statement <code>elif.</code></li>
-<li>Python checks the <code>elif</code> and else statements only if previous conditions were False.</li>
-<li>You can have multiple <code>elif</code> statements to check for additional conditions.</li>
-</ul>
-</div>
-<div style="font-size: 120%;">
-<div class="sourceCode" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href=""></a>temperature <span class="op">=</span> <span class="op">-</span><span class="dv">3</span></span>
-<span id="cb65-2"><a href=""></a></span>
-<span id="cb65-3"><a href=""></a><span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb65-4"><a href=""></a>    <span class="bu">print</span>(temperature, <span class="st">"degrees celsius is above freezing"</span>)</span>
-<span id="cb65-5"><a href=""></a><span class="cf">elif</span> temperature <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb65-6"><a href=""></a>    <span class="bu">print</span>(temperature, <span class="st">"degrees celsius is at the freezing point"</span>)</span>
-<span id="cb65-7"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb65-8"><a href=""></a>    <span class="bu">print</span>(temperature, <span class="st">"degrees celsius is below freezing"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>-3 degrees celsius is below freezing</code></pre>
-</div>
+<!--
+### if, elif and else
+
+::: {style="font-size: 70%;"}
+* We can link several conditions together using the “else if” -statement `elif.` 
+* Python checks the `elif` and else statements only if previous conditions were False. 
+* You can have multiple `elif` statements to check for additional conditions.
+
+:::
+
+
+::: {style="font-size: 120%;"}
+
+```python
+temperature = -3
+
+if temperature > 0:
+    print(temperature, "degrees celsius is above freezing")
+elif temperature == 0:
+    print(temperature, "degrees celsius is at the freezing point")
+else:
+    print(temperature, "degrees celsius is below freezing")
+```
+
+```
+-3 degrees celsius is below freezing
+```
+:::
+
+
+
+---
+-->
 </section>
 <section id="combinations" class="slide level2">
 <h2>Combinations</h2>
@@ -1171,16 +1231,16 @@ Copenhagen is the capital of Denmark</code></pre>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href=""></a>weather <span class="op">=</span> <span class="st">"rain"</span></span>
-<span id="cb67-2"><a href=""></a>wind_speed <span class="op">=</span> <span class="dv">14</span></span>
-<span id="cb67-3"><a href=""></a>comfort_limit <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb67-4"><a href=""></a></span>
-<span id="cb67-5"><a href=""></a><span class="co"># If it is windy or raining, print "stay at home",</span></span>
-<span id="cb67-6"><a href=""></a><span class="co"># otherwise (else) print "go out and enjoy the weather!"</span></span>
-<span id="cb67-7"><a href=""></a><span class="cf">if</span> (weather <span class="op">==</span> <span class="st">"rain"</span>) <span class="kw">or</span> (wind_speed <span class="op">&gt;=</span> comfort_limit):</span>
-<span id="cb67-8"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Just stay at home"</span>)</span>
-<span id="cb67-9"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb67-10"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Go out and enjoy the weather! :)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href=""></a>weather <span class="op">=</span> <span class="st">"rain"</span></span>
+<span id="cb69-2"><a href=""></a>wind_speed <span class="op">=</span> <span class="dv">14</span></span>
+<span id="cb69-3"><a href=""></a>comfort_limit <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb69-4"><a href=""></a></span>
+<span id="cb69-5"><a href=""></a><span class="co"># If it is windy or raining, print "stay at home",</span></span>
+<span id="cb69-6"><a href=""></a><span class="co"># otherwise (else) print "go out and enjoy the weather!"</span></span>
+<span id="cb69-7"><a href=""></a><span class="cf">if</span> (weather <span class="op">==</span> <span class="st">"rain"</span>) <span class="kw">or</span> (wind_speed <span class="op">&gt;=</span> comfort_limit):</span>
+<span id="cb69-8"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Just stay at home"</span>)</span>
+<span id="cb69-9"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb69-10"><a href=""></a>    <span class="bu">print</span>(<span class="st">"Go out and enjoy the weather! :)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>Just stay at home</code></pre>
 </section>
 <section class="slide level2">
@@ -1190,19 +1250,19 @@ Copenhagen is the capital of Denmark</code></pre>
 <li>We can also combine for-loops and conditional statements.</li>
 <li>Let’s iterate over a list of temperatures, and check if the temperature is hot or not</li>
 </ul>
-<div class="sourceCode" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href=""></a>temperatures <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">17</span>, <span class="dv">28</span>, <span class="dv">30</span>]</span>
-<span id="cb69-2"><a href=""></a></span>
-<span id="cb69-3"><a href=""></a><span class="co"># For each temperature, if the temperature is greater than 25, print "..is hot"</span></span>
-<span id="cb69-4"><a href=""></a><span class="cf">for</span> temperature <span class="kw">in</span> temperatures:</span>
-<span id="cb69-5"><a href=""></a>    <span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
-<span id="cb69-6"><a href=""></a>        <span class="bu">print</span>(temperature, <span class="st">"is hot"</span>)</span>
-<span id="cb69-7"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb69-8"><a href=""></a>        <span class="bu">print</span>(temperature, <span class="st">"is not hot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href=""></a><span class="dv">0</span> <span class="kw">is</span> <span class="kw">not</span> hot</span>
-<span id="cb70-2"><a href=""></a><span class="dv">12</span> <span class="kw">is</span> <span class="kw">not</span> hot</span>
-<span id="cb70-3"><a href=""></a><span class="dv">17</span> <span class="kw">is</span> <span class="kw">not</span> hot</span>
-<span id="cb70-4"><a href=""></a><span class="dv">28</span> <span class="kw">is</span> hot</span>
-<span id="cb70-5"><a href=""></a><span class="dv">30</span> <span class="kw">is</span> hot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href=""></a>temperatures <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">17</span>, <span class="dv">28</span>, <span class="dv">30</span>]</span>
+<span id="cb71-2"><a href=""></a></span>
+<span id="cb71-3"><a href=""></a><span class="co"># For each temperature, if the temperature is greater than 25, print "..is hot"</span></span>
+<span id="cb71-4"><a href=""></a><span class="cf">for</span> temperature <span class="kw">in</span> temperatures:</span>
+<span id="cb71-5"><a href=""></a>    <span class="cf">if</span> temperature <span class="op">&gt;</span> <span class="dv">25</span>:</span>
+<span id="cb71-6"><a href=""></a>        <span class="bu">print</span>(temperature, <span class="st">"is hot"</span>)</span>
+<span id="cb71-7"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb71-8"><a href=""></a>        <span class="bu">print</span>(temperature, <span class="st">"is not hot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href=""></a><span class="dv">0</span> <span class="kw">is</span> <span class="kw">not</span> hot</span>
+<span id="cb72-2"><a href=""></a><span class="dv">12</span> <span class="kw">is</span> <span class="kw">not</span> hot</span>
+<span id="cb72-3"><a href=""></a><span class="dv">17</span> <span class="kw">is</span> <span class="kw">not</span> hot</span>
+<span id="cb72-4"><a href=""></a><span class="dv">28</span> <span class="kw">is</span> hot</span>
+<span id="cb72-5"><a href=""></a><span class="dv">30</span> <span class="kw">is</span> hot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="summary---what-have-we-learned" class="slide level2">
 <h2>Summary - What have we learned?</h2>
@@ -1225,11 +1285,16 @@ Copenhagen is the capital of Denmark</code></pre>
 <section id="next-week" class="slide level2">
 <h2>Next week</h2>
 <ul>
-<li>Show ways to install Python offline</li>
-<li>How to import data</li>
+<li>How to import spreadsheet data</li>
 <li>How to clean and use data</li>
 <li>How to play with GIS data</li>
 </ul>
+</section>
+<section id="thanks-q-a" class="slide level2" style="text-align: center;">
+<h2>Thanks! <br> Q &amp; A</h2>
+<div class="center-link" style="width:960px">
+<p><iframe allow="fullscreen" frameborder="0" height="480" src="https://giphy.com/embed/PwSkiR02N3960AC5c1/video" width="840"></iframe></p>
+</div>
 <div class="quarto-auto-generated-content">
 <p><img src="Figs/uoa-logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
