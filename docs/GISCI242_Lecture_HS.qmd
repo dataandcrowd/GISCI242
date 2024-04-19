@@ -922,7 +922,7 @@ for temperature in temperatures:
 ## Thanks! <br> Q & A{style="text-align: center;"}
 
 
-<div style="width:480px"><iframe allow="fullscreen" frameBorder="0" height="270" src="https://giphy.com/embed/PwSkiR02N3960AC5c1/video" width="480"></iframe></div>
+<div style="width:840px"><iframe allow="fullscreen" frameBorder="0" height="480" src="https://giphy.com/embed/PwSkiR02N3960AC5c1/video" width="840"></iframe></div>
 
 <!--
 <div class="center-link" style="width:960px">
