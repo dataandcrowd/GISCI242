@@ -65,9 +65,6 @@ knitr::include_graphics("Figs/iteration.png")
 ```
 
 
-## 진짜예시 
-haha
-
 :::
 
 
@@ -119,6 +116,9 @@ print("Python" > "R")
 3.1415926535897932385
 ```
 :::
+
+- Can't remember what you've written (unless you wrote it down somewhere)
+
 ::::
 
 
@@ -156,14 +156,17 @@ knitr::include_graphics("Figs/rank.png")
 
 ### 3. Python is approachable
 
-<iframe src="https://giphy.com/embed/NaboQwhxK3gMU" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/posts-karma-NaboQwhxK3gMU"></a></p>
-
 * Modern interpreted languages (Python) – Code is interpreted line-by-line via a programme
 * Translating high-level human readable code to machine readable code
 * Scripting
     - Only need snippets of code
     - Can perform jobs quickly
     - Ideal for GIS jobs
+
+<div style="position: fixed; bottom: 0; right: 0; z-index: 1000;">
+  <iframe src="https://giphy.com/embed/NaboQwhxK3gMU" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+</div>
+
 
 ---
 
@@ -172,6 +175,7 @@ knitr::include_graphics("Figs/rank.png")
 * Geographic Information Systems (GIS) software such as QGIS or ArcGIS now include a Python interpreter built in to the software
 * Can customise solutions for your specific data analysis needs
     
+![](Figs/qgis_python.webp){fig-align="center"}
 
 ---
 
@@ -184,14 +188,15 @@ FYI: We have plenty of Geocomputation courses in postgraduate courses!
 <br>
 R & Python both have specialties.
 <br>
-I am an R enthusiast
+FYI: **I am an R enthusiast**
 :::
 
 
-## Interactive show and do with Python
+## Interactive Lecture using Python
 
 What we will cover:
 
+* Basics
 * Variables
 * Loops and basic conditionals
 * Functions
@@ -201,8 +206,9 @@ What we will cover:
 
 ## How will we cover it?
 
+* Install Python on your machine
 * Jupyter lab / Notebook
-* <p><b><span style="color:blue;">Google Colab</span></b></p>
+* <p><b><span style="color:red;">Google Colab</span></b></p>
     - "Another" Free service provided by Google
     - Live code, text and graphics in one place
     - Compatible with multiple languages
@@ -220,8 +226,12 @@ What we will cover:
 &nbsp;  
 
 Make sure you are well set up with Google Colab using the URL below:
-<center>https://colab.research.google.com </center>
+<center><span style="color:blue;">https://colab.research.google.com</span></center>
 
+&nbsp;
+
+
+I will code here: https://tinyurl.com/gisci242
 
 
 ## Basic Programming Concepts 
@@ -240,12 +250,13 @@ We will cover:
 ::: {style="font-size: 250%;"}
 
 ```python 
-
 1 + 1
 
 5 * 7
 
 2**3
+
+10 % 2
 ```
 :::
 
@@ -322,13 +333,15 @@ NameError: name 'sqrt' is not defined
 ```
 
 &nbsp; 
-Python can’t calculate square roots or do basic trigonometry? Of course it can, but we need one more step.
+
+Python can’t calculate square roots or do basic stats? <br> Of course it can, but we need one more step.
 
 
 ---
 
 ### Solution
 
+::: {style="font-size: 150%;"}
 
 ```{python}
 #| echo: true
@@ -337,6 +350,10 @@ import math
 math.sin(3)
 math.sqrt(4)
 ```
+
+:::
+
+&nbsp;
 
 Well done! You have just managed to use a `math` module too!
 
@@ -348,21 +365,23 @@ Functions can also be combined.
 The `print()` function returns values within the parentheses as text on the screen. 
 Let’s print the value of the square root of four.
 
+
+::: {style="font-size: 150%;"}
+
 ```python
 print(math.sqrt(4))
 ```
 
-&nbsp;
-
 ```python
 print("The square root of 4 is", math.sqrt(4))
 ```
-
+:::
 
 
 ## Variables
 A <span style="color:blue;">**variable**</span> can be used to store values calculated in expressions and used for other calculations
 
+::: {style="font-size: 150%;"}
 
 ```{python}
 #| echo: true
@@ -371,6 +390,8 @@ temp_celsius = 10.0
 
 print(temp_celsius)
 ```
+
+:::
 
 ---
 
@@ -389,6 +410,8 @@ print(temp_celsius)
 
 ### Data types
 
+::: {style="font-size: 150%;"}
+
 ```{python}
 #| echo: true
 
@@ -397,7 +420,7 @@ type(weatherForecast)
 
 ```
 
-
+:::
 
 ## Lists and Indices
 
@@ -422,9 +445,11 @@ bottom = [30, 73, 100, 62]
 print(top[0])
 print(min(bottom))
 ```
+&nbsp;
 
 ```
 socks
+30
 ```
 :::
 
@@ -475,6 +500,9 @@ Python returns 'Ōrākei' instead of 'Britomart'. Can anybody guess why?
 
 ```{python}
 #| echo: true
+
+station_names[2]
+station_names[2:5]
 station_names[-1]
 station_names[-8]
 ```
@@ -483,6 +511,22 @@ station_names[-8]
 
 ### Modifying list values
 
+::: {style="font-size: 150%;"}
+
+```{python}
+#| echo: true
+station_names[-1] = 'Shopping Mall'
+station_names
+```
+
+:::
+
+---
+
+### Modifying list values
+
+::: {style="font-size: 150%;"}
+
 ```{python}
 #| echo: true
 station_names[-1] = 'Shopping Mall'
@@ -490,24 +534,39 @@ station_names
 
 station_names.reverse()
 station_names
+```
+:::
+
+---
+
+### Modifying list values
+
+::: {style="font-size: 150%;"}
+
+```{python}
+#| echo: true
 
 station_names.append("new station")
 print(station_names)
 ```
 
----
+:::
 
-### <span style="color:green;">Your Turn!</span>
+
+## <span style="color:green;">Your Turn!</span> {.smaller}
 1. Define `station_names` in your environment
 2. Add **Otahuhu, Middlemore, Papatoetoe, Puhinui, Manukau** as a list (you can Google "Auckland Eastern Line" and find the Wikipedia)
 3. Assign that in your environment as `more_eastern`
 4. This time, try `extend` to combine the two lists
 
+::: {style="font-size: 200%;"}
 
 ```python
 station_names = ["Britomart", "Ōrākei", "Meadowbank", "Purewa", 
   "Glen Innes", "Tamaki", "Panmure", "Sylvia Park"]
 ```
+
+:::
 
 ## Documentation
 * At this point, you might think, *Hang on, do I have to memorise everything?*
@@ -569,16 +628,26 @@ station_names[1]
 
 ### for loop: concept
 
+::: {style="font-size: 130%;"}
+
 ```python
 for variable in collection:
-        do things with variable
+....do things with variable
 ```
-Let’s break down the code above to see some essential aspect of for loops:
+:::
+
+&nbsp;
+
+::: {style="font-size: 70%;"}
+Let’s break down the code above to see some essential aspect of `for` loops:
 
 * The `variable` can be any name you like.
-* The statement of the `for` loop must end with a :
-* The code that should be executed as part of the loop must be indented beneath the `for` loop statement. The typical indentation is 4 spaces.
+* The statement of the `for` loop must end with a colon (:)
+* The code that should be executed as part of the loop must be indented beneath the `for` loop statement. 
+* The typical indentation is **4 spaces**.
 * There is no additional special word needed to end the loop, you simply change the indentation back to normal.
+
+:::
 
 In summary, `for` loops are useful to repeat some part of the code a finite number of times.
 
@@ -603,39 +672,46 @@ for day in my_life:
 
 ### for loop: an example
 
+::: {style="font-size: 150%;"}
+
 ```{python}
 #| echo: true
 
 for name in station_names:
     print(name)
 ```
+:::
 
 ---
 
 ### Different example
-
+::: {style="font-size: 110%;"}
 ```python
 european_cities = ["Amsterdam", "Brussels", "London", "Rome"]
 
 for city in european_cities:
     print(city)
 ```
+:::
 
 ---
 
 ### Examples using `range`
 
+::: {style="font-size: 150%;"}
 ```{python}
 #| echo: true
 
 for value in range(5):
     print(value)
 ```
+:::
 
 ---
 
 ### Examples using `range`
 
+::: {style="font-size: 150%;"}
 ```{python}
 #| echo: true
 
@@ -645,12 +721,13 @@ group2 = [0, 1, 2]
 for i in range(2):
     print(group1[i], group2[i])
 ```
+:::
 
 ---
 
-### Your Turn!
+## Your Turn!
 
-::: {style="font-size: 200%;"}
+::: {style="font-size: 105%;"}
 
 ```python
 cities = ["Helsinki", "Stockholm", "Oslo", "Reykjavik", "Copenhagen"]
@@ -667,15 +744,17 @@ countries = ["Finland", "Sweden", "Norway", "Iceland", "Denmark"]
 ---
 
 ### Examples using two lists - Answers
+::: {style="font-size: 120%;"}
 
 ```python
-
 for i in range(5):
     print(cities[i], "is the capital of", countries[i])
     
 for i in range(len(cities)):
     print(cities[i], "is the capital of", countries[i])
 ```
+:::
+
 
 &nbsp; 
 
@@ -808,7 +887,7 @@ False
 ```
 :::
 
----
+
 
 <!--
 ### if, elif and else
@@ -853,6 +932,12 @@ else:
 | or      | a or b  | True if either a or b is True |
 
 
+---
+
+### Combination Example
+
+::: {style="font-size: 120%;"}
+
 ```python
 weather = "rain"
 wind_speed = 14
@@ -870,12 +955,16 @@ else:
 Just stay at home
 ```
 
+:::
+
 ---
 
 ### Combining for-loops and conditional statements
+
+::: {style="font-size: 80%;"}
 * We can also combine for-loops and conditional statements. 
 * Let’s iterate over a list of temperatures, and check if the temperature is hot or not
-
+:::
 
 ```python
 temperatures = [0, 12, 17, 28, 30]
@@ -897,7 +986,9 @@ for temperature in temperatures:
 ```
 
 
-## Summary - What have we learned?
+## Summary - What have we learned? 
+
+::: {style="font-size: 85%;"}
 
 ::: {.incremental}
 * Programming is not too difficult than you think. They are easy to understand and share (and fun!)
@@ -911,7 +1002,7 @@ for temperature in temperatures:
    - Combos of the above
 
 :::
-
+:::
 
 ## Next week
 * How to import spreadsheet data
