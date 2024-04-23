@@ -1,0 +1,135 @@
+---
+title: "Gentle Introduction to Programming Part 2"
+subtitle: ": GIS with Geopandas"
+date: 04/22/2024
+date-format: long
+author:
+  - name: Hyesop Shin
+    orcid: 0000-0003-2637-7933
+    email: hyesop.shin@auckland.ac.nz
+    affiliations:
+      - name: University of Auckland
+        address: 23 Symonds Street
+        city: Auckland
+        postal-code: 1010
+format: 
+  revealjs:
+      logo: Figs/uoa-logo.png
+      css: logo.css
+      slide-number: true
+      show-slide-number: print
+#format: html
+editor: source
+include-in-header:
+  - text: |
+      <style type="text/css">
+      ul li ul li {
+        font-size: 0.7em;
+      }
+      </style>
+---
+
+## Recap of Previous Lecture 
+* Maths
+* How to assign variables, lists
+* For loops
+* Conditional statements
+* How to call packages using `import` (tidy bit)
+
+::: {.notes}
+* Take 10 mins
+
+:::
+
+---
+
+
+### Maths
+:::{layout-ncol="2"}
+
+```python
+print(10)
+```
+
+```python
+print(10)
+```
+:::
+
+---
+
+### Variables & Lists
+:::{layout-ncol="2"}
+
+```python
+print(10)
+```
+
+```python
+print(10)
+```
+
+:::
+
+---
+
+### For loops
+:::{layout-ncol="2"}
+
+```python
+print(10)
+```
+
+```python
+print(10)
+```
+:::
+---
+
+### Conditional statements
+
+:::{layout-ncol="2"}
+
+```python
+print(10)
+```
+
+```python
+print(10)
+```
+:::
+
+
+---
+
+## What will we cover?
+* How to import spreadsheet data
+* How to clean and explore data
+* Data Visualisation
+* How to play with GIS data
+
+::: {.notes}
+
+
+:::
+
+## 
+
+
+
+
+
+
+
+
+
+## Thanks! <br> Q & A{style="text-align: center;"}
+
+
+<div style="width:840px"><iframe allow="fullscreen" frameBorder="0" height="480" src="https://giphy.com/embed/PwSkiR02N3960AC5c1/video" width="840"></iframe></div>
+
+<!--
+<div class="center-link" style="width:960px">
+  <iframe allow="fullscreen" frameBorder="0" height="480" src="https://giphy.com/embed/PwSkiR02N3960AC5c1/video" width="840"></iframe>
+</div>
+-->
