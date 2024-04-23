@@ -18,7 +18,6 @@ format:
       css: logo.css
       slide-number: true
       show-slide-number: print
-#format: html
 editor: source
 include-in-header:
   - text: |
@@ -29,107 +28,59 @@ include-in-header:
       </style>
 ---
 
-## Recap of Previous Lecture 
-* Maths
-* How to assign variables, lists
-* For loops
-* Conditional statements
-* How to call packages using `import` (tidy bit)
+## What will we cover today?
 
-::: {.notes}
-* Take 10 mins
+-   How to import spreadsheet data
+-   How to clean and explore data
+-   Data Visualisation
+-   How to play with GIS data
 
+::: notes
 :::
 
----
+## Recap of Previous Lecture
+
+-   Maths
+-   How to assign variables, lists
+-   For loops
+-   Conditional statements
+-   How to call packages using `import` (tidy bit)
 
 
-### Maths
-:::{layout-ncol="2"}
-
-```python
-print(10)
-```
-
-```python
-print(10)
-```
-:::
-
----
-
-### Variables & Lists
-:::{layout-ncol="2"}
-
-```python
-print(10)
-```
-
-```python
-print(10)
-```
-
-:::
-
----
-
-### For loops
-:::{layout-ncol="2"}
-
-```python
-print(10)
-```
-
-```python
-print(10)
-```
-:::
----
-
-### Conditional statements
-
-:::{layout-ncol="2"}
-
-```python
-print(10)
-```
-
-```python
-print(10)
-```
-:::
-
-
----
-
-## What will we cover?
-* How to import spreadsheet data
-* How to clean and explore data
-* Data Visualisation
-* How to play with GIS data
-
-::: {.notes}
-
-
-:::
-
-## 
+## Getting started with Pandas
 
 
 
 
+## Getting Started with GeoPandas
+* Objective: Familiarize students with GeoPandas and its uses in spatial data analysis.
+* Topics Covered:
+* Installation of GeoPandas.
+* Basic data structures in GeoPandas: GeoSeries and GeoDataFrame.
+* Reading and writing spatial data.
+
+## Working with Geospatial Data
+Objective: Teach how to manipulate and process geospatial data using GeoPandas.
+Topics Covered:
+Loading spatial data from different formats (Shapefile, GeoJSON, etc.).
+Basic data manipulation (selecting, filtering, and sorting data).
+Coordinate reference systems: understanding and transforming.
+
+## Spatial Analysis Basics
+Objective: Introduce basic spatial analysis techniques.
+Topics Covered:
+Spatial joins and merging data.
+Calculating distances and nearest neighbor analysis.
+Basic spatial queries and operations (buffer, intersect, union).
+
+## Visualisation with GeoPandas
+Objective: Teach students how to visualise spatial data effectively.
+Topics Covered:
+Plotting with GeoPandas.
+Customizing plots (color, size, legend, etc.).
+Integrating with other libraries like Matplotlib and Plotly for enhanced visualizations.
 
 
 
 
-
-## Thanks! <br> Q & A{style="text-align: center;"}
-
-
-<div style="width:840px"><iframe allow="fullscreen" frameBorder="0" height="480" src="https://giphy.com/embed/PwSkiR02N3960AC5c1/video" width="840"></iframe></div>
-
-<!--
-<div class="center-link" style="width:960px">
-  <iframe allow="fullscreen" frameBorder="0" height="480" src="https://giphy.com/embed/PwSkiR02N3960AC5c1/video" width="840"></iframe>
-</div>
--->
+## <br> Thanks! <br> Q & A {style="text-align: center;"}
