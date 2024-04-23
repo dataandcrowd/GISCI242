@@ -184,6 +184,18 @@ knitr::include_graphics("Figs/rank.png")
 
 ---
 
+### 5. Python is linked to our GISCI courses & future jobs
+
+* ENVSCI 203 Modelling Environmental Systems
+* GISCI 341 Advanced Remote Sensing
+* GISCI 343 GIScience Programming and Development
+* Honours and Postgraduate courses
+
+Industry & Academia & Public Sector...
+
+
+---
+
 ### The War of Coding
 
 ![](Figs/R_Python.jpeg)
