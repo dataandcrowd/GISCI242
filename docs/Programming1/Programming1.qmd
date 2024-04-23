@@ -182,7 +182,9 @@ knitr::include_graphics("Figs/rank.png")
     
 ![](Figs/qgis_python.webp){fig-align="center"}
 
+
 ---
+
 
 ### 5. Python is linked to our GISCI courses & future jobs
 
@@ -192,7 +194,6 @@ knitr::include_graphics("Figs/rank.png")
 * Honours and Postgraduate courses
 
 Industry & Academia & Public Sector...
-
 
 ---
 
