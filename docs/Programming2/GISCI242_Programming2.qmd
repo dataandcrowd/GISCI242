@@ -28,15 +28,12 @@ include-in-header:
       </style>
 ---
 
-## What will we cover today?
+## Make sure you download some examples for today's class
+* countries of the world (csv, txt)
+* ice cream ratings
+* flavours
+* customer call list
 
--   How to import spreadsheet data
--   How to clean and explore data
--   Data Visualisation
--   How to play with GIS data
-
-::: notes
-:::
 
 ## Recap of Previous Lecture
 
@@ -46,18 +43,136 @@ include-in-header:
 -   Conditional statements
 -   How to call packages using `import` (tidy bit)
 
+## What will we cover today?
+
+-   How to import spreadsheet data with `pandas`
+-   How to clean and explore data
+-   Data Visualisation
+-   How to play with GIS data with `geopandas`
+
+::: notes
+:::
 
 ## Getting started with Pandas
+* Reading in files
+* Filtering columns and rows
+* `Group by` and `Aggregation`
+* Merging dataframes
+* Visulisation
+
+
+## Reading in Files
+
+![](https://pandas.pydata.org/docs/_images/02_io_readwrite.svg)
+
+::: {style="font-size: 100%;"}
+```python 
+import pandas as pd
+```
+:::
+
+<br>
+
+* Disclaimer: 
+    - loading files in your machine is different to how you would uploaded in on **Google Colab**.
+    - Visit the <span style="color:blue;">Live Coding Tab</span> for examples
+
+---
+
+### Reading in different file types
+* `.csv`
+* `.txt`
+* `.xlsx`
+* `.json`
+* ...
+
+---
+
+### Understanding the data structure
+* The head/tail/info methods and the dtypes attribute are convenient for a first check.
+
+
+```python
+df.info() ## technical summary (e.g. dataframe, rows/columnns and their names)
+df.dtype. ## generic summary
+```
+
+<br>
+
+```python
+df.head()
+df.tail()
+```
+
+
+## Subsetting the data frame
+
+---
+
+### Subsetting the data frame: Rows
+
+![](https://pandas.pydata.org/docs/_images/03_subset_rows.svg)
+
+* Subset population over 50 million
+* Subset Population over 50 million + Continent
+* Subset continents either Europe or South America
+* Remove NA / NaN values
+
+::: {style="font-size: 50%;"}
+When combining multiple conditional statements, each condition must be surrounded by parentheses `()`. Moreover, you can not use `or`/`and` but need to use the or operator `|` and the and operator `&`.
+:::
+
+
+---
+
+### Subsetting the data frame: Columns
+
+![](https://pandas.pydata.org/docs/_images/03_subset_columns.svg)
+
+---
+
+### Subsetting the dataframe by locations
+
+I’m interested in rows 10 till 25 and columns 3 to 5.
+
+```python
+titanic.iloc[9:25, 2:5]
+```
+
+---
+
+## Quick Summary
+REMEMBER
+* When selecting subsets of data, square brackets `[]` are used.
+* Inside these brackets, you can use a single column/row label, a list of column/row labels, a slice of labels, a conditional expression or a colon.
+* Select specific rows and/or columns using `loc` when using the row and column names.
+* Select specific rows and/or columns using `iloc` when using the positions in the table.
+* You can assign new values to a selection based on `loc`/`iloc.`
+
+
+## Create New columns from the existing df
 
 
 
+
+## Grouping and Aggregation
+
+
+
+## Merge df's
+
+
+
+
+
+---------------------------------------------------------------------------------
 
 ## Getting Started with GeoPandas
 * Objective: Familiarize students with GeoPandas and its uses in spatial data analysis.
 * Topics Covered:
-* Installation of GeoPandas.
-* Basic data structures in GeoPandas: GeoSeries and GeoDataFrame.
-* Reading and writing spatial data.
+    * ~~Installation of GeoPandas~~.
+    * ~~Basic data structures in GeoPandas~~.
+    * Reading and writing spatial data.
 
 ## Working with Geospatial Data
 Objective: Teach how to manipulate and process geospatial data using GeoPandas.
