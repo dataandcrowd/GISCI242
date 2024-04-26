@@ -152,10 +152,30 @@ REMEMBER
 
 ## Create New columns from the existing df
 
+![](https://pandas.pydata.org/docs/_images/05_newcolumn_1.svg)
 
 
+```python
+# import module 
+import pandas as pd 
+  
+# Creating our dataset 
+df = pd.DataFrame([[9, 4, 8, 9], 
+                   [8, 10, 7, 6], 
+                   [7, 6, 8, 5]], 
+                  columns=['Maths',  'English', 'Science', 'History']) 
+# display dataset 
+print(df) 
+```
+
+```python
+df.describe()
+```
 
 ## Grouping and Aggregation
+
+https://www.geeksforgeeks.org/grouping-and-aggregating-with-pandas/
+
 
 
 
@@ -175,25 +195,10 @@ REMEMBER
     * Reading and writing spatial data.
 
 ## Working with Geospatial Data
-Objective: Teach how to manipulate and process geospatial data using GeoPandas.
-Topics Covered:
-Loading spatial data from different formats (Shapefile, GeoJSON, etc.).
-Basic data manipulation (selecting, filtering, and sorting data).
-Coordinate reference systems: understanding and transforming.
+* Objective: Teach how to manipulate and process geospatial data using GeoPandas.
 
-## Spatial Analysis Basics
-Objective: Introduce basic spatial analysis techniques.
-Topics Covered:
-Spatial joins and merging data.
-Calculating distances and nearest neighbor analysis.
-Basic spatial queries and operations (buffer, intersect, union).
+https://geobgu.xyz/presentations/p_2023_ogh/01-vector.html
 
-## Visualisation with GeoPandas
-Objective: Teach students how to visualise spatial data effectively.
-Topics Covered:
-Plotting with GeoPandas.
-Customizing plots (color, size, legend, etc.).
-Integrating with other libraries like Matplotlib and Plotly for enhanced visualizations.
 
 
 
