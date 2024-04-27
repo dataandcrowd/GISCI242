@@ -61,6 +61,19 @@ include-in-header:
 * Visulisation
 
 
+
+## What is a dataframe
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/finallpandas.png)
+
+::: {style="font-size: 50%;"}
+source: geeksforgeeks.org
+:::
+
+* Tabular array 
+* Might be a stack of lists (recap of last lecture) 
+
+
 ## Reading in Files
 
 ![](https://pandas.pydata.org/docs/_images/02_io_readwrite.svg)
@@ -68,10 +81,11 @@ include-in-header:
 ::: {style="font-size: 100%;"}
 ```python 
 import pandas as pd
+
+df = pd.read_csv('file_name')
 ```
 :::
 
-<br>
 
 * Disclaimer: 
     - loading files in your machine is different to how you would uploaded in on **Google Colab**.
@@ -79,25 +93,54 @@ import pandas as pd
 
 ---
 
-### Reading in different file types
+### Example
+
+```{python}
+#| echo: true
+
+import pandas as pd
+ 
+# intialise data of lists.
+data = {'Name':['Tom', 'nick', 'krish', 'jack'],
+        'Age':[20, 21, 19, 18]}
+ 
+# Create DataFrame
+df = pd.DataFrame(data)
+ 
+# Print the output.
+print(df)
+```
+
+---
+
+### Import/Export different file types
 * `.csv`
 * `.txt`
 * `.xlsx`
 * `.json`
 * ...
 
+```python
+df = read_csv('file')
+df.to_csv(file_name, sep='\t', encoding='utf-8')
+df.to_excel("output.xlsx") 
+```
+
 ---
 
 ### Understanding the data structure
-* The head/tail/info methods and the dtypes attribute are convenient for a first check.
+* The info methods and the dtypes attribute are convenient for a first check.
 
 
 ```python
 df.info() ## technical summary (e.g. dataframe, rows/columnns and their names)
-df.dtype. ## generic summary
+df.dtypes ## generic summary
 ```
 
 <br>
+
+* `head`/`tail` to check how the dataframe actually looks like
+
 
 ```python
 df.head()
@@ -107,12 +150,44 @@ df.tail()
 
 ## Subsetting the data frame
 
+* When selecting subsets of data, square brackets `[]` are used.
+* Inside these brackets, you can use a single column/row label, a list of column/row labels, a slice of labels, a conditional expression or a colon.
+* Select specific rows and/or columns using `loc` when using the row and column names.
+* Select specific rows and/or columns using `iloc` when using the positions in the table.
+* You can assign new values to a selection based on `loc`/`iloc.`
+
+---
+
+### Subsetting the data frame: Columns
+
+![](https://pandas.pydata.org/docs/_images/03_subset_columns.svg)
+
+* Selecting a single column
+* Selecting multiple columns
+
+```python
+df["Continent"]
+df[["Continent", "Year"]]
+
+df.iloc[:, 3]
+```
+
 ---
 
 ### Subsetting the data frame: Rows
 
 ![](https://pandas.pydata.org/docs/_images/03_subset_rows.svg)
 
+```python
+df[df["Population(million)"] > 100]
+df[df["Continent"] == "Asia"]
+
+ov10m_asia = df[(df["Population(million)"] > 100) & (df["Continent"] == "Asia") ]
+
+```
+
+
+<!--
 * Subset population over 50 million
 * Subset Population over 50 million + Continent
 * Subset continents either Europe or South America
@@ -121,15 +196,12 @@ df.tail()
 ::: {style="font-size: 50%;"}
 When combining multiple conditional statements, each condition must be surrounded by parentheses `()`. Moreover, you can not use `or`/`and` but need to use the or operator `|` and the and operator `&`.
 :::
+-->
 
 
 ---
 
-### Subsetting the data frame: Columns
 
-![](https://pandas.pydata.org/docs/_images/03_subset_columns.svg)
-
----
 
 ### Subsetting the dataframe by locations
 
@@ -139,15 +211,6 @@ I’m interested in rows 10 till 25 and columns 3 to 5.
 titanic.iloc[9:25, 2:5]
 ```
 
----
-
-## Quick Summary
-REMEMBER
-* When selecting subsets of data, square brackets `[]` are used.
-* Inside these brackets, you can use a single column/row label, a list of column/row labels, a slice of labels, a conditional expression or a colon.
-* Select specific rows and/or columns using `loc` when using the row and column names.
-* Select specific rows and/or columns using `iloc` when using the positions in the table.
-* You can assign new values to a selection based on `loc`/`iloc.`
 
 
 ## Create New columns from the existing df
@@ -156,49 +219,123 @@ REMEMBER
 
 
 ```python
-# import module 
-import pandas as pd 
-  
-# Creating our dataset 
-df = pd.DataFrame([[9, 4, 8, 9], 
-                   [8, 10, 7, 6], 
-                   [7, 6, 8, 5]], 
-                  columns=['Maths',  'English', 'Science', 'History']) 
-# display dataset 
-print(df) 
+import pandas as pd
+
+# Creating the dataset with student names
+df1 = pd.DataFrame({
+    'Student': ['Alice', 'Bob', 'Charlie'],
+    'Maths': [9, 8, 7],
+    'English': [4, 10, 6],
+    'Science': [8, 7, 8],
+    'History': [9, 6, 5]
+})
 ```
+
+---
+
+::: {style="font-size: 130%;"}
 
 ```python
-df.describe()
+# Calculating the total score for each student and adding it as a new column 'Total'
+df1['Total'] = df1[['Maths', 'English', 
+                    'Science', 'History']].sum(axis=1)
+# Display the updated dataset
+print(df1)
 ```
 
-## Grouping and Aggregation
+```
+   Student  Maths  English  Science  History  Total
+0    Alice      9        4        8        9     30
+1      Bob      8       10        7        6     31
+2  Charlie      7        6        8        5     26
+```
 
-https://www.geeksforgeeks.org/grouping-and-aggregating-with-pandas/
+:::
 
 
+## <br> Grouping and Aggregation
 
+---
+
+### Grouping (in `Pandas`)
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiUr0NSceFvB3vYV39lO01DRDld0HGEONzBiPZZCGUUQ&s){width=100%}
+
+::: {style="font-size: 50%;"}
+Source: Soner Yıldırım [Towards Data Science](https://towardsdatascience.com/all-about-pandas-groupby-explained-with-25-examples-494e04a8ef56)
+:::
+:::
+
+::: {.column width="15%"}
+
+:::
+
+::: {.column width="45%"}
+::: {style="font-size: 80%;"}
+
+Grouping is used to group data using some criteria from our dataset. It is used as split-apply-combine strategy.
+
+* *Splitting* the data into groups based on some criteria e.g. Brand
+* *Applying* a function to each group independently e.g. Mean
+* *Combining* the results into a data structure e,g, Price
+
+:::
+:::
+::::
 
 ## Merge df's
+* Concatenate DataFrames along row and column.
+* Merge DataFrames on specific keys by different join logics like `left join`, `inner join`, etc.
+* Join DataFrames by index.
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/joinimages.png){fig-align=center}
 
 
+## <br> Break Time
 
 
+## Geospatial data and GeoPandas
 
----------------------------------------------------------------------------------
+![](https://miro.medium.com/v2/resize:fit:1238/1*x9gF-ZVR4JMAv3cTH6LtfA.png){fig-align=center}
 
-## Getting Started with GeoPandas
-* Objective: Familiarize students with GeoPandas and its uses in spatial data analysis.
-* Topics Covered:
-    * ~~Installation of GeoPandas~~.
-    * ~~Basic data structures in GeoPandas~~.
-    * Reading and writing spatial data.
+* Geospatial data are data with location information
+* The geometry variable indicates where the *data* is located
 
-## Working with Geospatial Data
-* Objective: Teach how to manipulate and process geospatial data using GeoPandas.
+* New Zealand population using code
 
-https://geobgu.xyz/presentations/p_2023_ogh/01-vector.html
+![](https://newzealandmap360.com/img/1200/new%20zealand-population-density-map.jpg){fig-align=center width=120%}
 
+---
+
+## How we record the real world
+:::: {.columns}
+
+::: {.column width="60%"}
+![](Figs/howwemap.png){fig-align=center width=120%}
+:::
+
+::: {.column width="40%"}
+::: {style="font-size: 80%;"}
+- Point (2, 10)
+- LineString ([(1,2), (1,5)...])
+- Polygons ([(13,2), (15,4)...])
+- Pixels
+:::
+:::
+
+::::
+
+## Vector attribute data
+* Vector features have attributes that look like a table
+* Watch out for the projections
+
+![](Figs/attribute.png){fig-align=center width=70%}
+
+## Let's Practice!
 
 
 

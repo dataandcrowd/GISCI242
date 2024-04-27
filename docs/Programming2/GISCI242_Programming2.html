@@ -8,7 +8,7 @@
 <link href="GISCI242_Programming2_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="GISCI242_Programming2_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="GISCI242_Programming2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content="Hyesop Shin">
   <meta name="dcterms.date" content="2024-04-22">
@@ -32,7 +32,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -223,7 +223,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -467,13 +468,25 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <li>Visulisation</li>
 </ul>
 </section>
+<section id="what-is-a-dataframe" class="slide level2">
+<h2>What is a dataframe</h2>
+
+<img data-src="https://media.geeksforgeeks.org/wp-content/uploads/finallpandas.png" class="r-stretch"><div style="font-size: 50%;">
+<p>source: geeksforgeeks.org</p>
+</div>
+<ul>
+<li>Tabular array</li>
+<li>Might be a stack of lists (recap of last lecture)</li>
+</ul>
+</section>
 <section id="reading-in-files" class="slide level2">
 <h2>Reading in Files</h2>
 
 <img data-src="https://pandas.pydata.org/docs/_images/02_io_readwrite.svg" class="r-stretch"><div style="font-size: 100%;">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href=""></a></span>
+<span id="cb1-3"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">'file_name'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 <ul>
 <li>Disclaimer:
 <ul>
@@ -484,7 +497,31 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 </section>
 <section class="slide level2">
 
-<h3 id="reading-in-different-file-types">Reading in different file types</h3>
+<h3 id="example">Example</h3>
+<div id="b7fd93dc" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href=""></a> </span>
+<span id="cb2-3"><a href=""></a><span class="co"># intialise data of lists.</span></span>
+<span id="cb2-4"><a href=""></a>data <span class="op">=</span> {<span class="st">'Name'</span>:[<span class="st">'Tom'</span>, <span class="st">'nick'</span>, <span class="st">'krish'</span>, <span class="st">'jack'</span>],</span>
+<span id="cb2-5"><a href=""></a>        <span class="st">'Age'</span>:[<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">19</span>, <span class="dv">18</span>]}</span>
+<span id="cb2-6"><a href=""></a> </span>
+<span id="cb2-7"><a href=""></a><span class="co"># Create DataFrame</span></span>
+<span id="cb2-8"><a href=""></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb2-9"><a href=""></a> </span>
+<span id="cb2-10"><a href=""></a><span class="co"># Print the output.</span></span>
+<span id="cb2-11"><a href=""></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Name  Age
+0    Tom   20
+1   nick   21
+2  krish   19
+3   jack   18</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="importexport-different-file-types">Import/Export different file types</h3>
 <ul>
 <li><code>.csv</code></li>
 <li><code>.txt</code></li>
@@ -492,109 +529,192 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <li><code>.json</code></li>
 <li>…</li>
 </ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>df <span class="op">=</span> read_csv(<span class="st">'file'</span>)</span>
+<span id="cb4-2"><a href=""></a>df.to_csv(file_name, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>)</span>
+<span id="cb4-3"><a href=""></a>df.to_excel(<span class="st">"output.xlsx"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
 <h3 id="understanding-the-data-structure">Understanding the data structure</h3>
 <ul>
-<li>The head/tail/info methods and the dtypes attribute are convenient for a first check.</li>
+<li>The info methods and the dtypes attribute are convenient for a first check.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df.info() <span class="co">## technical summary (e.g. dataframe, rows/columnns and their names)</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>df.dtype. <span class="co">## generic summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>df.info() <span class="co">## technical summary (e.g. dataframe, rows/columnns and their names)</span></span>
+<span id="cb5-2"><a href=""></a>df.dtypes <span class="co">## generic summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>df.head()</span>
-<span id="cb3-2"><a href="#cb3-2"></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>head</code>/<code>tail</code> to check how the dataframe actually looks like</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>df.head()</span>
+<span id="cb6-2"><a href=""></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="subsetting-the-data-frame" class="slide level2">
 <h2>Subsetting the data frame</h2>
-</section>
-<section class="slide level2">
-
-<h3 id="subsetting-the-data-frame-rows">Subsetting the data frame: Rows</h3>
-
-<img data-src="https://pandas.pydata.org/docs/_images/03_subset_rows.svg" class="r-stretch"><ul>
-<li>Subset population over 50 million</li>
-<li>Subset Population over 50 million + Continent</li>
-<li>Subset continents either Europe or South America</li>
-<li>Remove NA / NaN values</li>
+<ul>
+<li>When selecting subsets of data, square brackets <code>[]</code> are used.</li>
+<li>Inside these brackets, you can use a single column/row label, a list of column/row labels, a slice of labels, a conditional expression or a colon.</li>
+<li>Select specific rows and/or columns using <code>loc</code> when using the row and column names.</li>
+<li>Select specific rows and/or columns using <code>iloc</code> when using the positions in the table.</li>
+<li>You can assign new values to a selection based on <code>loc</code>/<code>iloc.</code></li>
 </ul>
-<div style="font-size: 50%;">
-<p>When combining multiple conditional statements, each condition must be surrounded by parentheses <code>()</code>. Moreover, you can not use <code>or</code>/<code>and</code> but need to use the or operator <code>|</code> and the and operator <code>&amp;</code>.</p>
-</div>
 </section>
 <section class="slide level2">
 
 <h3 id="subsetting-the-data-frame-columns">Subsetting the data frame: Columns</h3>
 
-<img data-src="https://pandas.pydata.org/docs/_images/03_subset_columns.svg" class="r-stretch"></section>
+<img data-src="https://pandas.pydata.org/docs/_images/03_subset_columns.svg" class="r-stretch"><ul>
+<li>Selecting a single column</li>
+<li>Selecting multiple columns</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>df[<span class="st">"Continent"</span>]</span>
+<span id="cb7-2"><a href=""></a>df[[<span class="st">"Continent"</span>, <span class="st">"Year"</span>]]</span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a>df.iloc[:, <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="subsetting-the-data-frame-rows">Subsetting the data frame: Rows</h3>
+
+<img data-src="https://pandas.pydata.org/docs/_images/03_subset_rows.svg" class="r-stretch"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>df[df[<span class="st">"Population(million)"</span>] <span class="op">&gt;</span> <span class="dv">100</span>]</span>
+<span id="cb8-2"><a href=""></a>df[df[<span class="st">"Continent"</span>] <span class="op">==</span> <span class="st">"Asia"</span>]</span>
+<span id="cb8-3"><a href=""></a></span>
+<span id="cb8-4"><a href=""></a>ov10m_asia <span class="op">=</span> df[(df[<span class="st">"Population(million)"</span>] <span class="op">&gt;</span> <span class="dv">100</span>) <span class="op">&amp;</span> (df[<span class="st">"Continent"</span>] <span class="op">==</span> <span class="st">"Asia"</span>) ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!--
+* Subset population over 50 million
+* Subset Population over 50 million + Continent
+* Subset continents either Europe or South America
+* Remove NA / NaN values
+
+::: {style="font-size: 50%;"}
+When combining multiple conditional statements, each condition must be surrounded by parentheses `()`. Moreover, you can not use `or`/`and` but need to use the or operator `|` and the and operator `&`.
+:::
+-->
+</section>
 <section class="slide level2">
 
 <h3 id="subsetting-the-dataframe-by-locations">Subsetting the dataframe by locations</h3>
 <p>I’m interested in rows 10 till 25 and columns 3 to 5.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>titanic.iloc[<span class="dv">9</span>:<span class="dv">25</span>, <span class="dv">2</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="quick-summary" class="slide level2">
-<h2>Quick Summary</h2>
-<p>REMEMBER * When selecting subsets of data, square brackets <code>[]</code> are used. * Inside these brackets, you can use a single column/row label, a list of column/row labels, a slice of labels, a conditional expression or a colon. * Select specific rows and/or columns using <code>loc</code> when using the row and column names. * Select specific rows and/or columns using <code>iloc</code> when using the positions in the table. * You can assign new values to a selection based on <code>loc</code>/<code>iloc.</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>titanic.iloc[<span class="dv">9</span>:<span class="dv">25</span>, <span class="dv">2</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="create-new-columns-from-the-existing-df" class="slide level2">
 <h2>Create New columns from the existing df</h2>
 
-<img data-src="https://pandas.pydata.org/docs/_images/05_newcolumn_1.svg" class="r-stretch"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># import module </span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
-<span id="cb5-3"><a href="#cb5-3"></a>  </span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># Creating our dataset </span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>df <span class="op">=</span> pd.DataFrame([[<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">9</span>], </span>
-<span id="cb5-6"><a href="#cb5-6"></a>                   [<span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">6</span>], </span>
-<span id="cb5-7"><a href="#cb5-7"></a>                   [<span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">5</span>]], </span>
-<span id="cb5-8"><a href="#cb5-8"></a>                  columns<span class="op">=</span>[<span class="st">'Maths'</span>,  <span class="st">'English'</span>, <span class="st">'Science'</span>, <span class="st">'History'</span>]) </span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="co"># display dataset </span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="bu">print</span>(df) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img data-src="https://pandas.pydata.org/docs/_images/05_newcolumn_1.svg" class="r-stretch"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-2"><a href=""></a></span>
+<span id="cb10-3"><a href=""></a><span class="co"># Creating the dataset with student names</span></span>
+<span id="cb10-4"><a href=""></a>df1 <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb10-5"><a href=""></a>    <span class="st">'Student'</span>: [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>, <span class="st">'Charlie'</span>],</span>
+<span id="cb10-6"><a href=""></a>    <span class="st">'Maths'</span>: [<span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>],</span>
+<span id="cb10-7"><a href=""></a>    <span class="st">'English'</span>: [<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">6</span>],</span>
+<span id="cb10-8"><a href=""></a>    <span class="st">'Science'</span>: [<span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">8</span>],</span>
+<span id="cb10-9"><a href=""></a>    <span class="st">'History'</span>: [<span class="dv">9</span>, <span class="dv">6</span>, <span class="dv">5</span>]</span>
+<span id="cb10-10"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
+<div style="font-size: 130%;">
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="co"># Calculating the total score for each student and adding it as a new column 'Total'</span></span>
+<span id="cb11-2"><a href=""></a>df1[<span class="st">'Total'</span>] <span class="op">=</span> df1[[<span class="st">'Maths'</span>, <span class="st">'English'</span>, </span>
+<span id="cb11-3"><a href=""></a>                    <span class="st">'Science'</span>, <span class="st">'History'</span>]].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb11-4"><a href=""></a><span class="co"># Display the updated dataset</span></span>
+<span id="cb11-5"><a href=""></a><span class="bu">print</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>   Student  Maths  English  Science  History  Total
+0    Alice      9        4        8        9     30
+1      Bob      8       10        7        6     31
+2  Charlie      7        6        8        5     26</code></pre>
+</div>
 </section>
 <section id="grouping-and-aggregation" class="slide level2">
-<h2>Grouping and Aggregation</h2>
-<p>https://www.geeksforgeeks.org/grouping-and-aggregating-with-pandas/</p>
+<h2><br> Grouping and Aggregation</h2>
+</section>
+<section class="slide level2">
+
+<h3 id="grouping-in-pandas">Grouping (in <code>Pandas</code>)</h3>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiUr0NSceFvB3vYV39lO01DRDld0HGEONzBiPZZCGUUQ&amp;s.png" style="width:100.0%"></p>
+<div style="font-size: 50%;">
+<p>Source: Soner Yıldırım <a href="https://towardsdatascience.com/all-about-pandas-groupby-explained-with-25-examples-494e04a8ef56">Towards Data Science</a></p>
+</div>
+</div><div class="column" style="width:15%;">
+
+</div><div class="column" style="width:45%;">
+<div style="font-size: 80%;">
+<p>Grouping is used to group data using some criteria from our dataset. It is used as split-apply-combine strategy.</p>
+<ul>
+<li><em>Splitting</em> the data into groups based on some criteria e.g.&nbsp;Brand</li>
+<li><em>Applying</em> a function to each group independently e.g.&nbsp;Mean</li>
+<li><em>Combining</em> the results into a data structure e,g, Price</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="merge-dfs" class="slide level2">
 <h2>Merge df’s</h2>
-</section>
-<section id="getting-started-with-geopandas" class="slide level2">
-<h2>Getting Started with GeoPandas</h2>
 <ul>
-<li>Objective: Familiarize students with GeoPandas and its uses in spatial data analysis.</li>
-<li>Topics Covered:
-<ul>
-<li><del>Installation of GeoPandas</del>.</li>
-<li><del>Basic data structures in GeoPandas</del>.</li>
-<li>Reading and writing spatial data.</li>
-</ul></li>
+<li>Concatenate DataFrames along row and column.</li>
+<li>Merge DataFrames on specific keys by different join logics like <code>left join</code>, <code>inner join</code>, etc.</li>
+<li>Join DataFrames by index.</li>
 </ul>
+
+<img data-src="https://media.geeksforgeeks.org/wp-content/uploads/joinimages.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="break-time" class="slide level2">
+<h2><br> Break Time</h2>
 </section>
-<section id="working-with-geospatial-data" class="slide level2">
-<h2>Working with Geospatial Data</h2>
+<section id="geospatial-data-and-geopandas" class="slide level2">
+<h2>Geospatial data and GeoPandas</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://miro.medium.com/v2/resize:fit:1238/1*x9gF-ZVR4JMAv3cTH6LtfA.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 <ul>
-<li>Objective: Teach how to manipulate and process geospatial data using GeoPandas.</li>
+<li><p>Geospatial data are data with location information</p></li>
+<li><p>The geometry variable indicates where the <em>data</em> is located</p></li>
+<li><p>New Zealand population using code</p></li>
 </ul>
-<p>Topics Covered: * Loading spatial data from different formats (Shapefile, GeoJSON, etc.). * Basic data manipulation (selecting, filtering, and sorting data). * Coordinate reference systems: understanding and transforming.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://newzealandmap360.com/img/1200/new%20zealand-population-density-map.jpg" class="quarto-figure quarto-figure-center" style="width:120.0%"></p>
+</figure>
+</div>
 </section>
-<section id="spatial-analysis-basics" class="slide level2">
-<h2>Spatial Analysis Basics</h2>
-<p>Objective: Introduce basic spatial analysis techniques.</p>
-<p>Topics Covered: * Spatial joins and merging data. * Calculating distances and nearest neighbor analysis. * Basic spatial queries and operations (buffer, intersect, union).</p>
-</section>
-<section id="visualisation-with-geopandas" class="slide level2">
-<h2>Visualisation with GeoPandas</h2>
+<section id="how-we-record-the-real-world" class="slide level2">
+<h2>How we record the real world</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Figs/howwemap.png" class="quarto-figure quarto-figure-center" style="width:120.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<div style="font-size: 80%;">
 <ul>
-<li>Objective: Teach students how to visualise spatial data effectively.</li>
+<li>Point (2, 10)</li>
+<li>LineString ([(1,2), (1,5)…])</li>
+<li>Polygons ([(13,2), (15,4)…])</li>
+<li>Pixels</li>
 </ul>
-<p>Topics Covered: * Plotting with GeoPandas. * Customizing plots (color, size, legend, etc.). * Integrating with other libraries like Matplotlib and Plotly for enhanced visualizations.</p>
+</div>
+</div>
+</div>
 </section>
+<section id="vector-attribute-data" class="slide level2">
+<h2>Vector attribute data</h2>
+<ul>
+<li>Vector features have attributes that look like a table</li>
+</ul>
+
+<img data-src="Figs/attribute.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section id="thanks-q-a" class="slide level2" style="text-align: center;">
 <h2><br> Thanks! <br> Q &amp; A</h2>
+<div class="quarto-auto-generated-content">
+<p><img src="Figs/uoa-logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
 
-<img src="Figs/uoa-logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
-
+</div>
 </div>
 </section>
     </div>
@@ -623,7 +743,6 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -884,10 +1003,27 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -897,8 +1033,17 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -912,7 +1057,11 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
