@@ -417,13 +417,21 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 
   <p class="date">April 22, 2024</p>
 </section>
-<section id="make-sure-you-download-some-examples-for-todays-class" class="slide level2">
-<h2>Make sure you download some examples for today’s class</h2>
+<section class="slide level2">
+
+<!--
+## Make sure you download some examples for today's class
+* countries of the world (csv, txt)
+* ice cream ratings
+* flavours
+* customer call list
+-->
+</section>
+<section id="load-your-google-colab" class="slide level2">
+<h2>Load your Google Colab</h2>
 <ul>
-<li>countries of the world (csv, txt)</li>
-<li>ice cream ratings</li>
-<li>flavours</li>
-<li>customer call list</li>
+<li>https://colab.research.google.com</li>
+<li>https://tinyurl/gisci242</li>
 </ul>
 </section>
 <section id="recap-of-previous-lecture" class="slide level2">
@@ -433,7 +441,20 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <li>How to assign variables, lists</li>
 <li>For loops</li>
 <li>Conditional statements</li>
-<li>How to call packages using <code>import</code> (tidy bit)</li>
+<li>How to call packages using <code>import pkg_name</code></li>
+<li>spacing is important</li>
+</ul>
+</section>
+<section id="terminology---brackets" class="slide level2">
+<h2>Terminology - Brackets</h2>
+<ul>
+<li>To avoid any confusion between NZ and US English, I will use:
+<ul>
+<li><label><input type="checkbox">as square brackets</label></li>
+<li>( ) as round brackets</li>
+<li>{ } as curly brackets</li>
+<li>&lt; &gt; as angle(d) brackets</li>
+</ul></li>
 </ul>
 </section>
 <section id="what-will-we-cover-today" class="slide level2">
@@ -458,6 +479,15 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
           display:block!important;
       }</style></aside>
 </section>
+<section id="pandas-or-polars" class="slide level2">
+<h2><code>pandas</code> or <code>polars</code></h2>
+<p><img data-src="Figs/polarsvspandas.jpeg" style="width:40.0%"> <img data-src="https://images.datacamp.com/image/upload/v1686051721/image4_478e2c7db1.png" class="absolute" style="top: 50px; right: -200px; width: 80%; "></p>
+<p><br></p>
+<ul>
+<li>But we are going to learn <code>pandas</code> anyway</li>
+<li>Because <code>pandas</code> &amp; <code>geopandas</code> are connected</li>
+</ul>
+</section>
 <section id="getting-started-with-pandas" class="slide level2">
 <h2>Getting started with Pandas</h2>
 <ul>
@@ -471,14 +501,23 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <section id="what-is-a-dataframe" class="slide level2">
 <h2>What is a dataframe</h2>
 
-<img data-src="https://media.geeksforgeeks.org/wp-content/uploads/finallpandas.png" class="r-stretch"><div style="font-size: 50%;">
+<img data-src="https://media.geeksforgeeks.org/wp-content/uploads/finallpandas.png" class="quarto-figure quarto-figure-center r-stretch"><div style="font-size: 50%;">
 <p>source: geeksforgeeks.org</p>
 </div>
 <ul>
 <li>Tabular array</li>
 <li>Might be a stack of lists (recap of last lecture)</li>
+<li>A combined data series</li>
 </ul>
 </section>
+<section id="dataframe-vs-data-series" class="slide level2">
+<h2>DataFrame vs Data series?</h2>
+<ul>
+<li>A Series is a 1-dimensional data structure used to represent a single column or row of data within a DataFrame or as a standalone data structure.</li>
+<li>A DataFrame is a 2-dimensional data structure designed for handling tabular data with multiple columns</li>
+</ul>
+
+<img data-src="https://av-eks-blogoptimized.s3.amazonaws.com/series-and-dataframe.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="reading-in-files" class="slide level2">
 <h2>Reading in Files</h2>
 
@@ -498,26 +537,27 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <section class="slide level2">
 
 <h3 id="example">Example</h3>
-<div id="b7fd93dc" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href=""></a> </span>
-<span id="cb2-3"><a href=""></a><span class="co"># intialise data of lists.</span></span>
-<span id="cb2-4"><a href=""></a>data <span class="op">=</span> {<span class="st">'Name'</span>:[<span class="st">'Tom'</span>, <span class="st">'nick'</span>, <span class="st">'krish'</span>, <span class="st">'jack'</span>],</span>
-<span id="cb2-5"><a href=""></a>        <span class="st">'Age'</span>:[<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">19</span>, <span class="dv">18</span>]}</span>
-<span id="cb2-6"><a href=""></a> </span>
-<span id="cb2-7"><a href=""></a><span class="co"># Create DataFrame</span></span>
-<span id="cb2-8"><a href=""></a>df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb2-9"><a href=""></a> </span>
-<span id="cb2-10"><a href=""></a><span class="co"># Print the output.</span></span>
-<span id="cb2-11"><a href=""></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co">#| echo: true</span></span>
+<span id="cb2-2"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a><span class="co"># intialise data of lists.</span></span>
+<span id="cb2-5"><a href=""></a>data <span class="op">=</span> {<span class="st">'Name'</span>:[<span class="st">'Tom'</span>, <span class="st">'nick'</span>, <span class="st">'krish'</span>, <span class="st">'jack'</span>],</span>
+<span id="cb2-6"><a href=""></a>        <span class="st">'Age'</span>:[<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">19</span>, <span class="dv">18</span>]}</span>
+<span id="cb2-7"><a href=""></a>        </span>
+<span id="cb2-8"><a href=""></a><span class="co"># Create DataFrame</span></span>
+<span id="cb2-9"><a href=""></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb2-10"><a href=""></a></span>
+<span id="cb2-11"><a href=""></a><span class="co"># Print the output.</span></span>
+<span id="cb2-12"><a href=""></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>    Name  Age
 0    Tom   20
 1   nick   21
 2  krish   19
 3   jack   18</code></pre>
-</div>
-</div>
+<ul>
+<li>Pandas has assigned a key for each person as the numerical values 0 through 3</li>
+<li>If you would like to have different index values, say, the person’s initial, you can do that easily as well.</li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -548,15 +588,17 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>df.head()</span>
 <span id="cb6-2"><a href=""></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="subsetting-the-data-frame" class="slide level2">
-<h2>Subsetting the data frame</h2>
+<section id="indexing-dataframes" class="slide level2">
+<h2>Indexing DataFrames</h2>
+<div style="font-size: 80%;">
 <ul>
-<li>When selecting subsets of data, square brackets <code>[]</code> are used.</li>
-<li>Inside these brackets, you can use a single column/row label, a list of column/row labels, a slice of labels, a conditional expression or a colon.</li>
-<li>Select specific rows and/or columns using <code>loc</code> when using the row and column names.</li>
-<li>Select specific rows and/or columns using <code>iloc</code> when using the positions in the table.</li>
+<li>When selecting subsets of data, <code>[]</code> are used.</li>
+<li>Inside <code>[]</code>, you can use a single column/row label, a list of column/row labels, a slice of labels, a conditional expression or a colon.</li>
+<li><code>loc</code> when selecting the row and column names e.g.&nbsp;df[“age”]</li>
+<li><code>iloc</code> when specifying the positions in the table e.g.&nbsp;df[2:5]</li>
 <li>You can assign new values to a selection based on <code>loc</code>/<code>iloc.</code></li>
 </ul>
+</div>
 </section>
 <section class="slide level2">
 
@@ -578,7 +620,9 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <img data-src="https://pandas.pydata.org/docs/_images/03_subset_rows.svg" class="r-stretch"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>df[df[<span class="st">"Population(million)"</span>] <span class="op">&gt;</span> <span class="dv">100</span>]</span>
 <span id="cb8-2"><a href=""></a>df[df[<span class="st">"Continent"</span>] <span class="op">==</span> <span class="st">"Asia"</span>]</span>
 <span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a>ov10m_asia <span class="op">=</span> df[(df[<span class="st">"Population(million)"</span>] <span class="op">&gt;</span> <span class="dv">100</span>) <span class="op">&amp;</span> (df[<span class="st">"Continent"</span>] <span class="op">==</span> <span class="st">"Asia"</span>) ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a href=""></a>ov10m_asia <span class="op">=</span> df[(df[<span class="st">"Population(million)"</span>] <span class="op">&gt;</span> <span class="dv">100</span>) <span class="op">&amp;</span> (df[<span class="st">"Continent"</span>] <span class="op">==</span> <span class="st">"Asia"</span>) ]</span>
+<span id="cb8-5"><a href=""></a></span>
+<span id="cb8-6"><a href=""></a>titanic.iloc[<span class="dv">9</span>:<span class="dv">25</span>, <span class="dv">2</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!--
 * Subset population over 50 million
 * Subset Population over 50 million + Continent
@@ -590,39 +634,37 @@ When combining multiple conditional statements, each condition must be surrounde
 :::
 -->
 </section>
-<section class="slide level2">
+<section id="creating-new-columns-from-existing-data-in-df" class="slide level2">
+<h2>Creating New Columns from Existing Data in <code>df</code></h2>
 
-<h3 id="subsetting-the-dataframe-by-locations">Subsetting the dataframe by locations</h3>
-<p>I’m interested in rows 10 till 25 and columns 3 to 5.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>titanic.iloc[<span class="dv">9</span>:<span class="dv">25</span>, <span class="dv">2</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="create-new-columns-from-the-existing-df" class="slide level2">
-<h2>Create New columns from the existing df</h2>
-
-<img data-src="https://pandas.pydata.org/docs/_images/05_newcolumn_1.svg" class="r-stretch"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb10-2"><a href=""></a></span>
-<span id="cb10-3"><a href=""></a><span class="co"># Creating the dataset with student names</span></span>
-<span id="cb10-4"><a href=""></a>df1 <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb10-5"><a href=""></a>    <span class="st">'Student'</span>: [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>, <span class="st">'Charlie'</span>],</span>
-<span id="cb10-6"><a href=""></a>    <span class="st">'Maths'</span>: [<span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>],</span>
-<span id="cb10-7"><a href=""></a>    <span class="st">'English'</span>: [<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">6</span>],</span>
-<span id="cb10-8"><a href=""></a>    <span class="st">'Science'</span>: [<span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">8</span>],</span>
-<span id="cb10-9"><a href=""></a>    <span class="st">'History'</span>: [<span class="dv">9</span>, <span class="dv">6</span>, <span class="dv">5</span>]</span>
-<span id="cb10-10"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img data-src="https://pandas.pydata.org/docs/_images/05_newcolumn_1.svg" class="quarto-figure quarto-figure-center r-stretch"><ul>
+<li>Required for performing calculations across columns.</li>
+<li>Essential for data manipulation.</li>
+</ul>
 </section>
 <section class="slide level2">
 
-<div style="font-size: 130%;">
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="co"># Calculating the total score for each student and adding it as a new column 'Total'</span></span>
-<span id="cb11-2"><a href=""></a>df1[<span class="st">'Total'</span>] <span class="op">=</span> df1[[<span class="st">'Maths'</span>, <span class="st">'English'</span>, </span>
-<span id="cb11-3"><a href=""></a>                    <span class="st">'Science'</span>, <span class="st">'History'</span>]].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb11-4"><a href=""></a><span class="co"># Display the updated dataset</span></span>
-<span id="cb11-5"><a href=""></a><span class="bu">print</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="example-1">Example</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb9-2"><a href=""></a></span>
+<span id="cb9-3"><a href=""></a><span class="co"># Creating the dataset with student names</span></span>
+<span id="cb9-4"><a href=""></a>df1 <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb9-5"><a href=""></a>    <span class="st">'Student'</span>: [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>, <span class="st">'Charlie'</span>],</span>
+<span id="cb9-6"><a href=""></a>    <span class="st">'Maths'</span>: [<span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>],</span>
+<span id="cb9-7"><a href=""></a>    <span class="st">'English'</span>: [<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">6</span>],</span>
+<span id="cb9-8"><a href=""></a>    <span class="st">'Science'</span>: [<span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">8</span>],</span>
+<span id="cb9-9"><a href=""></a>    <span class="st">'History'</span>: [<span class="dv">9</span>, <span class="dv">6</span>, <span class="dv">5</span>]</span>
+<span id="cb9-10"><a href=""></a>})</span>
+<span id="cb9-11"><a href=""></a></span>
+<span id="cb9-12"><a href=""></a><span class="co"># Calculating the total score for each student and adding it as a new column 'Total'</span></span>
+<span id="cb9-13"><a href=""></a>df1[<span class="st">'Total'</span>] <span class="op">=</span> df1[[<span class="st">'Maths'</span>, <span class="st">'English'</span>, </span>
+<span id="cb9-14"><a href=""></a>                    <span class="st">'Science'</span>, <span class="st">'History'</span>]].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-15"><a href=""></a><span class="co"># Display the updated dataset</span></span>
+<span id="cb9-16"><a href=""></a><span class="bu">print</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>   Student  Maths  English  Science  History  Total
 0    Alice      9        4        8        9     30
 1      Bob      8       10        7        6     31
 2  Charlie      7        6        8        5     26</code></pre>
-</div>
 </section>
 <section id="grouping-and-aggregation" class="slide level2">
 <h2><br> Grouping and Aggregation</h2>
@@ -705,9 +747,26 @@ When combining multiple conditional statements, each condition must be surrounde
 <h2>Vector attribute data</h2>
 <ul>
 <li>Vector features have attributes that look like a table</li>
+<li>Watch out for the projections</li>
 </ul>
 
 <img data-src="Figs/attribute.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section id="projections" class="slide level2">
+<h2>Projections</h2>
+<ul>
+<li>Coordinate reference systems (CRS): a consistent way to represent locations in space (<a href="https://www.linz.govt.nz/guidance/geodetic-system/coordinate-systems-used-new-zealand">Land Information NZ</a>)</li>
+<li>Geographic coordinate systems (Global): Longitude/Latitude, UTM</li>
+<li>Projected coordinate systems (Local): 2D maps.</li>
+<li>Each projection provides a unique code starting with EPSG
+<ul>
+<li>Long/Lat decimal points (EPSG: 4326)</li>
+<li>NZ transverse mercator (EPSG: 2193)</li>
+</ul></li>
+</ul>
+</section>
+<section id="lets-get-our-hands-dirty-with-geopandas" class="slide level2">
+<h2><br> Let’s get our hands dirty with <code>geopandas</code>!</h2>
+</section>
 <section id="thanks-q-a" class="slide level2" style="text-align: center;">
 <h2><br> Thanks! <br> Q &amp; A</h2>
 <div class="quarto-auto-generated-content">
