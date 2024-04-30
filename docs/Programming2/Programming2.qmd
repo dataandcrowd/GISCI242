@@ -28,17 +28,12 @@ include-in-header:
       </style>
 ---
 
-<!--
-## Make sure you download some examples for today's class
-* countries of the world (csv, txt)
-* ice cream ratings
-* flavours
-* customer call list
--->
+
 ## Load your Google Colab
 
 * https://colab.research.google.com
-* https://tinyurl/gisci242
+* https://tinyurl.com/gisci242-2 (for pandas)
+* https://tinyurl.com/gisci242-3 (for geopandas)
 
 
 ## Recap of Previous Lecture
@@ -58,9 +53,14 @@ include-in-header:
     - { } as curly brackets
     - < > as angle(d) brackets 
 
-
 ## What will we cover today?
+- How can we better understand the code structure to query complicated datasets?
+- How can we utilse Python Packages in GIS Tasks
+- How does programming open up new methods for spatial analysis that are not possible through manual processes
 
+
+
+## What will we "really" cover today?
 -   How to import spreadsheet data with `pandas`
 -   How to clean and explore data
 -   Data Visualisation
@@ -387,6 +387,22 @@ Grouping is used to group data using some criteria from our dataset. It is used 
 
 
 ## <br> Let's get our hands dirty with `geopandas`!
+
+
+
+## As Geographers/Scientists we can also look into:
+
+![](https://dragonflyintelligence.com/wp-content/uploads/2024/01/2024-01-Paris-Theft.png){width=40%}
+
+
+
+## Summary
+* To navigate complex datasets effectively, it's crucial to structure your code in a way that enhances readability and maintainability
+* Python offers a rich ecosystem of libraries specifically designed for GIS and spatial analysis. We explored some key packages such as GeoPandas for spatial data frames
+* The actual programming:
+    - Pandas: Indexing, Filtering, Grouping, Join between dataframes
+    - Geopandas: Hands-on experience in GIS using codes
+
 
 
 

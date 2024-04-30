@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="GISCI242_Programming2_files/libs/clipboard/clipboard.min.js"></script>
-<script src="GISCI242_Programming2_files/libs/quarto-html/tabby.min.js"></script>
-<script src="GISCI242_Programming2_files/libs/quarto-html/popper.min.js"></script>
-<script src="GISCI242_Programming2_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="GISCI242_Programming2_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="GISCI242_Programming2_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="GISCI242_Programming2_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="GISCI242_Programming2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.553">
+<script src="Programming2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Programming2_files/libs/quarto-html/tabby.min.js"></script>
+<script src="Programming2_files/libs/quarto-html/popper.min.js"></script>
+<script src="Programming2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="Programming2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Programming2_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="Programming2_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="Programming2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.3.353">
 
   <meta name="author" content="Hyesop Shin">
   <meta name="dcterms.date" content="2024-04-22">
@@ -16,8 +16,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="GISCI242_Programming2_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="GISCI242_Programming2_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="Programming2_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="Programming2_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -32,7 +32,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -96,12 +96,12 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="GISCI242_Programming2_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="Programming2_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="logo.css">
-  <link href="GISCI242_Programming2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="GISCI242_Programming2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="GISCI242_Programming2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="GISCI242_Programming2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="Programming2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="Programming2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="Programming2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="Programming2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -223,8 +223,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -417,21 +416,12 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 
   <p class="date">April 22, 2024</p>
 </section>
-<section class="slide level2">
-
-<!--
-## Make sure you download some examples for today's class
-* countries of the world (csv, txt)
-* ice cream ratings
-* flavours
-* customer call list
--->
-</section>
 <section id="load-your-google-colab" class="slide level2">
 <h2>Load your Google Colab</h2>
 <ul>
 <li>https://colab.research.google.com</li>
-<li>https://tinyurl/gisci242</li>
+<li>https://tinyurl.com/gisci242-2 (for pandas)</li>
+<li>https://tinyurl.com/gisci242-3 (for geopandas)</li>
 </ul>
 </section>
 <section id="recap-of-previous-lecture" class="slide level2">
@@ -450,7 +440,7 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <ul>
 <li>To avoid any confusion between NZ and US English, I will use:
 <ul>
-<li><label><input type="checkbox">as square brackets</label></li>
+<li><input type="checkbox">as square brackets</li>
 <li>( ) as round brackets</li>
 <li>{ } as curly brackets</li>
 <li>&lt; &gt; as angle(d) brackets</li>
@@ -459,6 +449,14 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 </section>
 <section id="what-will-we-cover-today" class="slide level2">
 <h2>What will we cover today?</h2>
+<ul>
+<li>How can we better understand the code structure to query complicated datasets?</li>
+<li>How can we utilse Python Packages in GIS Tasks</li>
+<li>How does programming open up new methods for spatial analysis that are not possible through manual processes</li>
+</ul>
+</section>
+<section id="what-will-we-really-cover-today" class="slide level2">
+<h2>What will we “really” cover today?</h2>
 <ul>
 <li>How to import spreadsheet data with <code>pandas</code></li>
 <li>How to clean and explore data</li>
@@ -501,7 +499,7 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <section id="what-is-a-dataframe" class="slide level2">
 <h2>What is a dataframe</h2>
 
-<img data-src="https://media.geeksforgeeks.org/wp-content/uploads/finallpandas.png" class="quarto-figure quarto-figure-center r-stretch"><div style="font-size: 50%;">
+<img data-src="https://media.geeksforgeeks.org/wp-content/uploads/finallpandas.png" class="r-stretch quarto-figure-center"><div style="font-size: 50%;">
 <p>source: geeksforgeeks.org</p>
 </div>
 <ul>
@@ -517,14 +515,14 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <li>A DataFrame is a 2-dimensional data structure designed for handling tabular data with multiple columns</li>
 </ul>
 
-<img data-src="https://av-eks-blogoptimized.s3.amazonaws.com/series-and-dataframe.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="https://av-eks-blogoptimized.s3.amazonaws.com/series-and-dataframe.png" class="r-stretch quarto-figure-center"></section>
 <section id="reading-in-files" class="slide level2">
 <h2>Reading in Files</h2>
 
 <img data-src="https://pandas.pydata.org/docs/_images/02_io_readwrite.svg" class="r-stretch"><div style="font-size: 100%;">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">'file_name'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'file_name'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Disclaimer:
@@ -537,18 +535,18 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <section class="slide level2">
 
 <h3 id="example">Example</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co">#| echo: true</span></span>
-<span id="cb2-2"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a><span class="co"># intialise data of lists.</span></span>
-<span id="cb2-5"><a href=""></a>data <span class="op">=</span> {<span class="st">'Name'</span>:[<span class="st">'Tom'</span>, <span class="st">'nick'</span>, <span class="st">'krish'</span>, <span class="st">'jack'</span>],</span>
-<span id="cb2-6"><a href=""></a>        <span class="st">'Age'</span>:[<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">19</span>, <span class="dv">18</span>]}</span>
-<span id="cb2-7"><a href=""></a>        </span>
-<span id="cb2-8"><a href=""></a><span class="co"># Create DataFrame</span></span>
-<span id="cb2-9"><a href=""></a>df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb2-10"><a href=""></a></span>
-<span id="cb2-11"><a href=""></a><span class="co"># Print the output.</span></span>
-<span id="cb2-12"><a href=""></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># intialise data of lists.</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>data <span class="op">=</span> {<span class="st">'Name'</span>:[<span class="st">'Tom'</span>, <span class="st">'nick'</span>, <span class="st">'krish'</span>, <span class="st">'jack'</span>],</span>
+<span id="cb2-6"><a href="#cb2-6"></a>        <span class="st">'Age'</span>:[<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">19</span>, <span class="dv">18</span>]}</span>
+<span id="cb2-7"><a href="#cb2-7"></a>        </span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># Create DataFrame</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co"># Print the output.</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>    Name  Age
 0    Tom   20
 1   nick   21
@@ -569,9 +567,9 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <li><code>.json</code></li>
 <li>…</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>df <span class="op">=</span> read_csv(<span class="st">'file'</span>)</span>
-<span id="cb4-2"><a href=""></a>df.to_csv(file_name, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>)</span>
-<span id="cb4-3"><a href=""></a>df.to_excel(<span class="st">"output.xlsx"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df <span class="op">=</span> read_csv(<span class="st">'file'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>df.to_csv(file_name, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>df.to_excel(<span class="st">"output.xlsx"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
@@ -579,14 +577,14 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <ul>
 <li>The info methods and the dtypes attribute are convenient for a first check.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>df.info() <span class="co">## technical summary (e.g. dataframe, rows/columnns and their names)</span></span>
-<span id="cb5-2"><a href=""></a>df.dtypes <span class="co">## generic summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df.info() <span class="co">## technical summary (e.g. dataframe, rows/columnns and their names)</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>df.dtypes <span class="co">## generic summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <ul>
 <li><code>head</code>/<code>tail</code> to check how the dataframe actually looks like</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>df.head()</span>
-<span id="cb6-2"><a href=""></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>df.head()</span>
+<span id="cb6-2"><a href="#cb6-2"></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="indexing-dataframes" class="slide level2">
 <h2>Indexing DataFrames</h2>
@@ -608,21 +606,21 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <li>Selecting a single column</li>
 <li>Selecting multiple columns</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>df[<span class="st">"Continent"</span>]</span>
-<span id="cb7-2"><a href=""></a>df[[<span class="st">"Continent"</span>, <span class="st">"Year"</span>]]</span>
-<span id="cb7-3"><a href=""></a></span>
-<span id="cb7-4"><a href=""></a>df.iloc[:, <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df[<span class="st">"Continent"</span>]</span>
+<span id="cb7-2"><a href="#cb7-2"></a>df[[<span class="st">"Continent"</span>, <span class="st">"Year"</span>]]</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a>df.iloc[:, <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
 <h3 id="subsetting-the-data-frame-rows">Subsetting the data frame: Rows</h3>
 
-<img data-src="https://pandas.pydata.org/docs/_images/03_subset_rows.svg" class="r-stretch"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>df[df[<span class="st">"Population(million)"</span>] <span class="op">&gt;</span> <span class="dv">100</span>]</span>
-<span id="cb8-2"><a href=""></a>df[df[<span class="st">"Continent"</span>] <span class="op">==</span> <span class="st">"Asia"</span>]</span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a>ov10m_asia <span class="op">=</span> df[(df[<span class="st">"Population(million)"</span>] <span class="op">&gt;</span> <span class="dv">100</span>) <span class="op">&amp;</span> (df[<span class="st">"Continent"</span>] <span class="op">==</span> <span class="st">"Asia"</span>) ]</span>
-<span id="cb8-5"><a href=""></a></span>
-<span id="cb8-6"><a href=""></a>titanic.iloc[<span class="dv">9</span>:<span class="dv">25</span>, <span class="dv">2</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img data-src="https://pandas.pydata.org/docs/_images/03_subset_rows.svg" class="r-stretch"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df[df[<span class="st">"Population(million)"</span>] <span class="op">&gt;</span> <span class="dv">100</span>]</span>
+<span id="cb8-2"><a href="#cb8-2"></a>df[df[<span class="st">"Continent"</span>] <span class="op">==</span> <span class="st">"Asia"</span>]</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a>ov10m_asia <span class="op">=</span> df[(df[<span class="st">"Population(million)"</span>] <span class="op">&gt;</span> <span class="dv">100</span>) <span class="op">&amp;</span> (df[<span class="st">"Continent"</span>] <span class="op">==</span> <span class="st">"Asia"</span>) ]</span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a>titanic.iloc[<span class="dv">9</span>:<span class="dv">25</span>, <span class="dv">2</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!--
 * Subset population over 50 million
 * Subset Population over 50 million + Continent
@@ -637,7 +635,7 @@ When combining multiple conditional statements, each condition must be surrounde
 <section id="creating-new-columns-from-existing-data-in-df" class="slide level2">
 <h2>Creating New Columns from Existing Data in <code>df</code></h2>
 
-<img data-src="https://pandas.pydata.org/docs/_images/05_newcolumn_1.svg" class="quarto-figure quarto-figure-center r-stretch"><ul>
+<img data-src="https://pandas.pydata.org/docs/_images/05_newcolumn_1.svg" class="r-stretch quarto-figure-center"><ul>
 <li>Required for performing calculations across columns.</li>
 <li>Essential for data manipulation.</li>
 </ul>
@@ -645,22 +643,22 @@ When combining multiple conditional statements, each condition must be surrounde
 <section class="slide level2">
 
 <h3 id="example-1">Example</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb9-2"><a href=""></a></span>
-<span id="cb9-3"><a href=""></a><span class="co"># Creating the dataset with student names</span></span>
-<span id="cb9-4"><a href=""></a>df1 <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb9-5"><a href=""></a>    <span class="st">'Student'</span>: [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>, <span class="st">'Charlie'</span>],</span>
-<span id="cb9-6"><a href=""></a>    <span class="st">'Maths'</span>: [<span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>],</span>
-<span id="cb9-7"><a href=""></a>    <span class="st">'English'</span>: [<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">6</span>],</span>
-<span id="cb9-8"><a href=""></a>    <span class="st">'Science'</span>: [<span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">8</span>],</span>
-<span id="cb9-9"><a href=""></a>    <span class="st">'History'</span>: [<span class="dv">9</span>, <span class="dv">6</span>, <span class="dv">5</span>]</span>
-<span id="cb9-10"><a href=""></a>})</span>
-<span id="cb9-11"><a href=""></a></span>
-<span id="cb9-12"><a href=""></a><span class="co"># Calculating the total score for each student and adding it as a new column 'Total'</span></span>
-<span id="cb9-13"><a href=""></a>df1[<span class="st">'Total'</span>] <span class="op">=</span> df1[[<span class="st">'Maths'</span>, <span class="st">'English'</span>, </span>
-<span id="cb9-14"><a href=""></a>                    <span class="st">'Science'</span>, <span class="st">'History'</span>]].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb9-15"><a href=""></a><span class="co"># Display the updated dataset</span></span>
-<span id="cb9-16"><a href=""></a><span class="bu">print</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co"># Creating the dataset with student names</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>df1 <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb9-5"><a href="#cb9-5"></a>    <span class="st">'Student'</span>: [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>, <span class="st">'Charlie'</span>],</span>
+<span id="cb9-6"><a href="#cb9-6"></a>    <span class="st">'Maths'</span>: [<span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>],</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    <span class="st">'English'</span>: [<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">6</span>],</span>
+<span id="cb9-8"><a href="#cb9-8"></a>    <span class="st">'Science'</span>: [<span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">8</span>],</span>
+<span id="cb9-9"><a href="#cb9-9"></a>    <span class="st">'History'</span>: [<span class="dv">9</span>, <span class="dv">6</span>, <span class="dv">5</span>]</span>
+<span id="cb9-10"><a href="#cb9-10"></a>})</span>
+<span id="cb9-11"><a href="#cb9-11"></a></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="co"># Calculating the total score for each student and adding it as a new column 'Total'</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a>df1[<span class="st">'Total'</span>] <span class="op">=</span> df1[[<span class="st">'Maths'</span>, <span class="st">'English'</span>, </span>
+<span id="cb9-14"><a href="#cb9-14"></a>                    <span class="st">'Science'</span>, <span class="st">'History'</span>]].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-15"><a href="#cb9-15"></a><span class="co"># Display the updated dataset</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a><span class="bu">print</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>   Student  Maths  English  Science  History  Total
 0    Alice      9        4        8        9     30
 1      Bob      8       10        7        6     31
@@ -700,7 +698,7 @@ When combining multiple conditional statements, each condition must be surrounde
 <li>Join DataFrames by index.</li>
 </ul>
 
-<img data-src="https://media.geeksforgeeks.org/wp-content/uploads/joinimages.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="https://media.geeksforgeeks.org/wp-content/uploads/joinimages.png" class="r-stretch quarto-figure-center"></section>
 <section id="break-time" class="slide level2">
 <h2><br> Break Time</h2>
 </section>
@@ -708,7 +706,7 @@ When combining multiple conditional statements, each condition must be surrounde
 <h2>Geospatial data and GeoPandas</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://miro.medium.com/v2/resize:fit:1238/1*x9gF-ZVR4JMAv3cTH6LtfA.png" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="https://miro.medium.com/v2/resize:fit:1238/1*x9gF-ZVR4JMAv3cTH6LtfA.png"></p>
 </figure>
 </div>
 <ul>
@@ -718,7 +716,7 @@ When combining multiple conditional statements, each condition must be surrounde
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://newzealandmap360.com/img/1200/new%20zealand-population-density-map.jpg" class="quarto-figure quarto-figure-center" style="width:120.0%"></p>
+<p><img data-src="https://newzealandmap360.com/img/1200/new%20zealand-population-density-map.jpg" style="width:120.0%"></p>
 </figure>
 </div>
 </section>
@@ -728,7 +726,7 @@ When combining multiple conditional statements, each condition must be surrounde
 <div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Figs/howwemap.png" class="quarto-figure quarto-figure-center" style="width:120.0%"></p>
+<p><img data-src="Figs/howwemap.png" style="width:120.0%"></p>
 </figure>
 </div>
 </div><div class="column" style="width:40%;">
@@ -750,7 +748,7 @@ When combining multiple conditional statements, each condition must be surrounde
 <li>Watch out for the projections</li>
 </ul>
 
-<img data-src="Figs/attribute.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<img data-src="Figs/attribute.png" style="width:70.0%" class="r-stretch quarto-figure-center"></section>
 <section id="projections" class="slide level2">
 <h2>Projections</h2>
 <ul>
@@ -767,32 +765,46 @@ When combining multiple conditional statements, each condition must be surrounde
 <section id="lets-get-our-hands-dirty-with-geopandas" class="slide level2">
 <h2><br> Let’s get our hands dirty with <code>geopandas</code>!</h2>
 </section>
+<section id="as-geographersscientists-we-can-also-look-into" class="slide level2">
+<h2>As Geographers/Scientists we can also look into:</h2>
+
+<img data-src="https://dragonflyintelligence.com/wp-content/uploads/2024/01/2024-01-Paris-Theft.png" style="width:40.0%" class="r-stretch"></section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li>To navigate complex datasets effectively, it’s crucial to structure your code in a way that enhances readability and maintainability</li>
+<li>Python offers a rich ecosystem of libraries specifically designed for GIS and spatial analysis. We explored some key packages such as GeoPandas for spatial data frames</li>
+<li>The actual programming:
+<ul>
+<li>Pandas: Indexing, Filtering, Grouping, Join between dataframes</li>
+<li>Geopandas: Hands-on experience in GIS using codes</li>
+</ul></li>
+</ul>
+</section>
 <section id="thanks-q-a" class="slide level2" style="text-align: center;">
 <h2><br> Thanks! <br> Q &amp; A</h2>
-<div class="quarto-auto-generated-content">
-<p><img src="Figs/uoa-logo.png" class="slide-logo"></p>
-<div class="footer footer-default">
 
-</div>
+<img src="Figs/uoa-logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
+
 </div>
 </section>
     </div>
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="GISCI242_Programming2_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="Programming2_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="GISCI242_Programming2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="GISCI242_Programming2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="GISCI242_Programming2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="GISCI242_Programming2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="GISCI242_Programming2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="Programming2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="Programming2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="Programming2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="Programming2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="Programming2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="GISCI242_Programming2_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="GISCI242_Programming2_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="GISCI242_Programming2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="GISCI242_Programming2_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="Programming2_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="Programming2_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="Programming2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="Programming2_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -802,6 +814,7 @@ When combining multiple conditional statements, each condition must be surrounde
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1062,27 +1075,10 @@ When combining multiple conditional statements, each condition must be surrounde
         // clear code selection
         e.clearSelection();
       });
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
-          }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1092,17 +1088,8 @@ When combining multiple conditional statements, each condition must be surrounde
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1116,11 +1103,7 @@ When combining multiple conditional statements, each condition must be surrounde
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
+          return note.innerHTML;
         });
       }
       const findCites = (el) => {
