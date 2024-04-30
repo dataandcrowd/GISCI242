@@ -156,9 +156,10 @@ print(df)
 3   jack   18
 ```
 
+::: {style="font-size: 70%;"}
 * Pandas has assigned a key for each person as the numerical values 0 through 3
 * If you would like to have different index values, say, the person's initial, you can do that easily as well.
-
+:::
 
 ---
 
@@ -240,6 +241,19 @@ ov10m_asia = df[(df["Population(million)"] > 100) & (df["Continent"] == "Asia") 
 titanic.iloc[9:25, 2:5]
 ```
 
+## Your Turn
+
+::: {style="font-size: 80%;"}
+* call the library: `import pandas as pd`
+* Import a spread sheet
+* worldpop = pd.read_csv("https://raw.githubusercontent.com/
+dataandcrowd/GISCI242/main/files/world_population.csv")
+* Have a look at the `info()`, `describe()`, `shape`
+* Query top 20 rows and bottom 5 rows
+* Assign a variable `ov50m` and filter "2022 Population" over 50000000 (50 million)
+* If you have done that, have a go with including `ov50m` within Europe
+
+:::
 
 <!--
 * Subset population over 50 million
