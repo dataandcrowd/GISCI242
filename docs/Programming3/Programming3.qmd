@@ -1,0 +1,126 @@
+---
+title: "Gentle Introduction to Programming Part 2"
+subtitle: ": GIS with Geopandas"
+date: 04/22/2024
+date-format: long
+author:
+  - name: Hyesop Shin
+    orcid: 0000-0003-2637-7933
+    email: hyesop.shin@auckland.ac.nz
+    affiliations:
+      - name: University of Auckland
+        address: 23 Symonds Street
+        city: Auckland
+        postal-code: 1010
+format: 
+  revealjs:
+      logo: Figs/uoa-logo.png
+      css: logo.css
+      slide-number: true
+      show-slide-number: print
+editor: source
+include-in-header:
+  - text: |
+      <style type="text/css">
+      ul li ul li {
+        font-size: 0.7em;
+      }
+      </style>
+---
+
+<!--
+## Load your Google Colab
+
+* https://colab.research.google.com
+* https://tinyurl.com/gisci242-2 (for pandas)
+* https://tinyurl.com/gisci242-3 (for geopandas)
+-->
+
+## Recap of Previous Lecture
+
+* `Pandas`
+    - Maniputating dfs
+    - Grouping and Aggregation
+    - Joining two dfs (or more)
+* `Geopandas`
+    - Plot
+    - Import Attribute tables
+    
+
+## Let's have a look at Paris
+
+![](Figs/paris_map.png){fig-align=center}
+
+
+## Population Density is Widely Used
+
+::: {.incremental}
+* Population density is a measurement of population per unit land area
+* km^2^ and sqm^2^ are the most frequently used units.
+* [List of population density around the world](https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population_density)
+* In your recent assignment
+    - Area based in km^2^ : `merged_df.geometry.area / 10**6` 
+    - Population divided by the area based in km^2^: Returns the population density in persons per km^2^
+
+:::
+
+## Population over time
+
+
+
+
+## Population change in maps
+
+
+
+## Taking the work further
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {style="font-size: 70%;"}
+Percent of foreign-born immigration
+:::
+
+![](Figs/per_foreignborn.jpeg)
+
+:::
+
+::: {.column width="50%"}
+
+::: {style="font-size: 70%;"}
+Percent of foreign-born immigration by their origins
+
+:::
+
+![](Figs/per_byorigin.jpeg)
+
+:::
+
+
+::: {style="font-size: 30%;"}
+Immigration and the making of place in Paris (Kaplan, 2015)
+:::
+
+::::
+
+
+## Foreign-born in Maps
+::: {style="font-size: 30%;"}
+Percentage of foreigners by arrondissement in Paris, based on 1999 INSEE Census
+:::
+
+![](Figs/foreignborn_maps.jpeg){fig-align=center}
+
+## Making multiethnic places
+
+::: {style="font-size: 80%;"}
+
+* **Urban Ethnic Distribution**: In major French cities, ethnic groups such as the Turkish population are unevenly distributed, with significant integration and interaction among groups, contrasting with more segregated patterns seen in American cities.
+* **Ethnic Coexistence**: Unlike US-style ghettos, Parisian neighbourhoods exhibit a mosaic pattern of multi-ethnic cohabitation, where ethnic groups maintain distinct identities privately while publicly sharing space and cultural practices, fostering community cohesion.
+* **Transnational Connections**: The ethnic diversity and vitality of neighbourhoods such as the *Goutte d’Or* and *Belleville* are supported by strong transnational ties that enable residents to maintain and refresh their ethnic identities
+
+:::
+
+
+## <br> That is all for Python Programming! <br> Let's move on to Web maps {style="text-align: center;"}
