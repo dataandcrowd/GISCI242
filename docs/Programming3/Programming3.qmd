@@ -1,6 +1,6 @@
 ---
 title: "Gentle Introduction to Programming Part 2"
-subtitle: ": GIS with Geopandas"
+subtitle: ": A Wee Recap and Wrap Up"
 date: 05/08/2024
 date-format: long
 author:
