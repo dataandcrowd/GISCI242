@@ -28,18 +28,19 @@ include-in-header:
       </style>
 ---
 
-<!--
-## Load your Google Colab
+## Aim of today's Lecture
+* A wee recap on Python programming
+* What is web-mapping?
+* Introduction to web mapping technologies
+* How familiar are we with web maps
+* Web map design and publishing: Can we build the model ourselves?
 
-* https://colab.research.google.com
-* https://tinyurl.com/gisci242-2 (for pandas)
-* https://tinyurl.com/gisci242-3 (for geopandas)
--->
+
 
 ## Recap of Previous Lecture
 
 * `Pandas`
-    - Maniputating dfs
+    - Manipultating dfs
     - Grouping and Aggregation
     - Joining two dfs (or more)
 * `Geopandas`
