@@ -67,14 +67,20 @@ include-in-header:
 
 ## Population over time
 
-
+![](https://c1.staticflickr.com/1/783/27020551498_235b9b0b94_b.jpg){fig-align=center}
 
 
 ## Population change in maps
 
+![](https://preview.redd.it/a-comparative-3d-population-density-map-of-paris-and-london-v0-nwfo4p8fb7da1.png?auto=webp&s=c554691b88f6aee48dbf82cc5c351167425044d8){fig-align=center}
 
 
 ## Taking the work further
+
+![](Figs/journal.png){fig-align=center}
+
+## 
+
 :::: {.columns}
 
 ::: {.column width="50%"}
