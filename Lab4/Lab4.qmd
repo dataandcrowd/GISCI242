@@ -1,0 +1,43 @@
+---
+title: "Lab4 Spatial Autocorrelation with GeoDa"
+format: html
+---
+
+## GeoDa: What is it?
+
+GeoDa is a free software program that serves as an introduction to geospatial data analysis. 
+
+GeoDa was developed by Dr. Luc Anselin and his team. The program provides a user-friendly and graphical interface to methods of exploratory spatial data analysis (ESDA), such as spatial autocorrelation statistics for aggregate data (several thousand records), and basic spatial regression analysis for point and polygon data (tens of thousands of records). To work with big data in GeoDa it should first be aggregated to areal units.
+
+![](https://geodacenter.github.io/images/intro3.png)
+
+GeoDa is the cross-platform. This means that it runs on different versions of Windows, Mac OS, and Linux. 
+It is written in C++ and no longer relies on ESRI's MapObjects library. 
+
+## GeoDa Now Supports More Spatial Data Formats
+
+GeoDa now supports a larger variety of vector data in different formats (click here to see the details): You can work with shapefiles, geodatabases, GeoJSON, MapInfo, GML, KML, and other vector data formats supported by the GDAL library. The program also converts coordinates in table format (.csv, .dbf, .xls, .ods) to one of these spatial data formats and converts data between different file formats (such as .csv to .dbf or shapefile to GeoJSON). Selecting a subset and exporting it as a new file is now also possible.
+
+![](https://geodacenter.github.io/images/dataformats.png)
+
+## Download
+
+[https://geodacenter.github.io/download.html](https://geodacenter.github.io/download.html)
+
+## Dislaimer
+
+Hyesop runs GeoDa on a MacOSX. While we believe all platforms look the same, there may be some quirks that can suggest issues! These instructions are all based on a Mac. Since we are all working on our own computers, this has the potential to affect your workflow; before you download and start running GeoDa on Mac OS consider other places you might need the data or output.
+
+![](https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1926&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+
+## Overview of today's task
+* Understand the practicality of Moran's I
+* Visualise Moran's I by means of the 
+
+
+
+
+## Dataset
+
+
+
