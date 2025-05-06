@@ -1,7 +1,7 @@
 ---
 title: "Gentle Introduction to Programming Part 1"
 subtitle: ": for GIS Dummies"
-date: 05/07/2025
+date: 04/24/2024
 date-format: long
 author:
   - name: Hyesop Shin
@@ -238,7 +238,7 @@ What we will cover:
 ## 
 &nbsp;  
 
-### Roll your sleeves and let's get started!{style="text-align: center;"}
+### Let's Take a Quality Break!{style="text-align: center;"}
 
 &nbsp;  
 
@@ -440,7 +440,7 @@ type(weatherForecast)
 
 ---
 
-### Your Turn!
+### Your Turn
 
 * Print the `type()` of: 
 
@@ -1026,7 +1026,7 @@ for temperature in temperatures:
 * Python is one of the popular programming languages - we are going to nail this!
 * Basics of Python
    - Basic programming
-   - Functions
+   - Fucntions
    - for loops
    - Conditional statements
    - Combos of the above
@@ -1037,7 +1037,7 @@ for temperature in temperatures:
 ## Next week
 * How to import spreadsheet data
 * How to clean and use data
-* Learn it through `Pandas` module
+* How to play with GIS data
 
 
 ## References
