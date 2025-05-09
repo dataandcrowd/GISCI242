@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content="Hyesop Shin">
-  <meta name="dcterms.date" content="2024-05-01">
+  <meta name="dcterms.date" content="2024-05-14">
   <title>Gentle Introduction to Programming Part 2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -399,7 +399,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Gentle Introduction to Programming Part 2</h1>
-  <p class="subtitle">: GIS with Geopandas</p>
+  <p class="subtitle">: data query with <code>Pandas</code></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -415,14 +415,12 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
     </div>
 </div>
 
-  <p class="date">May 1, 2024</p>
+  <p class="date">May 14, 2024</p>
 </section>
 <section id="load-your-google-colab" class="slide level2">
 <h2>Load your Google Colab</h2>
 <ul>
-<li>https://colab.research.google.com</li>
 <li>https://tinyurl.com/gisci242-2 (for pandas)</li>
-<li>https://tinyurl.com/gisci242-3 (for geopandas)</li>
 </ul>
 </section>
 <section id="recap-of-previous-lecture" class="slide level2">
@@ -432,7 +430,7 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <li>How to assign variables, lists</li>
 <li>For loops</li>
 <li>Conditional statements</li>
-<li>How to call packages using <code>import pkg_name</code></li>
+<li>How to call modules using <code>import module-name</code></li>
 <li>spacing is important</li>
 </ul>
 </section>
@@ -452,7 +450,7 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <h2>What will we cover today?</h2>
 <ul>
 <li>How can we better understand the code structure to query complicated datasets?</li>
-<li>How can we utilse Python Packages in GIS Tasks</li>
+<li>How can we utilse Python modules in GIS Tasks</li>
 <li>How does programming open up new methods for spatial analysis that are not possible through manual processes</li>
 </ul>
 </section>
@@ -462,31 +460,129 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <li>How to import spreadsheet data with <code>pandas</code></li>
 <li>How to clean and explore data</li>
 <li>Data Visualisation</li>
-<li>How to play with GIS data with <code>geopandas</code></li>
 </ul>
-<aside class="notes">
-
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="pandas-or-polars" class="slide level2">
 <h2><code>pandas</code> or <code>polars</code></h2>
 <p><img data-src="Figs/polarsvspandas.jpeg" style="width:40.0%"> <img data-src="https://images.datacamp.com/image/upload/v1686051721/image4_478e2c7db1.png" class="absolute" style="top: 50px; right: -200px; width: 80%; "></p>
 <p><br></p>
 <ul>
-<li>But we are going to learn <code>pandas</code> anyway</li>
+<li>But we are going to learn <code>pandas</code></li>
 <li>Because <code>pandas</code> &amp; <code>geopandas</code> are connected</li>
 </ul>
 </section>
+<section id="dictionaries" class="slide level2">
+<h2>Dictionaries</h2>
+<ul>
+<li>A dictionary is another type of variable</li>
+<li>It is useful for storing loosely structured information</li>
+<li>It uses a key:value structure</li>
+<li>Denoted using curly brackets {}</li>
+<li>Often combined with a list</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="example">Example</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>GISCI_dictionary <span class="op">=</span> {</span>
+<span id="cb1-2"><a href=""></a>                        <span class="st">"apple"</span>:<span class="st">"a delicious round fruit"</span>,</span>
+<span id="cb1-3"><a href=""></a>                        <span class="st">"bench"</span>:<span class="st">"a place to sit next to the footpath"</span>,</span>
+<span id="cb1-4"><a href=""></a>                        <span class="st">"candy"</span>:<span class="st">"something thats tastey but causes cavities"</span>,</span>
+<span id="cb1-5"><a href=""></a>                        <span class="st">"door"</span>:<span class="st">"a portal to another room"</span>,</span>
+<span id="cb1-6"><a href=""></a>                        <span class="st">"entomologist"</span>:<span class="st">"somone that studies bugs"</span>,</span>
+<span id="cb1-7"><a href=""></a>                        <span class="st">"farce"</span>:<span class="st">"a sausage meat mixture"</span>,</span>
+<span id="cb1-8"><a href=""></a>                        <span class="st">"gas"</span>:<span class="st">"a petrochemical nearing end of life"</span>,</span>
+<span id="cb1-9"><a href=""></a>                        <span class="st">"hatchback"</span>:<span class="st">"a car with a rear that enitrely opens"</span>,</span>
+<span id="cb1-10"><a href=""></a>                        <span class="st">"ice"</span>:<span class="st">"the solid state of water"</span>,</span>
+<span id="cb1-11"><a href=""></a>                        <span class="st">"juice"</span>:<span class="st">"a sugary taste fruit drink"</span>,</span>
+<span id="cb1-12"><a href=""></a>                        <span class="st">"k****"</span>:<span class="st">"asdfasdf"</span>,</span>
+<span id="cb1-13"><a href=""></a>                     }</span>
+<span id="cb1-14"><a href=""></a>GISCI_dictionary[<span class="st">"bench"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="dictionary-functions" class="slide level2">
+<h2>Dictionary functions</h2>
+<ul>
+<li><code>mydict.keys()</code> gives you the ‘key’ of the key:value pairing</li>
+<li><code>mydict.items()</code> give you the contents as a list</li>
+<li><code>mydict.values()</code> gives you the values</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a>GISCI_dictionary.keys()</span>
+<span id="cb2-2"><a href=""></a>GISCI_dictionary.values()</span>
+<span id="cb2-3"><a href=""></a>GISCI_dictionary.items()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="we-can-use-a-for-loop-to-run-through-the-keys-in-dictionary">We can use a for loop to run through the keys in dictionary:</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> GISCI_dictionary.keys():</span>
+<span id="cb3-2"><a href=""></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="or-we-could-use-it-as-a-way-to-format-a-printing-of-the-entire-dictionary">Or we could use it as a way to format a printing of the entire dictionary</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> GISCI_dictionary.keys(): <span class="co"># using the key we get from this line...</span></span>
+<span id="cb4-2"><a href=""></a>    <span class="bu">print</span> (i <span class="op">+</span> <span class="st">":</span><span class="ch">\n\t</span><span class="st">"</span> <span class="op">+</span> GISCI_dictionary[i]) <span class="co"># ...to call the item/value from the dictionary as we loop through it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="dictionaries-are-often-multi-layered-multi-dimensional">Dictionaries are often multi layered (multi-dimensional)</h3>
+<ul>
+<li>Often dictionaries contain lists of dictionaries</li>
+<li>Yes, it is confusing, but creates more freedom</li>
+</ul>
+<div style="font-size: 70%;">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>mydict <span class="op">=</span> {<span class="st">"people"</span>:[</span>
+<span id="cb5-2"><a href=""></a>            {</span>
+<span id="cb5-3"><a href=""></a>                <span class="st">"name"</span>:<span class="st">"Hyesop"</span>,</span>
+<span id="cb5-4"><a href=""></a>                 <span class="st">"role"</span>:<span class="st">"teacher"</span></span>
+<span id="cb5-5"><a href=""></a>            },</span>
+<span id="cb5-6"><a href=""></a>            {</span>
+<span id="cb5-7"><a href=""></a>                <span class="st">"name"</span>:<span class="st">"Sila"</span>,</span>
+<span id="cb5-8"><a href=""></a>                 <span class="st">"role"</span>:<span class="st">"teacher"</span></span>
+<span id="cb5-9"><a href=""></a>            },</span>
+<span id="cb5-10"><a href=""></a>            {</span>
+<span id="cb5-11"><a href=""></a>                <span class="st">"name"</span>:<span class="st">"Oliver"</span>,</span>
+<span id="cb5-12"><a href=""></a>                 <span class="st">"role"</span>:<span class="st">"tutor"</span></span>
+<span id="cb5-13"><a href=""></a>            }    </span>
+<span id="cb5-14"><a href=""></a>            ]}</span>
+<span id="cb5-15"><a href=""></a><span class="co"># print(mydict)</span></span>
+<span id="cb5-16"><a href=""></a><span class="bu">print</span>(mydict[<span class="st">"people"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="we-can-add-another-dictionary-within-that-first-one-that-contains-a-totally-different-set-of-information">We can add another dictionary within that first one, that contains a totally different set of information…</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>mydict <span class="op">=</span> {<span class="st">"people"</span>:[</span>
+<span id="cb6-2"><a href=""></a>            {<span class="st">"name"</span>:<span class="st">"hyesop"</span>,<span class="st">"role"</span>:<span class="st">"teacher"</span>},</span>
+<span id="cb6-3"><a href=""></a>            {<span class="st">"name"</span>:<span class="st">"sila"</span>,<span class="st">"role"</span>:<span class="st">"teacher"</span>},</span>
+<span id="cb6-4"><a href=""></a>            {<span class="st">"name"</span>:<span class="st">"oliver"</span>,<span class="st">"role"</span>:<span class="st">"tutor"</span>},    </span>
+<span id="cb6-5"><a href=""></a>        ],</span>
+<span id="cb6-6"><a href=""></a>         <span class="st">"mascots"</span>:[</span>
+<span id="cb6-7"><a href=""></a>             {<span class="st">"name"</span>:<span class="st">"pepper"</span>,<span class="st">"species"</span>:<span class="st">"dog"</span>},</span>
+<span id="cb6-8"><a href=""></a>             {<span class="st">"name"</span>:<span class="st">"pip"</span>,<span class="st">"species"</span>:<span class="st">"dog"</span>},</span>
+<span id="cb6-9"><a href=""></a>             {<span class="st">"name"</span>:<span class="st">"harriet"</span>,<span class="st">"species"</span>:<span class="st">"cat"</span>}</span>
+<span id="cb6-10"><a href=""></a>         ]}</span>
+<span id="cb6-11"><a href=""></a><span class="co"># print(mydict)</span></span>
+<span id="cb6-12"><a href=""></a><span class="bu">print</span>(mydict[<span class="st">"people"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="why-use-dictionaries" class="slide level2">
+<h2>Why use dictionaries?</h2>
+<div style="font-size: 80%;">
+<ul>
+<li class="fragment">Dictionaries are really useful as they create a bit more freedom in our data strucutre.</li>
+<li class="fragment">In comparison, in array its a really bad idea to have mixed data types and uneven arrays, however dictionaries are great for this type of data.</li>
+<li class="fragment">This moves us towards ‘unstructured’ data. Lots of the info we get from the web is fairly unstrucutred becasue it relies on non-complete datasets.
+<ul>
+<li class="fragment">For example: some data has geolocation, and some does not.</li>
+</ul></li>
+<li class="fragment">Having said that, using a dictionary doesn’t mean <em>no</em> structure, it just means that not all elements of the structure will be there.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="section"></h3>
+
+<img data-src="Figs/geojson_io.png" class="r-stretch"></section>
 <section id="getting-started-with-pandas" class="slide level2">
 <h2>Getting started with Pandas</h2>
 <ul>
@@ -494,7 +590,7 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <li>Filtering columns and rows</li>
 <li><code>Group by</code> and <code>Aggregation</code></li>
 <li>Merging dataframes</li>
-<li>Visulisation</li>
+<li>Visualisation</li>
 </ul>
 </section>
 <section id="what-is-a-dataframe" class="slide level2">
@@ -521,33 +617,32 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <h2>Reading in Files</h2>
 
 <img data-src="https://pandas.pydata.org/docs/_images/02_io_readwrite.svg" class="r-stretch"><div style="font-size: 100%;">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">'file_name'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-2"><a href=""></a></span>
+<span id="cb7-3"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">'file_name'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Disclaimer:
 <ul>
 <li>loading files in your machine is different to how you would uploaded in on <strong>Google Colab</strong>.</li>
-<li>Visit the <span style="color:blue;">Live Coding Tab</span> for examples</li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
-<h3 id="example">Example</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co">#| echo: true</span></span>
-<span id="cb2-2"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a><span class="co"># intialise data of lists.</span></span>
-<span id="cb2-5"><a href=""></a>data <span class="op">=</span> {<span class="st">'Name'</span>:[<span class="st">'Tom'</span>, <span class="st">'nick'</span>, <span class="st">'krish'</span>, <span class="st">'jack'</span>],</span>
-<span id="cb2-6"><a href=""></a>        <span class="st">'Age'</span>:[<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">19</span>, <span class="dv">18</span>]}</span>
-<span id="cb2-7"><a href=""></a>        </span>
-<span id="cb2-8"><a href=""></a><span class="co"># Create DataFrame</span></span>
-<span id="cb2-9"><a href=""></a>df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb2-10"><a href=""></a></span>
-<span id="cb2-11"><a href=""></a><span class="co"># Print the output.</span></span>
-<span id="cb2-12"><a href=""></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="example-dictionary">Example: Dictionary</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="co">#| echo: true</span></span>
+<span id="cb8-2"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-3"><a href=""></a></span>
+<span id="cb8-4"><a href=""></a><span class="co"># intialise data of lists.</span></span>
+<span id="cb8-5"><a href=""></a>data <span class="op">=</span> {<span class="st">'Name'</span>:[<span class="st">'Tom'</span>, <span class="st">'nick'</span>, <span class="st">'krish'</span>, <span class="st">'jack'</span>],</span>
+<span id="cb8-6"><a href=""></a>        <span class="st">'Age'</span>:[<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">19</span>, <span class="dv">18</span>]}</span>
+<span id="cb8-7"><a href=""></a>        </span>
+<span id="cb8-8"><a href=""></a><span class="co"># Create DataFrame</span></span>
+<span id="cb8-9"><a href=""></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb8-10"><a href=""></a></span>
+<span id="cb8-11"><a href=""></a><span class="co"># Print the output.</span></span>
+<span id="cb8-12"><a href=""></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>    Name  Age
 0    Tom   20
 1   nick   21
@@ -570,9 +665,9 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <li><code>.json</code></li>
 <li>…</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>df <span class="op">=</span> read_csv(<span class="st">'file'</span>)</span>
-<span id="cb4-2"><a href=""></a>df.to_csv(file_name, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>)</span>
-<span id="cb4-3"><a href=""></a>df.to_excel(<span class="st">"output.xlsx"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>df <span class="op">=</span> read_csv(<span class="st">'file'</span>)</span>
+<span id="cb10-2"><a href=""></a>df.to_csv(file_name, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>)</span>
+<span id="cb10-3"><a href=""></a>df.to_excel(<span class="st">"output.xlsx"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
@@ -580,14 +675,16 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <ul>
 <li>The info methods and the dtypes attribute are convenient for a first check.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>df.info() <span class="co">## technical summary (e.g. dataframe, rows/columnns and their names)</span></span>
-<span id="cb5-2"><a href=""></a>df.dtypes <span class="co">## generic summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>df.info() <span class="co">## technical summary (e.g. dataframe, rows/columnns and their names)</span></span>
+<span id="cb11-2"><a href=""></a>df.describe() <span class="co">## statistics</span></span>
+<span id="cb11-3"><a href=""></a>df.dtypes <span class="co">## generic summary</span></span>
+<span id="cb11-4"><a href=""></a>df.shape <span class="co">## dimension of data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <ul>
 <li><code>head</code>/<code>tail</code> to check how the dataframe actually looks like</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>df.head()</span>
-<span id="cb6-2"><a href=""></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>df.head()</span>
+<span id="cb12-2"><a href=""></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="indexing-dataframes" class="slide level2">
 <h2>Indexing DataFrames</h2>
@@ -609,21 +706,21 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <li>Selecting a single column</li>
 <li>Selecting multiple columns</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>df[<span class="st">"Continent"</span>]</span>
-<span id="cb7-2"><a href=""></a>df[[<span class="st">"Continent"</span>, <span class="st">"Year"</span>]]</span>
-<span id="cb7-3"><a href=""></a></span>
-<span id="cb7-4"><a href=""></a>df.iloc[:, <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>df[<span class="st">"Continent"</span>]</span>
+<span id="cb13-2"><a href=""></a>df[[<span class="st">"Continent"</span>, <span class="st">"Year"</span>]]</span>
+<span id="cb13-3"><a href=""></a></span>
+<span id="cb13-4"><a href=""></a>df.iloc[:, <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 
 <h3 id="subsetting-the-data-frame-rows">Subsetting the data frame: Rows</h3>
 
-<img data-src="https://pandas.pydata.org/docs/_images/03_subset_rows.svg" class="r-stretch"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>df[df[<span class="st">"Population(million)"</span>] <span class="op">&gt;</span> <span class="dv">100</span>]</span>
-<span id="cb8-2"><a href=""></a>df[df[<span class="st">"Continent"</span>] <span class="op">==</span> <span class="st">"Asia"</span>]</span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a>ov10m_asia <span class="op">=</span> df[(df[<span class="st">"Population(million)"</span>] <span class="op">&gt;</span> <span class="dv">100</span>) <span class="op">&amp;</span> (df[<span class="st">"Continent"</span>] <span class="op">==</span> <span class="st">"Asia"</span>) ]</span>
-<span id="cb8-5"><a href=""></a></span>
-<span id="cb8-6"><a href=""></a>titanic.iloc[<span class="dv">9</span>:<span class="dv">25</span>, <span class="dv">2</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img data-src="https://pandas.pydata.org/docs/_images/03_subset_rows.svg" class="r-stretch"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>df[df[<span class="st">"Population(million)"</span>] <span class="op">&gt;</span> <span class="dv">100</span>]</span>
+<span id="cb14-2"><a href=""></a>df[df[<span class="st">"Continent"</span>] <span class="op">==</span> <span class="st">"Asia"</span>]</span>
+<span id="cb14-3"><a href=""></a></span>
+<span id="cb14-4"><a href=""></a>ov10m_asia <span class="op">=</span> df[(df[<span class="st">"Population(million)"</span>] <span class="op">&gt;</span> <span class="dv">100</span>) <span class="op">&amp;</span> (df[<span class="st">"Continent"</span>] <span class="op">==</span> <span class="st">"Asia"</span>) ]</span>
+<span id="cb14-5"><a href=""></a></span>
+<span id="cb14-6"><a href=""></a>titanic.iloc[<span class="dv">9</span>:<span class="dv">25</span>, <span class="dv">2</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your Turn</h2>
@@ -660,22 +757,22 @@ When combining multiple conditional statements, each condition must be surrounde
 <section class="slide level2">
 
 <h3 id="example-1">Example</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb9-2"><a href=""></a></span>
-<span id="cb9-3"><a href=""></a><span class="co"># Creating the dataset with student names</span></span>
-<span id="cb9-4"><a href=""></a>df1 <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb9-5"><a href=""></a>    <span class="st">'Student'</span>: [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>, <span class="st">'Charlie'</span>],</span>
-<span id="cb9-6"><a href=""></a>    <span class="st">'Maths'</span>: [<span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>],</span>
-<span id="cb9-7"><a href=""></a>    <span class="st">'English'</span>: [<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">6</span>],</span>
-<span id="cb9-8"><a href=""></a>    <span class="st">'Science'</span>: [<span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">8</span>],</span>
-<span id="cb9-9"><a href=""></a>    <span class="st">'History'</span>: [<span class="dv">9</span>, <span class="dv">6</span>, <span class="dv">5</span>]</span>
-<span id="cb9-10"><a href=""></a>})</span>
-<span id="cb9-11"><a href=""></a></span>
-<span id="cb9-12"><a href=""></a><span class="co"># Calculating the total score for each student and adding it as a new column 'Total'</span></span>
-<span id="cb9-13"><a href=""></a>df1[<span class="st">'Total'</span>] <span class="op">=</span> df1[[<span class="st">'Maths'</span>, <span class="st">'English'</span>, </span>
-<span id="cb9-14"><a href=""></a>                    <span class="st">'Science'</span>, <span class="st">'History'</span>]].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb9-15"><a href=""></a><span class="co"># Display the updated dataset</span></span>
-<span id="cb9-16"><a href=""></a><span class="bu">print</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb15-2"><a href=""></a></span>
+<span id="cb15-3"><a href=""></a><span class="co"># Creating the dataset with student names</span></span>
+<span id="cb15-4"><a href=""></a>df1 <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb15-5"><a href=""></a>    <span class="st">'Student'</span>: [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>, <span class="st">'Charlie'</span>],</span>
+<span id="cb15-6"><a href=""></a>    <span class="st">'Maths'</span>: [<span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>],</span>
+<span id="cb15-7"><a href=""></a>    <span class="st">'English'</span>: [<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">6</span>],</span>
+<span id="cb15-8"><a href=""></a>    <span class="st">'Science'</span>: [<span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">8</span>],</span>
+<span id="cb15-9"><a href=""></a>    <span class="st">'History'</span>: [<span class="dv">9</span>, <span class="dv">6</span>, <span class="dv">5</span>]</span>
+<span id="cb15-10"><a href=""></a>})</span>
+<span id="cb15-11"><a href=""></a></span>
+<span id="cb15-12"><a href=""></a><span class="co"># Calculating the total score for each student and adding it as a new column 'Total'</span></span>
+<span id="cb15-13"><a href=""></a>df1[<span class="st">'Total'</span>] <span class="op">=</span> df1[[<span class="st">'Maths'</span>, <span class="st">'English'</span>, </span>
+<span id="cb15-14"><a href=""></a>                    <span class="st">'Science'</span>, <span class="st">'History'</span>]].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb15-15"><a href=""></a><span class="co"># Display the updated dataset</span></span>
+<span id="cb15-16"><a href=""></a><span class="bu">print</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>   Student  Maths  English  Science  History  Total
 0    Alice      9        4        8        9     30
 1      Bob      8       10        7        6     31
@@ -716,76 +813,6 @@ When combining multiple conditional statements, each condition must be surrounde
 </ul>
 
 <img data-src="https://media.geeksforgeeks.org/wp-content/uploads/joinimages.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="break-time" class="slide level2">
-<h2><br> Break Time</h2>
-</section>
-<section id="geospatial-data-and-geopandas" class="slide level2">
-<h2>Geospatial data and GeoPandas</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://miro.medium.com/v2/resize:fit:1238/1*x9gF-ZVR4JMAv3cTH6LtfA.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-<ul>
-<li><p>Geospatial data are data with location information</p></li>
-<li><p>The geometry variable indicates where the <em>data</em> is located</p></li>
-<li><p>New Zealand population using code</p></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://newzealandmap360.com/img/1200/new%20zealand-population-density-map.jpg" class="quarto-figure quarto-figure-center" style="width:120.0%"></p>
-</figure>
-</div>
-</section>
-<section id="how-we-record-the-real-world" class="slide level2">
-<h2>How we record the real world</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="Figs/howwemap.png" class="quarto-figure quarto-figure-center" style="width:120.0%"></p>
-</figure>
-</div>
-</div><div class="column" style="width:40%;">
-<div style="font-size: 80%;">
-<ul>
-<li>Point (2, 10)</li>
-<li>LineString ([(1,2), (1,5)…])</li>
-<li>Polygons ([(13,2), (15,4)…])</li>
-<li>Pixels</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="vector-attribute-data" class="slide level2">
-<h2>Vector attribute data</h2>
-<ul>
-<li>Vector features have attributes that look like a table</li>
-<li>Watch out for the projections</li>
-</ul>
-
-<img data-src="Figs/attribute.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
-<section id="projections" class="slide level2">
-<h2>Projections</h2>
-<ul>
-<li>Coordinate reference systems (CRS): a consistent way to represent locations in space (<a href="https://www.linz.govt.nz/guidance/geodetic-system/coordinate-systems-used-new-zealand">Land Information NZ</a>)</li>
-<li>Geographic coordinate systems (Global): Longitude/Latitude, UTM</li>
-<li>Projected coordinate systems (Local): 2D maps.</li>
-<li>Each projection provides a unique code starting with EPSG
-<ul>
-<li>Long/Lat decimal points (EPSG: 4326)</li>
-<li>NZ transverse mercator (EPSG: 2193)</li>
-</ul></li>
-</ul>
-</section>
-<section id="lets-get-our-hands-dirty-with-geopandas" class="slide level2">
-<h2><br> Let’s get our hands dirty with <code>geopandas</code>!</h2>
-</section>
-<section id="as-geographersscientists-we-can-also-look-into" class="slide level2">
-<h2>As Geographers/Scientists we can also look into:</h2>
-
-<img data-src="https://dragonflyintelligence.com/wp-content/uploads/2024/01/2024-01-Paris-Theft.png" style="width:40.0%" class="r-stretch"></section>
 <section id="summary" class="slide level2">
 <h2>Summary</h2>
 <ul>
@@ -794,7 +821,6 @@ When combining multiple conditional statements, each condition must be surrounde
 <li>The actual programming:
 <ul>
 <li>Pandas: Indexing, Filtering, Grouping, Join between dataframes</li>
-<li>Geopandas: Hands-on experience in GIS using codes</li>
 </ul></li>
 </ul>
 </section>
