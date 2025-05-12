@@ -190,8 +190,8 @@ print(mydict["people"])
 ::: {style="font-size: 80%;".incremental}
 - Dictionaries are really useful as they create a bit more freedom in our data strucutre.
 - In comparison, in array its a really bad idea to have mixed data types and uneven arrays, however dictionaries are great for this type of data.
-- This moves us towards 'unstructured' data. Lots of the info we get from the web is fairly unstrucutred becasue it relies on non-complete datasets. 
-  - For example: some data has geolocation, and some does not. 
+- This moves us towards 'unstructured' data. Lots of the info we get from the web is fairly unstrucutred because it relies on non-complete datasets. 
+  - For example: some data has geo-location, and some does not. 
 - Having said that, using a dictionary doesn't mean _no_ structure, it just means that not all elements of the structure will be there. 
 :::
 
@@ -232,34 +232,43 @@ source: geeksforgeeks.org
 
 ## DataFrame vs Data series?
 
-* A Series is a 1-dimensional data structure used to represent a single column or row of data within a DataFrame or as a standalone data structure.
+* A Series is a one-dimensional array-like structure designed to hold a single array (or 'column') of data and an associated array of data labels, called an index.
 * A DataFrame is a 2-dimensional data structure designed for handling tabular data with multiple columns
 
 ![](https://av-eks-blogoptimized.s3.amazonaws.com/series-and-dataframe.png){fig-align=center}
 
 
 
+## Data series
 
-## Reading in Files
-
-![](https://pandas.pydata.org/docs/_images/02_io_readwrite.svg)
-
-::: {style="font-size: 100%;"}
-```python 
-import pandas as pd
-
-df = pd.read_csv('file_name')
+```python
+my_series = pd.Series([4.6, 2.1, -4.0, 3.0])
+print(my_series)
 ```
-:::
+
+The output should be:
+
+```
+0    4.6
+1    2.1
+2   -4.0
+3    3.0
+dtype: float64
+```
+
+<br>
+
+Now type:
+
+```python
+print(my_series.values)
+```
+
+A plain old Series is probably not a lot of use, but it is the core component of the Pandas workhorse
 
 
-* Disclaimer: 
-    - loading files in your machine is different to how you would uploaded in on **Google Colab**.
-    
 
----
-
-### Example: Dictionary
+## Example: `df` from a dictionary
 
 ```python
 #| echo: true
@@ -289,24 +298,8 @@ print(df)
 * If you would like to have different index values, say, the person's initial, you can do that easily as well.
 :::
 
----
 
-### Import/Export different file types
-* `.csv`
-* `.txt`
-* `.xlsx`
-* `.json`
-* ...
-
-```python
-df = read_csv('file')
-df.to_csv(file_name, sep='\t', encoding='utf-8')
-df.to_excel("output.xlsx") 
-```
-
----
-
-### Understanding the data structure
+## Understanding the data structure
 * The info methods and the dtypes attribute are convenient for a first check.
 
 
@@ -327,20 +320,34 @@ df.head()
 df.tail()
 ```
 
+## A different example: Scottish hills
+
+```
+scottish_hills = {'Hill Name': ['Ben Nevis', 'Ben Macdui', 'Braeriach', 'Cairn Toul', 'Sgòr an Lochain Uaine'],
+                  'Height': [1345, 1309, 1296, 1291, 1258],
+                  'Latitude': [56.79685, 57.070453, 57.078628, 57.054611, 57.057999],
+                  'Longitude': [-5.003508, -3.668262, -3.728024, -3.71042, -3.725416]}
+
+# with column names
+scottish_df = pd.DataFrame(scottish_hills, columns=['Hill Name', 'Height', 'Latitude', 'Longitude'])
+
+```
+
+
+
 ## Indexing DataFrames
 
 ::: {style="font-size: 80%;"}
 * When selecting subsets of data, `[]` are used.
 * Inside `[]`, you can use a single column/row label, a list of column/row labels, a slice of labels, a conditional expression or a colon.
 * `loc` when selecting the row and column names e.g. df["age"]
-* `iloc` when specifying the positions in the table e.g. df[2:5]
+* `iloc` when specifying the positions in the table e.g. df[,2:5]
 * You can assign new values to a selection based on `loc`/`iloc.`
 :::
 
 
----
 
-### Subsetting the data frame: Columns
+## Subsetting the data frame: Columns
 
 ![](https://pandas.pydata.org/docs/_images/03_subset_columns.svg)
 
@@ -350,68 +357,53 @@ df.tail()
 ```python
 df["Continent"]
 df[["Continent", "Year"]]
+scottish_df[scottish_df.Height > 1300]
 
 df.iloc[:, 3]
 ```
 
----
 
-### Subsetting the data frame: Rows
+## Subsetting the data frame: Rows
 
 ![](https://pandas.pydata.org/docs/_images/03_subset_rows.svg)
 
 ```python
 df[df["Population(million)"] > 100]
 df[df["Continent"] == "Asia"]
+df[df.Continent == "Asia"]
 
+#typical way
 ov10m_asia = df[(df["Population(million)"] > 100) & (df["Continent"] == "Asia") ]
+#query function
+ov10m_asia = df.query('`Population(million)` > 100 and Continent == "Asia"')
 
-titanic.iloc[9:25, 2:5]
 ```
 
-## Your Turn
+## Append data to an existing DataFrame
+We can also append data to the DataFrame. This is done using the following syntax:
 
-::: {style="font-size: 80%;"}
-* call the library: `import pandas as pd`
-* Import a spread sheet
-* worldpop = pd.read_csv("https://raw.githubusercontent.com/
-dataandcrowd/GISCI242/main/files/world_population.csv")
-* Have a look at the `info()`, `describe()`, `shape`
-* Query top 20 rows and bottom 5 rows
-* Assign a variable `ov50m` and filter "2022 Population" over 50000000 (50 million)
-* If you have done that, have a go with including `ov50m` within Europe
-
-:::
-
-<!--
-* Subset population over 50 million
-* Subset Population over 50 million + Continent
-* Subset continents either Europe or South America
-* Remove NA / NaN values
-
-::: {style="font-size: 50%;"}
-When combining multiple conditional statements, each condition must be surrounded by parentheses `()`. Moreover, you can not use `or`/`and` but need to use the or operator `|` and the and operator `&`.
-:::
--->
-
+```python
+scottish_df['Region'] = ['Grampian', 'Cairngorm', 'Cairngorm', 'Cairngorm', 'Cairngorm']
+print(scottish_df)
+```
 ---
 
-## Creating New Columns from Existing Data in `df`
+### Sort values
 
-![](https://pandas.pydata.org/docs/_images/05_newcolumn_1.svg){fig-align=center}
+```python
+sorted_hills = scottish_df.sort_values(by=['Height'], ascending=False)
 
-* Required for performing calculations across columns.
-* Essential for data manipulation.
+# Let's have a look at the top 5 to check
+print(sorted_hills.head(5))
+```
 
 
 ---
 
-### Example
+### Example 2
 
 
 ```python
-import pandas as pd
-
 # Creating the dataset with student names
 df1 = pd.DataFrame({
     'Student': ['Alice', 'Bob', 'Charlie'],
@@ -435,13 +427,81 @@ print(df1)
 2  Charlie      7        6        8        5     26
 ```
 
+* What about measuring the `mean` of each subject?
 
 
-## <br> Grouping and Aggregation
+## Reading in Files
 
+![](https://pandas.pydata.org/docs/_images/02_io_readwrite.svg)
+
+::: {style="font-size: 100%;"}
+```python 
+import pandas as pd
+
+df = pd.read_csv('file_name')
+```
+:::
+
+
+* Disclaimer: 
+    - loading files in your machine is different to how you would uploaded in on **Google Colab**.
+    
 ---
 
-### Grouping (in `Pandas`)
+### Import/Export different file types
+* `.csv`
+* `.txt`
+* `.xlsx`
+* `.json`
+* ...
+
+```python
+df = read_csv('file')
+df.to_csv(file_name, sep='\t', encoding='utf-8')
+df.to_excel("output.xlsx") 
+```
+
+
+
+
+## Your Turn
+
+::: {style="font-size: 80%;"}
+* call the library: `import pandas as pd`
+* Import a spread sheet
+* worldpop = pd.read_csv("https://raw.githubusercontent.com/
+dataandcrowd/GISCI242/main/files/world_population.csv")
+* Have a look at the `info()`, `describe()`, `shape`
+* Query top 20 rows and bottom 5 rows
+* Assign a variable `ov50m` and filter "2022 Population" over 50000000 (50 million)
+* If you have done that, have a go with including `ov50m` within Europe
+
+:::
+
+
+## Plotting with `Matplotlib`
+
+* `matplotlib` is a Python package used for data plotting and visualisation. 
+* Useful complement to `pandas`, and like `pandas`, is a very feature-rich library which can produce a large variety of plots, charts, maps, and other visualisations.
+
+```python
+import matplotlib.pyplot as plt
+
+df.plot(kind = 'line', title = 'Ice Cream Ratings', xlabel = 'Daily Ratings', ylabel = 'Scores')
+df.plot.barh(stacked = True)
+df.plot.scatter(x = 'Texture Rating', y = 'Overall Rating', s = 500, c = 'Yellow')
+df.plot.hist(bins = 10)
+df.boxplot()
+df.plot.area(figsize = (10,5))
+df.plot.pie(y='Flavour Rating',figsize=(10,10))
+
+
+```
+
+
+
+
+##  Grouping (in `Pandas`)
 
 :::: {.columns}
 
@@ -480,13 +540,11 @@ Grouping is used to group data using some criteria from our dataset. It is used 
 
 
 
-## Summary
-* To navigate complex datasets effectively, it's crucial to structure your code in a way that enhances readability and maintainability
-* Python offers a rich ecosystem of libraries specifically designed for GIS and spatial analysis. We explored some key packages such as GeoPandas for spatial data frames
-* The actual programming:
+## Take away message
+* You have learned:
     - Pandas: Indexing, Filtering, Grouping, Join between dataframes
-
-
+* To navigate complex datasets effectively, it's crucial to structure your code in a way that enhances readability and maintainability
+* There is no royal way to learn coding - sit down and bump into errors!
 
 
 

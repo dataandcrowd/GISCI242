@@ -1,0 +1,11 @@
+df1['Mean'] = df1[['Maths', 'English', 'Science', 'History']].mean(axis=1)
+df1['Mean'] = df1.drop(columns='Student').mean(axis=1)
+df1['Mean'] = df1.select_dtypes(include='number').mean(axis=1)
+
+
+
+ov50m = worldpop[worldpop["2022 Population"] > 50000000]
+
+ov50m_europe = worldpop[(worldpop["2022 Population"] > 50000000) & (worldpop["Continent"] == "Europe") ]
+
+
