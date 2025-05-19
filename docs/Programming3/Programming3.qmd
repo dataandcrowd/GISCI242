@@ -1,7 +1,7 @@
 ---
-title: "Gentle Introduction to Programming Part 2"
-subtitle: ": A Wee Recap and Wrap Up"
-date: 05/08/2024
+title: "Gentle Introduction to Programming Part 3"
+subtitle: ": `GeoPandas` and Geospatial Analysis"
+date: 05/21/2025
 date-format: long
 author:
   - name: Hyesop Shin
@@ -29,13 +29,9 @@ include-in-header:
 ---
 
 ## Aim of today's Lecture
+* Geopandas
 * A wee recap on Python programming
-* What is web-mapping?
-* Introduction to web mapping technologies
-* How familiar are we with web maps
-* Web map design and publishing: Can we build the model ourselves?
-
-
+ 
 
 ## Recap of Previous Lecture
 
@@ -43,14 +39,92 @@ include-in-header:
     - Manipultating dfs
     - Grouping and Aggregation
     - Joining two dfs (or more)
-* `Geopandas`
-    - Plot
-    - Import Attribute tables
-    
+
+## Geospatial data and GeoPandas
+
+![](https://miro.medium.com/v2/resize:fit:1238/1*x9gF-ZVR4JMAv3cTH6LtfA.png){fig-align=center}
+
+* Geospatial data are data with location information
+* The geometry variable indicates where the *data* is located
+
+* New Zealand population using code
+
+![](https://newzealandmap360.com/img/1200/new%20zealand-population-density-map.jpg){fig-align=center width=120%}
+
+---
+
+## How we record the real world
+:::: {.columns}
+
+::: {.column width="60%"}
+![](Figs/howwemap.png){fig-align=center width=120%}
+:::
+
+::: {.column width="40%"}
+::: {style="font-size: 80%;"}
+- Point (2, 10)
+- LineString ([(1,2), (1,5)...])
+- Polygons ([(13,2), (15,4)...])
+- Pixels
+:::
+:::
+
+::::
+
+## Vector attribute data
+* Vector features have attributes that look like a table
+* Watch out for the projections
+
+![](Figs/attribute.png){fig-align=center width=70%}
+
+## Projections
+* Coordinate reference systems (CRS): a consistent way to represent locations in space ([Land Information NZ](https://www.linz.govt.nz/guidance/geodetic-system/coordinate-systems-used-new-zealand))
+* Geographic coordinate systems (Global): Longitude/Latitude, UTM
+* Projected coordinate systems (Local): 2D maps.
+* Each projection provides a unique code starting with EPSG
+    - Long/Lat decimal points (EPSG: 4326)
+    - NZ transverse mercator (EPSG: 2193)
+    - Lambert93 France (EPSG: 2154)
+
 
 ## Let's have a look at Paris
 
+<div style="display: flex; gap: 10px;">
+  <img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABYVSj4NDf_3DUXsGAXYLzCqEO7Hph1W_5lE04s5o6fKN42I86Au-eaKoOEwnrxNXMCIQ0DBiMbA4Kd8fP6gZZOY-xyyRmcFiXaLw7twgbzS3wEycvr_34XA3mRy9fnmAAfXrLw.jpg?r=724" width="30%">
+  <img src="https://cdn.britannica.com/87/24187-050-9356F0A4/Map-Paris-Encyclopaedia-Britannica-edition-1900.jpg" width="48%">
+</div>
+
+
+## The Geography of Paris
+
+![](Figs/paris_geography.png){fig-align=center}
+
+
+
+
+
+## As Geographers/Scientists we can also look into:
+
+![](https://dragonflyintelligence.com/wp-content/uploads/2024/01/2024-01-Paris-Theft.png){width=40% fig-align=center}
+
+## Paris
+
 ![](Figs/paris_map.png){fig-align=center}
+
+
+## Data Exploration
+
+```python
+import pandas as pd
+import geopandas as gpd
+import matplotlib.pyplot as plt
+
+arrondissements = gpd.read_file('https://raw.githubusercontent.com/dataandcrowd/GISCI242/main/files/arrondissements.geojson')
+
+```
+
+
+
 
 
 ## Population Density is Widely Used

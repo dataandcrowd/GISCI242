@@ -11,8 +11,8 @@
   <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content="Hyesop Shin">
-  <meta name="dcterms.date" content="2024-05-08">
-  <title>Gentle Introduction to Programming Part 2</title>
+  <meta name="dcterms.date" content="2025-05-21">
+  <title>Gentle Introduction to Programming Part 3</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="Programming3_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="logo.css">
@@ -333,8 +398,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Gentle Introduction to Programming Part 2</h1>
-  <p class="subtitle">: A Wee Recap and Wrap Up</p>
+  <h1 class="title">Gentle Introduction to Programming Part 3</h1>
+  <p class="subtitle">: <code>GeoPandas</code> and Geospatial Analysis</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -350,16 +415,13 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
     </div>
 </div>
 
-  <p class="date">May 8, 2024</p>
+  <p class="date">May 21, 2025</p>
 </section>
 <section id="aim-of-todays-lecture" class="slide level2">
 <h2>Aim of today’s Lecture</h2>
 <ul>
+<li>Geopandas</li>
 <li>A wee recap on Python programming</li>
-<li>What is web-mapping?</li>
-<li>Introduction to web mapping technologies</li>
-<li>How familiar are we with web maps</li>
-<li>Web map design and publishing: Can we build the model ourselves?</li>
 </ul>
 </section>
 <section id="recap-of-previous-lecture" class="slide level2">
@@ -371,17 +433,95 @@ Hyesop Shin <a href="https://orcid.org/0000-0003-2637-7933" class="quarto-title-
 <li>Grouping and Aggregation</li>
 <li>Joining two dfs (or more)</li>
 </ul></li>
-<li><code>Geopandas</code>
+</ul>
+</section>
+<section id="geospatial-data-and-geopandas" class="slide level2">
+<h2>Geospatial data and GeoPandas</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://miro.medium.com/v2/resize:fit:1238/1*x9gF-ZVR4JMAv3cTH6LtfA.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 <ul>
-<li>Plot</li>
-<li>Import Attribute tables</li>
+<li><p>Geospatial data are data with location information</p></li>
+<li><p>The geometry variable indicates where the <em>data</em> is located</p></li>
+<li><p>New Zealand population using code</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://newzealandmap360.com/img/1200/new%20zealand-population-density-map.jpg" class="quarto-figure quarto-figure-center" style="width:120.0%"></p>
+</figure>
+</div>
+</section>
+<section id="how-we-record-the-real-world" class="slide level2">
+<h2>How we record the real world</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Figs/howwemap.png" class="quarto-figure quarto-figure-center" style="width:120.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<div style="font-size: 80%;">
+<ul>
+<li>Point (2, 10)</li>
+<li>LineString ([(1,2), (1,5)…])</li>
+<li>Polygons ([(13,2), (15,4)…])</li>
+<li>Pixels</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="vector-attribute-data" class="slide level2">
+<h2>Vector attribute data</h2>
+<ul>
+<li>Vector features have attributes that look like a table</li>
+<li>Watch out for the projections</li>
+</ul>
+
+<img data-src="Figs/attribute.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section id="projections" class="slide level2">
+<h2>Projections</h2>
+<ul>
+<li>Coordinate reference systems (CRS): a consistent way to represent locations in space (<a href="https://www.linz.govt.nz/guidance/geodetic-system/coordinate-systems-used-new-zealand">Land Information NZ</a>)</li>
+<li>Geographic coordinate systems (Global): Longitude/Latitude, UTM</li>
+<li>Projected coordinate systems (Local): 2D maps.</li>
+<li>Each projection provides a unique code starting with EPSG
+<ul>
+<li>Long/Lat decimal points (EPSG: 4326)</li>
+<li>NZ transverse mercator (EPSG: 2193)</li>
+<li>Lambert93 France (EPSG: 2154)</li>
 </ul></li>
 </ul>
 </section>
 <section id="lets-have-a-look-at-paris" class="slide level2">
 <h2>Let’s have a look at Paris</h2>
+<div style="display: flex; gap: 10px;">
+<p><img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABYVSj4NDf_3DUXsGAXYLzCqEO7Hph1W_5lE04s5o6fKN42I86Au-eaKoOEwnrxNXMCIQ0DBiMbA4Kd8fP6gZZOY-xyyRmcFiXaLw7twgbzS3wEycvr_34XA3mRy9fnmAAfXrLw.jpg?r=724" width="30%"> <img src="https://cdn.britannica.com/87/24187-050-9356F0A4/Map-Paris-Encyclopaedia-Britannica-edition-1900.jpg" width="48%"></p>
+</div>
+</section>
+<section id="the-geography-of-paris" class="slide level2">
+<h2>The Geography of Paris</h2>
+
+<img data-src="Figs/paris_geography.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="as-geographersscientists-we-can-also-look-into" class="slide level2">
+<h2>As Geographers/Scientists we can also look into:</h2>
+
+<img data-src="https://dragonflyintelligence.com/wp-content/uploads/2024/01/2024-01-Paris-Theft.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
+<section id="paris" class="slide level2">
+<h2>Paris</h2>
 
 <img data-src="Figs/paris_map.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="data-exploration" class="slide level2">
+<h2>Data Exploration</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href=""></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb1-3"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a>arrondissements <span class="op">=</span> gpd.read_file(<span class="st">'https://raw.githubusercontent.com/dataandcrowd/GISCI242/main/files/arrondissements.geojson'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="population-density-is-widely-used" class="slide level2">
 <h2>Population Density is Widely Used</h2>
 <div>
