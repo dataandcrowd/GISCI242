@@ -40,6 +40,59 @@ include-in-header:
     - Grouping and Aggregation
     - Joining two dfs (or more)
 
+## `groupby`
+
+![](https://cse163.github.io/book/_images/groupby.png){fig-align=center}
+
+## `groupby` example
+
+```python
+data = {
+    'Store': ['A', 'B', 'A', 'B', 'A', 'B'],
+    'Product': ['Apples', 'Oranges', 'Bananas', 'Apples', 'Bananas', 'Bananas'],
+    'Sales': [10, 15, 9, 20, 14, 25]
+}
+
+
+sales_df = pd.DataFrame(data)
+
+sales_df.groupby('Store')['Sales'].sum()
+```
+
+<br>
+
+::: {style="font-size: 70%;"}
+
+* `sales_df` is the DataFrame we want to process
+* `.groupby('Store')` tells the DataFrame we want it to group all of its rows based on the name attribute. 
+* `['Sales'].sum()` at the end tells the DataFrame to go to each group, select the Sales from all the rows in that group, and then sum them up.
+
+:::
+
+## `merge`: Your turn
+
+* Can you come up with a line of code that merges both dfs?
+* Write a code using `right` join
+
+
+```python
+dict1 = {
+  "name": ["Sally", "Mary", "John"],
+  "age": [50, 40, 30]
+}
+
+dict2 = {
+  "name": ["Sally", "Peter", "Micky"],
+  "age": [77, 44, 22]
+}
+
+df1 = # create a dataframe of dict1
+df2 = # create a dataframe of dict2
+
+```
+
+
+
 ## Geospatial data and GeoPandas
 
 ![](https://miro.medium.com/v2/resize:fit:1238/1*x9gF-ZVR4JMAv3cTH6LtfA.png){fig-align=center}
@@ -119,29 +172,58 @@ import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
 
-arrondissements = gpd.read_file('https://raw.githubusercontent.com/dataandcrowd/GISCI242/main/files/arrondissements.geojson')
+arrondissements = gpd.read_file('arrondissements.geojson')
 
 ```
 
+Once you sort your data, what should you be doing?
+
+-> Check your crs
 
 
 
 
 ## Population Density is Widely Used
 
-::: {.incremental}
 * Population density is a measurement of population per unit land area
 * km^2^ and sqm^2^ are the most frequently used units.
 * [List of population density around the world](https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population_density)
-* In your recent assignment
-    - Area based in km^2^ : `merged_df.geometry.area / 10**6` 
-    - Population divided by the area based in km^2^: Returns the population density in persons per km^2^
+
+Let's go to colab and compute the population density!
+
+
+
+## Pop den in Python
+
+
+::: {style="font-size: 70%;"}
+1. **`arr_pop.Pop2021`**: total population in each area (e.g., each arrondissement).
+
+2. **`arr_pop.geometry.area`**: area of each polygon — most likely in **square metres** (m²) because that’s the default for most projected coordinate systems like **UTM** or **Lambert**.
+
+3. **Division**:
+
+$$
+\frac{\text{Population}}{\text{Area in m}^2}
+\Rightarrow \text{People per m}^2
+$$
+
+4. **Multiplication by 10^6^**:
+
+$$
+\text{People per m}^2 \times 1{,}000{,}000 = \text{People per km}^2
+$$
+
+Because:
+
+$$
+1\,\text{km}^2 = 1{,}000{,}000\,\text{m}^2
+$$
 
 :::
 
-## Population over time
 
-![](https://c1.staticflickr.com/1/783/27020551498_235b9b0b94_b.jpg){fig-align=center}
+
 
 
 ## Population change in maps
