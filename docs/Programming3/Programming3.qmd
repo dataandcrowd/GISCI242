@@ -286,4 +286,17 @@ Percentage of foreigners by arrondissement in Paris, based on 1999 INSEE Census
 :::
 
 
-## <br> That is all for Python Programming! <br> Let's move on to Web maps {style="text-align: center;"}
+## Trying different data - spatial relationships
+
+* Eiffel Tower
+* Where is that restaurant? Use the *distance* in the `shapely` module 
+* Restaurants in Paris
+* Bike Stations in Paris
+
+<br>
+
+Let's go back to Colab!
+
+
+
+## <br> That is all for Python Programming! <br> Good luck with your Quiz (3) {style="text-align: center;"}
